@@ -30,10 +30,30 @@ function toggleSideBar(){
     }
 }
 
+function checkViewportSideBar() {
+    if (window.matchMedia("(max-width: 1200px)").matches) {
+        sidebar.classList.add('hidebar');
+        openButton.classList.remove('d-none');
+        closeButton.classList.add('d-none');
+    } else {
+        sidebar.classList.remove('hidebar');
+        openButton.classList.add('d-none');
+        closeButton.classList.remove('d-none');
+    }
+}
+
+function desktopSidebar() {
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+        sidebar.classList.remove('hidebar');
+    }
+}
+
 
 /*
 ==========
 - Invocamos la función cuando hacemos click en el botón.
 ==========
 */
-button.addEventListener("click", toggleSideBar);
+window.addEventListener('load', desktopSidebar);
+window.addEventListener('resize', checkViewportSideBar);
+button.addEventListener('click', toggleSideBar);
