@@ -8,6 +8,8 @@ const sidebar = document.querySelector('.sidebar');
 const button = document.querySelector('.toggler-btn');
 const closeButton = document.querySelector('.close-btn');
 const openButton = document.querySelector('.open-btn');
+const minWidth = window.matchMedia('(min-width: 1200px)');
+let isOpen;
 
 
 /*
@@ -16,44 +18,50 @@ const openButton = document.querySelector('.open-btn');
 - Aprovechamos la clase "d-none" de Bootstrap para ocultar o mostrar los iconos.
 ==========
 */
+
+function openSideBar() {
+    sidebar.classList.remove('hidebar');
+    openButton.classList.add('d-none');
+    closeButton.classList.remove('d-none');
+    return isOpen = true;
+}
+
+function closeSideBar() {
+    sidebar.classList.add('hidebar');
+    openButton.classList.remove('d-none');
+    closeButton.classList.add('d-none');
+    return isOpen = false;
+}
+
 function toggleSideBar(){
-    if (sidebar.classList.contains('hidebar')) {
-        sidebar.classList.remove('hidebar');
-        openButton.classList.add('d-none');
-        closeButton.classList.remove('d-none');
-        return 'cerrado';
+    if (!isOpen) {
+        openSideBar();
     } else {
-        sidebar.classList.add('hidebar');
-        openButton.classList.remove('d-none');
-        closeButton.classList.add('d-none');
-        return 'abierto';
+        closeSideBar()
     }
 }
 
-function checkViewportSideBar() {
-    if (window.matchMedia("(max-width: 1200px)").matches) {
-        sidebar.classList.add('hidebar');
-        openButton.classList.remove('d-none');
-        closeButton.classList.add('d-none');
+function loadSideBar() {
+    if (minWidth.matches) {
+        openSideBar();
     } else {
-        sidebar.classList.remove('hidebar');
-        openButton.classList.add('d-none');
-        closeButton.classList.remove('d-none');
+        closeSideBar();
     }
 }
 
-function desktopSidebar() {
-    if (window.matchMedia("(min-width: 1200px)").matches) {
-        sidebar.classList.remove('hidebar');
-    }
-}
+// function resizeSideBar() {
+//         if (minWidth.matches) {
+//             openSideBar();
+//     }
+// } Falta finalizar.
+
 
 
 /*
 ==========
-- Invocamos la función cuando hacemos click en el botón.
+- Disparadores de las funciones.
 ==========
 */
-window.addEventListener('load', desktopSidebar);
-window.addEventListener('resize', checkViewportSideBar);
 button.addEventListener('click', toggleSideBar);
+window.addEventListener('load', loadSideBar);
+window.addEventListener('resize', loadSideBar);

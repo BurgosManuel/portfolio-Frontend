@@ -10,6 +10,10 @@ ESTILOS GLOBALES
     --white: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway", sans-serif;
 }
@@ -27,12 +31,12 @@ a, a:link, a:visited {
     color: inherit;
     text-decoration: none;
 }
-
 /*
 ==========
 SECCIÓN HOME & HERO IMAGE
 ==========
 */
+
 
 .hero-container {
     width: 100%;
@@ -40,7 +44,6 @@ SECCIÓN HOME & HERO IMAGE
     background-image: url("../assets/hero-image.png");
     background-position: center center;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 .hero-container::before {
@@ -65,41 +68,62 @@ BARRA DE NAVEGACIÓN
 ==========
 */
 
-
-
-/*
-- Configuramos el boton que muestra/oculta la barra de navegación para que esté presente sólo en resoluciones menores a 1200px.
-*/
-
 .toggler-btn {
-    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    z-index: 60;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 40px;
+    height: 40px;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    background-color: lightblue;
+    border-radius: 100%;
+    
 }
 
-@media (max-width:1200px) {
+
+
+
+
+
+@media (min-width:1200px) {
+    
+    /*
+    - Configuramos el boton que muestra/oculta la barra de navegación para que esté presente sólo en resoluciones menores a 1200px.
+    */
+    
+    .toggler-btn {
+        display: none;
+    }
+
+    /*
+    - Agregamo el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
+    */
 
     .hero-container {
-        background-attachment: initial;
-    } /*Quitamos el Background attachment en mobile, ya que genera conflictos.*/
+        background-attachment: fixed;
+    } 
 
-    .toggler-btn {
-        position: fixed;
-        top: 0; 
-        right: 0;
-        z-index: 60;
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        width: 40px;
-        height: 40px;
-        margin-top: 1rem;
-        margin-right: 1rem;
-        background-color: lightblue;
-        border-radius: 100%;
-        
+    /*
+    - Movemos el contenido a la derecha en resolucionbes mayores.
+    */
+
+    .move {
+        margin-left: 280px;
+        transition: .5s;
     }
+
 }
+
+.move {
+    transition: .5s;
+} /*Añadimos una transición al momento de modificarse el margen*/
 
 
 .sidebar {
@@ -159,6 +183,17 @@ BARRA DE NAVEGACIÓN
     line-height: 1;
 }
 
-section {
-    color: #fff;
-}
+
+/*
+==========
+SECCIÓN DE ABAJO
+==========
+*/
+
+
+.test {
+    background-color: var(--dark);
+    color: white;
+    padding: 1rem;
+} 
+
