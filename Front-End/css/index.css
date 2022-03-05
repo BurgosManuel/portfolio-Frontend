@@ -7,6 +7,7 @@ ESTILOS GLOBALES
     --dark: #040b14;
     --light: #a8a9b4;
     --grey: #2c2f3f;
+    --blue: #149ddd;
     --white: #fff;
 }
 
@@ -50,6 +51,16 @@ SECCIÓN HOME & HERO IMAGE
     background-size: cover;
 }
 
+@media (min-width: 1200px) {
+        /*
+    - Agregamo el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
+    */
+
+    .hero-container {
+        background-attachment: fixed;
+    } 
+}
+
 .hero-container::before {
     content: "";
     background-color: rgba(0, 0, 0, 0.6); /*Filtro para oscurecer la imagen*/
@@ -60,11 +71,14 @@ SECCIÓN HOME & HERO IMAGE
     height: 100vh;
 }
 
-.content {
+.home-content {
     position: relative;
     z-index: 2; /*Posicionamos y colocamos el texto por encima del fondo y su filtro.*/
     color: var(--white);
+    transition: opacity 1s ease-in; /*Agregamos transicion para la opacidad*/
 }
+
+
 
 /*
 ==========
@@ -86,49 +100,38 @@ BARRA DE NAVEGACIÓN
     height: 40px;
     margin-top: 1rem;
     margin-right: 1rem;
-    background-color: lightblue;
+    color: var(--white);
+    background-color: var(--grey);
     border-radius: 100%;
     
 }
 
-
-
-
-
-
-@media (min-width:1200px) {
-    
+@media (min-width: 1200px) {
     /*
-    - Configuramos el boton que muestra/oculta la barra de navegación para que esté presente sólo en resoluciones menores a 1200px.
+    - Configuramos el boton para que desaparezca en resoluciones mayores a 1200px.
     */
-    
     .toggler-btn {
         display: none;
     }
+}
 
+
+
+
+
+.move {
+    transition: .5s; /*Añadimos una transición al momento de modificarse el margen*/
+} 
+
+@media (min-width:1200px) {
     /*
-    - Agregamo el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
+    - Movemos el contenido a la derecha en resolucionbes mayores a.
     */
-
-    .hero-container {
-        background-attachment: fixed;
-    } 
-
-    /*
-    - Movemos el contenido a la derecha en resolucionbes mayores.
-    */
-
     .move {
         margin-left: 280px;
         transition: .5s;
     }
-
 }
-
-.move {
-    transition: .5s;
-} /*Añadimos una transición al momento de modificarse el margen*/
-
 
 .sidebar {
     position: fixed;
@@ -150,7 +153,7 @@ BARRA DE NAVEGACIÓN
     transition: transform .5s;
 }
 
-/*Propiedad que usamos para mostrar la barra de navegación.*/
+/*Propiedad que usamos para ocultar la barra de navegación.*/
 .hidebar {
     transform: translateX(-100%);
 }
@@ -170,6 +173,11 @@ BARRA DE NAVEGACIÓN
     line-height: 1;
 }
 
+.social li:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
 .navigation {
     color: var(--light);
     margin-right: 8rem;
@@ -182,9 +190,17 @@ BARRA DE NAVEGACIÓN
     font-size: 1em;
 }
 
-.nav-icon {
+.nav-item i {
     padding: 0 .8rem;
     line-height: 1;
+}
+
+.nav-item:hover{
+    color: var(--white);
+}
+
+.nav-item:hover i {
+    color: var(--blue);
 }
 
 
@@ -194,10 +210,52 @@ SECCIÓN DE ABAJO
 ==========
 */
 
-
-.test {
+.section-info {
     background-color: var(--dark);
-    color: white;
+    color: var(--white);
     padding: 1rem;
-} 
+}
 
+.section-title h2{
+    padding: 1rem 0;
+}
+
+.section-title h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--blue);
+    margin-top: 1rem;
+}
+
+.about-img {
+    border-radius: 1rem;
+}
+
+.info-item {
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid var(--blue);
+}
+
+
+.info-item h4{
+    font-size: 1.2rem;
+}
+
+.info-item h4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -9px;
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--dark);
+    border: solid 2px var(--blue);
+    border-radius: 1rem;
+}
+
+.info-item h5 {
+    font-size: 1rem;
+}

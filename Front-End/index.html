@@ -23,10 +23,11 @@
     </div>
     <aside>
         <nav class="sidebar hidebar">
-            <div>
+            <div class="d-flex">
                 <img class="user-profile img-fluid" src="assets/user-profile.jpg" alt="Foto de Perfil">
+                <i class="bi bi-pencil-square align-self-end mb-2"></i>
             </div>
-            <a href="#home"><h2 class="fs-4 fw-bold m-3">Manuel Burgos</h2></a>
+            <a href="index.html"><h2 class="fs-4 fw-bold m-3">Manuel Burgos</h2></a>
             <ul class="social">
                 <li><i class="bi bi-linkedin fs-5"></i></li>
                 <li><i class="bi bi-github fs-5"></i></li>
@@ -34,27 +35,65 @@
             </ul>
             <div class="wrapper">
                 <ul class="navigation">
-                    <a href=""><li class="nav-item"><i class="nav-icon bi bi-person fs-4"></i>Sobre mí</li></a>
-                    <a href=""><li class="nav-item"><i class="nav-icon bi bi-book fs-4"></i>Educación</li></a>
-                    <a href=""><li class="nav-item"><i class="nav-icon bi bi-diagram-3 fs-4"></i>Habilidades</li></a>
-                    <a href=""><li class="nav-item"><i class="nav-icon bi bi-code fs-4"></i>Proyectos</li></a>
-                    <a href=""><li class="nav-item"><i class="nav-icon bi bi-envelope fs-4"></i>Contacto</li></a>
+                    <a href="#home"><li class="nav-item"><i class="bi bi-house-door fs-4"></i>Inicio</li></a>
+                    <a href="#about"><li class="nav-item"><i class="bi bi-person fs-4"></i>Sobre Mí</li></a>
+                    <a href=""><li class="nav-item"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</li></a>
+                    <a href=""><li class="nav-item"><i class="bi bi-code fs-4"></i>Proyectos</li></a>
+                    <a href=""><li class="nav-item"><i class="bi bi-envelope fs-4"></i>Contacto</li></a>
+                    <a href=""><li class="nav-item"><i class="bi bi-box-arrow-up-right fs-4"></i>Login</li></a>
                 </ul>
             </div>
         </nav>
     </aside>
     <main class="move">
-        <div id="home" class="hero-container d-flex align-items-center justify-content-center">
-            <div class="content">
+        <section id="home" class="hero-container d-flex align-items-center justify-content-center">
+            <div class="home-content opacity-0">
                 <h1 class="display-3 fw-bold">Manuel Burgos</h1>
                 <p class="fs-4">Desarrollador Web Fullstack</p>
             </div>
-        </div>
-        <div class="test">
-            <h2>Seccion de prueba</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione iure dolorum molestias quidem, a quasi quo suscipit eaque mollitia aperiam non. Harum ex tempore officia sunt sapiente, veniam culpa et.</p>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere libero possimus error tempore consequatur cumque repudiandae in dolorum, iure reprehenderit eaque inventore recusandae aperiam amet quis minus repellat alias molestias?</p>
-        </div>
+        </section>
+        <section id="about" class="section-info">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="fw-bold">Sobre mí</h2> 
+                    <p>Músico/Pianista Profesional y Desarrollador Web Fullstack Jr. en constante formación. Me gusta ampliar mis conocimientos en diversas áreas de mi interés y llevarlo a la práctica, soy una persona curiosa y empática, busco colaborar en proyectos, mejorar mis habilidades y ayudar a los demás a cumplir sus objetivos.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img src="assets/about.jpg" alt="Foto de Perfil" class="img-fluid about-img">
+                    </div>
+                    <div id="professional-info" class="col-lg-8 mt-4">
+                        <div class="row">
+                            <div id="education"class="col-lg-6">
+                                <h3 class="mb-3 fw-bold">Educación</h3>
+                                <div class="info-item">
+                                    <h4>Desarrollo Web FullStack</h4>
+                                    <h5>2021 - 2022</h5>
+                                    <p><em>Argentina Programa</em></p>
+                                    <p>Curso de Desarrollo Web FullStack donde se estudian diversas tecnologías como ser HTML, CSS, Bootstrap, Angular, Java, Spring Boot, entre otras.</p>
+                                </div>
+                                <div class="info-item">
+                                    <h4>Profesorado de Música - Piano</h4>
+                                    <h5>2018 - 2022</h5>
+                                    <p><em>Instituto Superior de Música de la UNT</em></p>
+                                    <p>Pedagogía, Psicología del Alumno, Manejo de Grupos, Planificación de Clases, Proyectos, Prácticas Profesionales, Composición, Ejecución Instrumental, Arreglos, etc. </p>
+                                </div>
+                            </div>
+                            <div id="education"class="col-lg-6">
+                                <h3 class="mb-3 fw-bold">Experiencia Laboral</h3>
+                                <div class="info-item">
+                                    <h4>FullStack Web Developer</h4>
+                                    <h5>2021 - Presente</h5>
+                                    <p><em>Freelancer</em></p>
+                                    <p>Desarrollo de sitios web para clientes particulares.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
    
     

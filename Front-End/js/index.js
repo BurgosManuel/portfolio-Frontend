@@ -8,6 +8,7 @@ const sidebar = document.querySelector('.sidebar');
 const button = document.querySelector('.toggler-btn');
 const closeButton = document.querySelector('.close-btn');
 const openButton = document.querySelector('.open-btn');
+const headerContent = document.querySelector('.home-content');
 const minWidth = window.matchMedia('(min-width: 1200px)');
 let isOpen;
 
@@ -49,19 +50,20 @@ function loadSideBar() {
     }
 }
 
-// function resizeSideBar() {
-//         if (minWidth.matches) {
-//             openSideBar();
-//     }
-// } Falta finalizar.
+function loadTitle() {
+    headerContent.classList.remove('opacity-0');
+} //Removemos la clase que le otorga 0 opacidad
 
 
 
 /*
 ==========
-- Disparadores de las funciones.
+- Disparadores de función.
 ==========
 */
 button.addEventListener('click', toggleSideBar);
-window.addEventListener('load', loadSideBar);
+window.addEventListener('load', () => {
+    loadSideBar();
+    loadTitle();
+});
 window.addEventListener('resize', loadSideBar);
