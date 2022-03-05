@@ -180,7 +180,7 @@ BARRA DE NAVEGACIÓN
 
 .navigation {
     color: var(--light);
-    margin-right: 8rem;
+    margin-right: 7rem;
 }
 
 .nav-item {
@@ -201,6 +201,15 @@ BARRA DE NAVEGACIÓN
 
 .nav-item:hover i {
     color: var(--blue);
+}
+
+.ap-container {
+    margin-top: auto;
+}
+
+.ap-logo {
+    width: 100px;
+    height: 60px;
 }
 
 
