@@ -39,6 +39,32 @@ a, a:link, a:visited {
 
 /*
 ==========
+MODIFICACIONES A ESTILOS DE BOOTSTRAP
+==========
+*/
+
+
+/*Soluciona desplazamiento de fondo al abrir ventana modal*/
+
+.modal-open {
+    overflow: auto !important;
+    padding-right: 0 !important;
+}
+
+/*Modificamos los colores de los input por defecto de Bootstrap*/
+.form-control {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+.form-control:focus {
+    background-color: var(--dark);
+    color: var(--white);
+}
+
+
+/*
+==========
 SECCIÓN HOME & HERO IMAGE
 ==========
 */
@@ -54,7 +80,7 @@ SECCIÓN HOME & HERO IMAGE
 
 @media (min-width: 1200px) {
         /*
-    - Agregamo el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
+    - Agregamos el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
     */
 
     .hero-container {
@@ -150,6 +176,13 @@ BARRA DE NAVEGACIÓN
     transition: transform .5s;
 }
 
+/* Ocultamos la barra lateral si el usuario intenta "imprimir" el sitio.*/
+@media print  {
+    aside {
+        display: none;
+    }
+}
+
 /*Propiedad que usamos para ocultar la barra de navegación.*/
 .hidebar {
     transform: translateX(-100%);
@@ -181,9 +214,10 @@ BARRA DE NAVEGACIÓN
 }
 
 .nav-item {
-    display: flex;
-    align-items: center;
-    margin: 2rem 0;
+    display: inline-flex; /*Inline evita el espacio clickeable extra a la derecha*/
+    align-items: center; 
+    margin: 1rem 0;
+    margin-left: 1rem;
     font-size: 1em;
 }
 
@@ -338,4 +372,8 @@ SECCIÓN DE ABAJO
 .card:hover span {
     opacity: 1;
     transition: .5s;
+}
+
+.edit-icon {
+    font-size: 1rem;
 }

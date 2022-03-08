@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manuel Burgos</title>
+    <meta name="description "content="¡Hola! Bienvenido a mi Portfolio Web. Mi nombre es Manuel Burgos y soy Desarrollador Web Fullstack.">
+    <meta name="author" content="Manuel Burgos">
+    <!--Favicons-->
     <!--CSS-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
@@ -14,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,300&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <!--ICONOS-->
+    <link rel="icon" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="https://kit.fontawesome.com/3ca93e09ef.js" crossorigin="anonymous"></script>
 </head>
@@ -28,7 +33,7 @@
         <nav id="navbar" class="sidebar hidebar">
             <div id="nav-user" class="d-flex flex-wrap justify-content-center mt-3">
                 <img class="user-profile img-fluid" src="assets/user-profile.jpg" alt="Foto de Perfil">
-                <!-- <i class="bi bi-pencil-square align-self-end mb-2"></i> -->
+                <i class="bi bi-pencil-square align-self-end mb-2"></i>
                 <a href="index.html"><h2 class="fs-4 fw-bold m-3">Manuel Burgos</h2></a>
                 <ul class="social">
                     <a href="https://www.linkedin.com/in/manuelburgos-dev/" target="_BLANK"><li><i class="bi bi-linkedin fs-5"></i></li></a>
@@ -41,8 +46,8 @@
                     <a href="#about"><li class="nav-item"><i class="bi bi-person fs-4"></i>Sobre Mí</li></a>
                     <a href="#skills"><li class="nav-item"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</li></a>
                     <a href="#projects"><li class="nav-item"><i class="bi bi-code fs-4"></i>Proyectos</li></a>
-                    <a href="#contact"><li class="nav-item"><i class="bi bi-envelope fs-4"></i>Contacto</li></a>
-                    <a href="#"><li class="nav-item"><i class="bi bi-box-arrow-up-right fs-4"></i>Login</li></a>
+                    <a href="#contact"></a><li class="nav-item"><i class="bi bi-envelope fs-4"></i>Contacto</li></a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"><li class="nav-item"><i class="bi bi-box-arrow-up-right fs-4"></i>Login</li></a>
                 </ul>
             </div>
             <div id="nav-footer" class="ap-container">
@@ -50,6 +55,34 @@
             </div>
         </nav>
     </aside>
+    <!--Ventana Modal para login. TODO: Agregar atributos name para validar.-->
+    <div class="modal fade" id="loginModal" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content section-info">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ingresar</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <form action="" method="GET" class="form">
+                <div class="modal-body">
+                    <div class="m-2">
+                        <label for="Username" class="form-label">Usuario:</label>
+                        <input id="Username" type="text" class="form-control" pattern="[a-z0-9]{6,12}" title="El nombre de usuario solo acepta letras minúsculas, números y debe tener entre 6 y 12 carácteres." required>
+                    </div>
+                    <div class="m-2">
+                        <label for="Password" class="form-label">Contraseña:</label>
+                        <input id="Password" type="password" class="form-control" pattern=".{6,}" title="La contraseña debe tener como mínimo 6 carácteres." required>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                        <button type="submit" class="btn btn-outline-success">Login</button>
+                        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
     <!--Contenido desplazable de la página-->
     <main class="move">
         <!--Home/Hero Image-->
@@ -63,7 +96,7 @@
         <section id="about" class="section-info">
             <div class="container">
                 <div class="section-title">
-                    <h2 class="fw-bold">Sobre mí</h2> 
+                    <h2 class="fw-bold">Sobre mí</h2>
                     <p>Músico/Pianista Profesional y Desarrollador Web Fullstack Jr. en constante formación. Me gusta ampliar mis conocimientos en diversas áreas de mi interés y llevarlo a la práctica, soy una persona curiosa y empática, busco colaborar en proyectos, mejorar mis habilidades y ayudar a los demás a cumplir sus objetivos.</p>
                 </div>
                 <div class="row">
@@ -254,7 +287,7 @@
                             <div class="mb-3 text-center">
                                 <input type="hidden" name="_captcha" value="false">
                                 <input type="hidden" name="_next" value="https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html">
-                                <button type="submit" class="btn btn-outline-info">¡Enviar!</button>
+                                <button type="submit" class="btn btn-outline-info mt-3">¡Enviar!</button>
                             </div>
                         </form>
                         <hr>
