@@ -37,6 +37,20 @@ a, a:link, a:visited {
     text-decoration: none;
 }
 
+/* Eliminamos las flechas de los input de tipo number.*/
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /*
 ==========
 MODIFICACIONES A ESTILOS DE BOOTSTRAP
@@ -278,7 +292,8 @@ SECCIÓN DE ABAJO
 }
 
 .section-title h2{
-    padding: 1rem 0;
+    padding: 1rem;
+    padding-left: 0;
 }
 
 .section-title h2::after {
@@ -298,6 +313,7 @@ SECCIÓN DE ABAJO
     position: relative;
     padding-left: 1rem;
     border-left: 2px solid var(--blue);
+    margin-bottom: 2rem;
 }
 
 
@@ -375,5 +391,14 @@ SECCIÓN DE ABAJO
 }
 
 .edit-icon {
-    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding-right: 5px;
+}
+
+.edit-icon:hover {
+    cursor: pointer;
+}
+
+.modal button[type=submit] {
+    margin-right: .5rem;
 }
