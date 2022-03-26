@@ -119,6 +119,21 @@ SECCIÓN HOME & HERO IMAGE
     transition: opacity 1s ease-in; /*Agregamos transicion para la opacidad*/
 }
 
+.move {
+    transition: .5s; /*Añadimos una transición al momento de modificarse el margen*/
+} 
+
+/* Movemos el contenedor a la derecha en pantallas grandes, para que la barra lateral no tape el contenido. */
+@media (min-width:1200px) {
+    /*
+    - Movemos el contenido a la derecha en resolucionbes mayores a.
+    */
+    .move {
+        margin-left: 280px;
+        transition: .5s;
+    }
+}
+
 
 
 /*
@@ -153,20 +168,6 @@ BARRA DE NAVEGACIÓN
     */
     .toggler-btn {
         display: none;
-    }
-}
-
-.move {
-    transition: .5s; /*Añadimos una transición al momento de modificarse el margen*/
-} 
-
-@media (min-width:1200px) {
-    /*
-    - Movemos el contenido a la derecha en resolucionbes mayores a.
-    */
-    .move {
-        margin-left: 280px;
-        transition: .5s;
     }
 }
 
@@ -281,7 +282,7 @@ BARRA DE NAVEGACIÓN
 
 /*
 ==========
-SECCIÓN DE ABAJO
+ESTILOS DE SECCIONES (GENERAL)
 ==========
 */
 
@@ -304,6 +305,12 @@ SECCIÓN DE ABAJO
     background-color: var(--blue);
     margin-top: 1rem;
 }
+
+/*
+==========
+SECCIÓN "SOBRE MÍ"
+==========
+*/
 
 .about-img {
     border-radius: 1rem;
@@ -336,6 +343,12 @@ SECCIÓN DE ABAJO
 .info-item h5 {
     font-size: 1rem;
 }
+
+/*
+==========
+SECCIÓN "PROYECTOS"
+==========
+*/
 
 .project-cards {
     display: grid;
@@ -390,6 +403,12 @@ SECCIÓN DE ABAJO
     transition: .5s;
 }
 
+/*
+==========
+ESTILOS ICONOS PARA EDITAR
+==========
+*/
+
 .edit-icon {
     margin-bottom: 1.5rem;
     padding-right: 5px;
@@ -398,6 +417,12 @@ SECCIÓN DE ABAJO
 .edit-icon:hover {
     cursor: pointer;
 }
+
+/*
+==========
+ESTILO MODALES
+==========
+*/
 
 .modal button[type=submit] {
     margin-right: .5rem;
