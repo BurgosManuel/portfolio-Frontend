@@ -175,6 +175,7 @@ BARRA DE NAVEGACIÓN
     position: fixed;
     inset: 0;
     z-index: 50;
+
     
     display: flex;
     flex-direction: column;
@@ -189,6 +190,20 @@ BARRA DE NAVEGACIÓN
 
     transform: translateX(0);
     transition: transform .5s;
+}
+
+
+/* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
+
+@media (max-height: 730px ) {
+    .sidebar {
+        overflow-y: scroll;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .sidebar::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
 }
 
 /* Ocultamos la barra lateral si el usuario intenta "imprimir" el sitio.*/
