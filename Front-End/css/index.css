@@ -240,29 +240,28 @@ BARRA DE NAVEGACIÓN
 
 .navigation {
     color: var(--light);
-    margin-right: 7rem;
 }
 
 .nav-item {
-    display: inline-flex; /*Inline evita el espacio clickeable extra a la derecha*/
-    align-items: center; 
     margin: 1rem 0;
-    margin-left: 1rem;
-    font-size: 1em;
 }
+
+.nav-item a {
+    padding: 10px;
+}
+
 
 .nav-item i {
-    padding: 0 .8rem;
-    line-height: 1;
+    margin-right: 1rem;
 }
 
-.nav-item:hover{
+.nav-item a:hover{
     color: var(--white);
     transition: .3s;
 }
 
 
-.nav-item:hover i{
+.nav-item a:hover i{
     color: var(--blue);
     transition: .3s;
 }
