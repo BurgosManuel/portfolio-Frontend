@@ -5,37 +5,44 @@ ESTILOS GLOBALES
 ==========
 */
 :root {
-    --dark: #040b14;
-    --light: #a8a9b4;
-    --grey: #2c2f3f;
-    --blue: #149ddd;
-    --white: #fff;
+  --dark: #040b14;
+  --light: #a8a9b4;
+  --grey: #2c2f3f;
+  --blue: #149ddd;
+  --white: #fff;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--dark);
+  background-color: var(--dark);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway", sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif;
 }
 
 p {
-    font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
-a, a:link, a:visited {
-    color: inherit;
-    text-decoration: none;
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Eliminamos las flechas de los input de tipo number.*/
@@ -48,7 +55,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -58,25 +65,23 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
 ==========
 */
 
-
 /*Soluciona desplazamiento de fondo al abrir ventana modal*/
 
 .modal-open {
-    overflow: auto !important;
-    padding-right: 0 !important;
+  overflow: auto !important;
+  padding-right: 0 !important;
 }
 
 /*Modificamos los colores de los input por defecto de Bootstrap*/
 .form-control {
-    background-color: var(--dark);
-    color: var(--white);
+  background-color: var(--dark);
+  color: var(--white);
 }
 
 .form-control:focus {
-    background-color: var(--dark);
-    color: var(--white);
+  background-color: var(--dark);
+  color: var(--white);
 }
-
 
 /*
 ==========
@@ -84,58 +89,55 @@ SECCIÓN HOME & HERO IMAGE
 ==========
 */
 
-
 .hero-container {
-    width: 100%;
-    height: 100vh;
-    background-image: url("assets/hero-image.png");
-    background-position: center center;
-    background-size: cover;
+  width: 100%;
+  height: 100vh;
+  background-image: url("assets/hero-image.png");
+  background-position: center center;
+  background-size: cover;
 }
 
 @media (min-width: 1200px) {
-        /*
+  /*
     - Agregamos el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
     */
 
-    .hero-container {
-        background-attachment: fixed;
-    } 
+  .hero-container {
+    background-attachment: fixed;
+  }
 }
 
 .hero-container::before {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.6); /*Filtro para oscurecer la imagen*/
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100vh;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6); /*Filtro para oscurecer la imagen*/
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
 }
 
 .home-content {
-    position: relative;
-    z-index: 2; /*Posicionamos y colocamos el texto por encima del fondo y su filtro.*/
-    color: var(--white);
-    transition: opacity 1s ease-in; /*Agregamos transicion para la opacidad*/
+  position: relative;
+  z-index: 2; /*Posicionamos y colocamos el texto por encima del fondo y su filtro.*/
+  color: var(--white);
+  transition: opacity 1s ease-in; /*Agregamos transicion para la opacidad*/
 }
 
 .move {
-    transition: .5s; /*Añadimos una transición al momento de modificarse el margen*/
-} 
-
-/* Movemos el contenedor a la derecha en pantallas grandes, para que la barra lateral no tape el contenido. */
-@media (min-width:1200px) {
-    /*
-    - Movemos el contenido a la derecha en resolucionbes mayores a.
-    */
-    .move {
-        margin-left: 280px;
-        transition: .5s;
-    }
+  transition: 0.5s; /*Añadimos una transición al momento de modificarse el margen*/
 }
 
-
+/* Movemos el contenedor a la derecha en pantallas grandes, para que la barra lateral no tape el contenido. */
+@media (min-width: 1200px) {
+  /*
+    - Movemos el contenido a la derecha en resolucionbes mayores a.
+    */
+  .move {
+    margin-left: 280px;
+    transition: 0.5s;
+  }
+}
 
 /*
 ==========
@@ -144,156 +146,150 @@ BARRA DE NAVEGACIÓN
 */
 
 .toggler-btn {
-    position: fixed;
-    top: 0; 
-    right: 0;
-    z-index: 60;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 40px;
-    height: 40px;
-    margin-top: 1rem;
-    margin-right: 1rem;
-    color: var(--white);
-    background-color: var(--grey);
-    border-radius: 100%;
-    
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 60;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  color: var(--white);
+  background-color: var(--grey);
+  border-radius: 100%;
 }
 
 @media (min-width: 1200px) {
-    /*
+  /*
     - Configuramos el boton para que desaparezca en resoluciones mayores a 1200px.
     */
-    .toggler-btn {
-        display: none;
-    }
+  .toggler-btn {
+    display: none;
+  }
 }
 
 .sidebar {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
 
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    width: 280px;
-    height: 100vh;
-    padding: 1rem 0;
-    
-    background-color: var(--dark);
-    color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    transform: translateX(0);
-    transition: transform .5s;
+  width: 280px;
+  height: 100vh;
+  padding: 1rem 0;
+
+  background-color: var(--dark);
+  color: #fff;
+
+  transform: translateX(0);
+  transition: transform 0.5s;
 }
-
 
 /* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
 
-@media (max-height: 730px ) {
-    .sidebar {
-        overflow-y: scroll;
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-    }
-    .sidebar::-webkit-scrollbar { 
-        display: none;  /* Safari and Chrome */
-    }
+@media (max-height: 730px) {
+  .sidebar {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .sidebar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 }
 
 /* Ocultamos la barra lateral si el usuario intenta "imprimir" el sitio.*/
-@media print  {
-    aside {
-        display: none;
-    }
+@media print {
+  aside {
+    display: none;
+  }
 }
 
 /*Propiedad que usamos para ocultar la barra de navegación.*/
 .hidebar {
-    transform: translateX(-100%);
+  transform: translateX(-100%);
 }
 
 .user-profile {
-    width: 150px;
-    border: .5rem solid var(--grey);
-    border-radius: 100%;
+  width: 150px;
+  border: 0.5rem solid var(--grey);
+  border-radius: 100%;
 }
 
 .social li {
-    padding: .6rem;
-    margin: .6rem;
-    display: inline-block;
-    border-radius: 100%;
-    background-color: var(--grey);
-    line-height: 1;
+  padding: 0.6rem;
+  margin: 0.6rem;
+  display: inline-block;
+  border-radius: 100%;
+  background-color: var(--grey);
+  line-height: 1;
 }
 
 .social li:hover {
-    background-color: var(--blue);
-    cursor: pointer;
+  background-color: var(--blue);
+  cursor: pointer;
 }
 
 .navigation {
-    color: var(--light);
+  color: var(--light);
 }
 
 .nav-item {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .nav-item a {
-    padding: 10px;
+  padding: 10px;
 }
-
 
 .nav-item i {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
-.nav-item a:hover{
-    color: var(--white);
-    transition: .3s;
+.nav-item a:hover {
+  color: var(--white);
+  transition: 0.3s;
 }
 
-
-.nav-item a:hover i{
-    color: var(--blue);
-    transition: .3s;
+.nav-item a:hover i {
+  color: var(--blue);
+  transition: 0.3s;
 }
 
-.sidebar a:focus{   
-    color: var(--white);
-    outline: none;
-    transition: .3s;
+.sidebar a:focus {
+  color: var(--white);
+  outline: none;
+  transition: 0.3s;
 }
 
-.sidebar a:focus h2{   
-    color: var(--light);
-    outline: none;
-    transition: .3s;
+.sidebar a:focus h2 {
+  color: var(--light);
+  outline: none;
+  transition: 0.3s;
 }
 
-.sidebar a:focus i {   
-    color: var(--blue);
-    outline: none;
-    transition: .3s;
+.sidebar a:focus i {
+  color: var(--blue);
+  outline: none;
+  transition: 0.3s;
 }
 
 .ap-container {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .ap-logo {
-    width: 100px;
-    height: 60px;
+  width: 100px;
+  height: 60px;
 }
-
 
 /*
 ==========
@@ -302,23 +298,23 @@ ESTILOS DE SECCIONES (GENERAL)
 */
 
 .section-info {
-    background-color: var(--dark);
-    color: var(--white);
-    padding: 1rem;
+  background-color: var(--dark);
+  color: var(--white);
+  padding: 1rem;
 }
 
-.section-title h2{
-    padding: 1rem;
-    padding-left: 0;
+.section-title h2 {
+  padding: 1rem;
+  padding-left: 0;
 }
 
 .section-title h2::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 3px;
-    background-color: var(--blue);
-    margin-top: 1rem;
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--blue);
+  margin-top: 1rem;
 }
 
 /*
@@ -328,35 +324,34 @@ SECCIÓN "SOBRE MÍ"
 */
 
 .about-img {
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .info-item {
-    position: relative;
-    padding-left: 1rem;
-    border-left: 2px solid var(--blue);
-    margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 2px solid var(--blue);
+  margin-bottom: 2rem;
 }
 
-
-.info-item h4{
-    font-size: 1.2rem;
+.info-item h4 {
+  font-size: 1.2rem;
 }
 
 .info-item h4::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -9px;
-    width: 1rem;
-    height: 1rem;
-    background-color: var(--dark);
-    border: solid 2px var(--blue);
-    border-radius: 1rem;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -9px;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--dark);
+  border: solid 2px var(--blue);
+  border-radius: 1rem;
 }
 
 .info-item h5 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 /*
@@ -366,56 +361,57 @@ SECCIÓN "PROYECTOS"
 */
 
 .project-cards {
-    display: grid;
-    grid-gap: 1rem;
+  display: grid;
+  grid-gap: 1rem;
 }
 /* Alineamos los proyectos en dos columnas en resoluciones de tablet y escritorio.*/
 @media (min-width: 750px) {
-    .project-cards{
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .project-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .card {
-    background-color: var(--dark);
-    border-color: var(--light);
-    transform: scale(1);
-    transition: .2s ease;
+  background-color: var(--dark);
+  border-color: var(--light);
+  transform: scale(1);
+  transition: 0.2s ease;
 }
 
 .card img {
-    opacity: 1;
-    transition: .5s;
+  opacity: 1;
+  transition: 0.5s;
+  
 }
 
 .card-img-container {
-    position: relative;
-
+  position: relative;
+  background-color: var(--dark);
 }
 
 .card-img-container span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: .5s;
-    cursor: default;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.5s;
+  cursor: default;
 }
 
 .card:hover {
-    transform: scale(0.95);
-    transition: .2s;
+  transform: scale(0.95);
+  transition: 0.2s;
 }
 
 .card:hover img {
-    opacity: .1;
-    transition: .5s;
+  opacity: 0.1;
+  transition: 0.5s;
 }
 
 .card:hover span {
-    opacity: 1;
-    transition: .5s;
+  opacity: 1;
+  transition: 0.5s;
 }
 
 /*
@@ -425,12 +421,12 @@ ESTILOS ICONOS PARA EDITAR
 */
 
 .edit-icon {
-    margin-bottom: 1.5rem;
-    padding-right: 5px;
+  margin-bottom: 1.5rem;
+  padding-right: 5px;
 }
 
 .edit-icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /*
@@ -439,6 +435,6 @@ ESTILO MODALES
 ==========
 */
 
-.modal button[type=submit] {
-    margin-right: .5rem;
+.modal button[type="submit"] {
+  margin-right: 0.5rem;
 }
