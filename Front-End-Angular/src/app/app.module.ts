@@ -10,6 +10,9 @@ import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProfessionalInfoComponent } from './components/about/professional-info/professional-info.component';
+import { EducationComponent } from './components/about/professional-info/education/education.component';
+import { ExperienceComponent } from './components/about/professional-info/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ContactComponent } from './components/contact/contact.component';
     AboutComponent,
     SkillsComponent,
     ProjectsComponent,
-    ContactComponent
+    ContactComponent,
+    ProfessionalInfoComponent,
+    EducationComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
