@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "title": "Manuel Burgos",
+    "subtitle": "Desarrollador Web Fullstack",
+    "heroimg": "assets/hero-image.png"
+  },
+  "nav": {
+    "name": "Manuel Burgos",
+    "profilepic": "assets/profile",
+    "linkedin": "https://www.linkedin.com/in/manuelburgos-dev/",
+    "github": "https://github.com/BurgosManuel"
+  },
+  "about": "Músico/Pianista Profesional y Desarrollador Web Fullstack Jr. en constante formación. Me gusta ampliar mis conocimientos en diversas áreas de mi interés y llevarlo a la práctica, soy una persona curiosa y empática, busco colaborar en proyectos, mejorar mis habilidades y ayudar a los demás a cumplir sus objetivos.",
+  "education": [
+    {
+      "title": "Desarrollo Web FullStack",
+      "date": "2021 - 2022",
+      "school": "Argentina Programa",
+      "description": "Curso de Desarrollo Web FullStack donde se estudian diversas tecnologías como ser HTML, CSS, Bootstrap, Angular, Java, Spring Boot, entre otras."
+    },
+    {
+      "title": "Profesorado de Música - Piano",
+      "date": "2018 - 2022",
+      "school": "Instituto Superior de Música (UNT)",
+      "description": "Pedagogía, Psicología del Alumno, Manejo de Grupos, Planificación de Clases, Proyectos, Prácticas Profesionales, Composición, Ejecución Instrumental, Arreglos, etc."
+    }
+  ],
+  "experience": [
+    {
+      "title": "FullStack Web Developer",
+      "date": "2022 - Presente",
+      "school": "Freelancer",
+      "description": "Desarrollo de proyectos personales a fin de desarrollar mis habilidades."
+    }
+  ],
+  "skills": "Estas son algunas de mis habilidades, tanto técnicas como blandas, con las que cuento para el ámbito profesional.",
+  "frontend": [
+    {
+      "skill": "HTML",
+      "lvl": "Avanzado"
+    },
+    {
+      "skill": "CSS",
+      "lvl": "Avanzado"
+    },
+    {
+      "skill": "JavaScript",
+      "lvl": "Intermedio"
+    },
+    {
+      "skill": "Bootstrap",
+      "lvl": "Intermedio"
+    },
+    {
+      "skill": "Angular",
+      "lvl": "Intermedio"
+    }
+  ],
+  "backend": [
+    {
+      "skill": "Java/Spring Boot",
+      "lvl": "Básico"
+    },
+    {
+      "skill": "MySql",
+      "lvl": "Básico"
+    }
+  ],
+  "soft": [
+    {
+      "skill": "Colaborativo",
+      "lvl": "En las tareas a realizar"
+    },
+    {
+      "skill": "Comunicativo",
+      "lvl": "Con mi equipo de trabajo"
+    },
+    {
+      "skill": "Empático",
+      "lvl": "Con los que me rodean"
+    },
+    {
+      "skill": "Autodidacta",
+      "lvl": "Con lo que me apasiona"
+    }
+  ],
+  "projects": "Algunos de los proyectos en los que he trabajado haciendo uso de diversas tecnologías.",
+  "projectsList": [
+    {
+      "title": "Portfolio - Argentina Programa #YoProgramo",
+      "description": "Proyecto final realizado durante el Curso de Desarrollo Web Fullstack Argentina Programa. Utiliza herramientas como HTML, CSS, JavaScript y Bootstrap.",
+      "live": "https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html",
+      "repo": "https://github.com/BurgosManuel/PortfolioWebFullStack/tree/main/Front-End"
+    },
+    {
+      "title": "Flooble - #SelfTaughtDev",
+      "description": "Sitio web estático realizado en HTML y CSS vanilla, con el fin de realizar un layout basado en un diseño. Desafío planteado por #SelfTaughtDev.",
+      "live": "https://burgosmanuel.github.io/flooble/",
+      "repo": "https://github.com/BurgosManuel/flooble"
+    }
+  ],
+  "contact": "Si tienes algún proyecto y te gustaría que forme parte del mismo, te invito a contactarme con el siguiente formulario, también puedes usarlo simplemente para dejarme algún comentario o ¡saludarme! 🙋‍♂️"
+}

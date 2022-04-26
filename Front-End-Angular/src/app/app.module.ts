@@ -13,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ProfessionalInfoComponent } from './components/about/professional-info/professional-info.component';
 import { EducationComponent } from './components/about/professional-info/education/education.component';
 import { ExperienceComponent } from './components/about/professional-info/experience/experience.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,10 @@ import { ExperienceComponent } from './components/about/professional-info/experi
     ContactComponent,
     ProfessionalInfoComponent,
     EducationComponent,
-    ExperienceComponent
+    ExperienceComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
