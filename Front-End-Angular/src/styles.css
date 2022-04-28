@@ -83,47 +83,7 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
   color: var(--white);
 }
 
-/*
-==========
-SECCIÓN HOME & HERO IMAGE
-==========
-*/
 
-.hero-container {
-  width: 100%;
-  height: 100vh;
-  /* Pasar background image como directiva. */
-  background-image: url("assets/hero-image.png");
-  background-position: center center;
-  background-size: cover;
-}
-
-@media (min-width: 1200px) {
-  /*
-    - Agregamos el Background attachment únicamente en resoluciones mayores, ya que genera conflictos en Mobile.
-    */
-
-  .hero-container {
-    background-attachment: fixed;
-  }
-}
-
-.hero-container::before {
-  content: "";
-  background-color: rgba(0, 0, 0, 0.6); /*Filtro para oscurecer la imagen*/
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100vh;
-}
-
-.home-content {
-  position: relative;
-  z-index: 2; /*Posicionamos y colocamos el texto por encima del fondo y su filtro.*/
-  color: var(--white);
-  transition: opacity 1s ease-in; /*Agregamos transicion para la opacidad*/
-}
 
 .move {
   transition: 0.5s; /*Añadimos una transición al momento de modificarse el margen*/

@@ -8,10 +8,12 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 })
 export class HeroComponent implements OnInit {
   apiUrl: string = this.portfolioData.apiUrl;
-
-  constructor(private portfolioData: PortfolioDataService) {}
-
-  ngOnInit(): void {
-    this.portfolioData.getData().subscribe((data) => console.log(data));
+  heroData: any;
+  constructor(private portfolioData: PortfolioDataService) {
+    this.portfolioData
+      .getData()
+      .subscribe((data) => (this.heroData = data.hero));
   }
+
+  ngOnInit(): void {}
 }

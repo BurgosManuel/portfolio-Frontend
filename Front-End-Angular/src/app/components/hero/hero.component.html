@@ -2,9 +2,10 @@
 <section
 id="home"
 class="hero-container d-flex align-items-center justify-content-center"
+[ngStyle]="{'background-image':'url(' + heroData.heroimg + ')'}"
 >
 <div class="home-content">
-  <h1 class="display-3 fw-bold">Manuel Burgos</h1>
-  <p class="fs-4">Desarrollador Web Fullstack</p>
+  <h1 class="display-3 fw-bold">{{ heroData.title }}</h1>
+  <p class="fs-4">{{ heroData.subtitle }}</p>
 </div>
 </section>
