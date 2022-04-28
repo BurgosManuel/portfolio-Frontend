@@ -10,11 +10,11 @@
         ><i class="bi bi-plus-circle"></i
       ></span>
     </div>
-    <div class="info-item">
+    <div *ngFor="let educationItem of educationData" class="info-item">
       <div
         class="item-title d-flex justify-content-between align-items-center"
       >
-        <h4>Desarrollo Web FullStack</h4>
+        <h4>{{educationItem.title}}</h4>
         <div class="item-buttons">
           <span
             class="edit-icon"
@@ -30,40 +30,10 @@
           ></span>
         </div>
       </div>
-      <h5>2021 - 2022</h5>
-      <p><em>Argentina Programa</em></p>
+      <h5>{{educationItem.date}}</h5>
+      <p><em>{{educationItem.school}}</em></p>
       <p>
-        Curso de Desarrollo Web FullStack donde se estudian diversas
-        tecnologías como ser HTML, CSS, Bootstrap, Angular, Java, Spring
-        Boot, entre otras.
-      </p>
-    </div>
-    <div class="info-item">
-      <div
-        class="item-title d-flex justify-content-between align-items-center"
-      >
-        <h4>Profesorado de Música - Piano</h4>
-        <div class="item-buttons">
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#itemModal"
-            ><i class="bi bi-pencil-square"></i
-          ></span>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteModal"
-            ><i class="bi bi-trash3"></i
-          ></span>
-        </div>
-      </div>
-      <h5>2018 - 2022</h5>
-      <p><em>Instituto Superior de Música de la UNT</em></p>
-      <p>
-        Pedagogía, Psicología del Alumno, Manejo de Grupos,
-        Planificación de Clases, Proyectos, Prácticas Profesionales,
-        Composición, Ejecución Instrumental, Arreglos, etc.
+        {{educationItem.description}}
       </p>
     </div>
   </div>
