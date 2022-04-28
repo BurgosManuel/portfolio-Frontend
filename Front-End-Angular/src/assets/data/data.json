@@ -2,7 +2,7 @@
   "hero": {
     "title": "Manuel Burgos",
     "subtitle": "Desarrollador Web Fullstack",
-    "heroimg": "../assets/hero-image.png"
+    "heroimg": "assets/hero-image.png"
   },
   "nav": {
     "name": "Manuel Burgos",

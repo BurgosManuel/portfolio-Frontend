@@ -1,5 +1,7 @@
+<!--Botón para abrir/cerrar barra de navegación-->
+<app-toggle-button (onToggleButton)="toggleSidebar(sideBar)"></app-toggle-button>
 <aside>
-  <nav id="navbar" class="sidebar">
+  <nav id="navbar" class="sidebar" #sideBar>
     <div id="userInfo" class="d-flex flex-wrap justify-content-center mt-3">
       <img
         class="user-profile img-fluid"
