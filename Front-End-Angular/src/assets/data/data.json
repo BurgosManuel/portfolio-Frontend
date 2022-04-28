@@ -37,50 +37,68 @@
   "frontend": [
     {
       "skill": "HTML",
-      "lvl": "Avanzado"
+      "icon": "fa-brands fa-html5",
+      "lvl": "Avanzado",
+      "progress": "90%"
     },
     {
       "skill": "CSS",
-      "lvl": "Avanzado"
+      "icon": "fa-brands fa-css3-alt",
+      "lvl": "Avanzado",
+      "progress": "90%"
     },
     {
       "skill": "JavaScript",
-      "lvl": "Intermedio"
+      "icon": "fa-brands fa-js-square",
+      "lvl": "Intermedio",
+      "progress": "65%"
     },
     {
       "skill": "Bootstrap",
-      "lvl": "Intermedio"
+      "icon": "fa-brands fa-bootstrap",
+      "lvl": "Intermedio",
+      "progress": "65%"
     },
     {
       "skill": "Angular",
-      "lvl": "Intermedio"
+      "icon": "fa-brands fa-angular",
+      "lvl": "Intermedio",
+      "progress": "65%"
     }
   ],
   "backend": [
     {
       "skill": "Java/Spring Boot",
-      "lvl": "Básico"
+      "icon": "fa-brands fa-java",
+      "lvl": "Básico",
+      "progress": "40%"
     },
     {
       "skill": "MySql",
-      "lvl": "Básico"
+      "icon": "fa-solid fa-database",
+      "lvl": "Básico",
+      "progress": "40%"
     }
   ],
   "soft": [
     {
       "skill": "Colaborativo",
+      "icon": "fa-solid fa-people-carry-box",
       "lvl": "En las tareas a realizar"
     },
     {
       "skill": "Comunicativo",
+      "icon": "fa-solid fa-comment-dots",
       "lvl": "Con mi equipo de trabajo"
     },
     {
       "skill": "Empático",
+      "icon": "fa-solid fa-hand-holding-heart",
       "lvl": "Con los que me rodean"
     },
     {
       "skill": "Autodidacta",
+      "icon": "fa-solid fa-laptop-code",
       "lvl": "Con lo que me apasiona"
     }
   ],

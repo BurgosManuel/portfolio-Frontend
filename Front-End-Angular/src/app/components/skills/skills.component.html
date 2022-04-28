@@ -1,449 +1,172 @@
 <!--Sección "Habilidades"-->
 <section id="skills" class="section-info">
-    <div class="container">
-      <div class="section-title">
+  <div class="container">
+    <div class="section-title">
+      <div
+        class="section-header d-flex justify-content-between align-items-center"
+      >
+        <h2 class="fw-bold">Habilidades</h2>
+        <span
+          class="edit-icon"
+          data-bs-toggle="modal"
+          data-bs-target="#sectionModal"
+          ><i class="bi bi-pencil-square"></i
+        ></span>
+      </div>
+      <p>
+        {{ skillsData }}
+      </p>
+    </div>
+    <div class="row">
+      <div id="frontend" class="col-lg-4 mt-5">
         <div
-          class="section-header d-flex justify-content-between align-items-center"
+          class="skills-header d-flex justify-content-between align-items-center"
         >
-          <h2 class="fw-bold">Habilidades</h2>
+          <h3 class="mb-3 fw-bold">Front-End</h3>
           <span
             class="edit-icon"
             data-bs-toggle="modal"
-            data-bs-target="#sectionModal"
-            ><i class="bi bi-pencil-square"></i
+            data-bs-target="#skillPlus"
+            ><i class="bi bi-plus-circle"></i
           ></span>
         </div>
-        <p>
-          Estas son algunas de mis habilidades, tanto técnicas como blandas, con
-          las que cuento para el ámbito profesional.
-        </p>
+        <div *ngFor="let frontItem of frontData" class="skill-item">
+          <div
+            class="item-title d-flex justify-content-between align-items-center"
+          >
+            <span class="fs-5"
+              ><i [class]="frontItem.icon" class="pe-2"></i
+              >{{ frontItem.skill }}</span
+            >
+            <div class="item-buttons">
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#skillEdit"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                ><i class="bi bi-trash3"></i
+              ></span>
+            </div>
+          </div>
+          <div class="progress mb-3" style="height: 20px">
+            <div
+              class="progress-bar bg-warning"
+              role="progressbar"
+              [style.width]="frontItem.progress"
+              aria-valuemin="0"
+              aria-valuenow="95"
+              aria-valuemax="100"
+            >
+              {{ frontItem.lvl }}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div id="frontend" class="col-lg-4 mt-5">
+
+      <div id="backend" class="col-lg-4 mt-5">
+        <div
+          class="skills-header d-flex justify-content-between align-items-center"
+        >
+          <h3 class="mb-3 fw-bold">Back-End</h3>
+          <span
+            class="edit-icon"
+            data-bs-toggle="modal"
+            data-bs-target="#skillPlus"
+            ><i class="bi bi-plus-circle"></i
+          ></span>
+        </div>
+        <div *ngFor="let backItem of backData" class="skill-item">
           <div
-            class="skills-header d-flex justify-content-between align-items-center"
+            class="item-title d-flex justify-content-between align-items-center"
           >
-            <h3 class="mb-3 fw-bold">Front-End</h3>
-            <span
-              class="edit-icon"
-              data-bs-toggle="modal"
-              data-bs-target="#skillPlus"
-              ><i class="bi bi-plus-circle"></i
-            ></span>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
+            <span class="fs-5"
+              ><i [class]="backItem.icon" class="pe-2"></i
+              >{{ backItem.skill }}</span
             >
-              <span class="fs-5"><i class="fa-brands fa-html5"></i> HTML</span>
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-warning"
-                role="progressbar"
-                style="width: 95%"
-                aria-valuemin="0"
-                aria-valuenow="95"
-                aria-valuemax="100"
-              >
-                Avanzado
-              </div>
+            <div class="item-buttons">
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#skillEdit"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                ><i class="bi bi-trash3"></i
+              ></span>
             </div>
           </div>
-          <div class="skill-item">
+          <div class="progress mb-3" style="height: 20px">
             <div
-              class="item-title d-flex justify-content-between align-items-center"
+              class="progress-bar bg-info"
+              role="progressbar"
+              [style.width]="backItem.progress"
+              aria-valuemin="0"
+              aria-valuenow="40"
+              aria-valuemax="100"
             >
-              <span class="fs-5"
-                ><i class="fa-brands fa-css3-alt"></i> CSS</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-warning"
-                role="progressbar"
-                style="width: 85%"
-                aria-valuemin="0"
-                aria-valuenow="85"
-                aria-valuemax="100"
-              >
-                Avanzado
-              </div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
-            >
-              <span class="fs-5"
-                ><i class="fa-brands fa-js-square"></i> JavaScript</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-warning"
-                role="progressbar"
-                style="width: 70%"
-                aria-valuemin="0"
-                aria-valuenow="70"
-                aria-valuemax="100"
-              >
-                Intermedio
-              </div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
-            >
-              <span class="fs-5"
-                ><i class="fa-brands fa-bootstrap"></i> Bootstrap</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-warning"
-                role="progressbar"
-                style="width: 60%"
-                aria-valuemin="0"
-                aria-valuenow="60"
-                aria-valuemax="100"
-              >
-                Intermedio
-              </div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
-            >
-              <span class="fs-5"
-                ><i class="fa-brands fa-angular"></i> Angular</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-warning"
-                role="progressbar"
-                style="width: 50%"
-                aria-valuemin="0"
-                aria-valuenow="50"
-                aria-valuemax="100"
-              >
-                Básico
-              </div>
+              {{ backItem.lvl }}
             </div>
           </div>
         </div>
+      </div>
 
-        <div id="backend" class="col-lg-4 mt-5">
-          <div
-            class="skills-header d-flex justify-content-between align-items-center"
-          >
-            <h3 class="mb-3 fw-bold">Back-End</h3>
-            <span
-              class="edit-icon"
-              data-bs-toggle="modal"
-              data-bs-target="#skillPlus"
-              ><i class="bi bi-plus-circle"></i
-            ></span>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
-            >
-              <span class="fs-5"
-                ><i class="fa-brands fa-java"></i> Java/Spring Boot</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-info"
-                role="progressbar"
-                style="width: 40%"
-                aria-valuemin="0"
-                aria-valuenow="40"
-                aria-valuemax="100"
-              >
-                Básico
-              </div>
-            </div>
-            <div class="skill-item">
-              <div
-                class="item-title d-flex justify-content-between align-items-center"
-              >
-                <span class="fs-5"
-                  ><i class="fa-solid fa-database"></i> MySql</span
-                >
-                <div class="item-buttons">
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#skillEdit"
-                    ><i class="bi bi-pencil-square"></i
-                  ></span>
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteModal"
-                    ><i class="bi bi-trash3"></i
-                  ></span>
-                </div>
-              </div>
-              <div class="progress mb-3" style="height: 20px">
-                <div
-                  class="progress-bar bg-info"
-                  role="progressbar"
-                  style="width: 30%"
-                  aria-valuemin="0"
-                  aria-valuenow="30"
-                  aria-valuemax="100"
-                >
-                  Básico
-                </div>
-              </div>
-            </div>
-          </div>
+      <div id="soft" class="col-lg-4 mt-5">
+        <div
+          class="skills-header d-flex justify-content-between align-items-center"
+        >
+          <h3 class="mb-3 fw-bold">Soft-Skills</h3>
+          <span
+            class="edit-icon"
+            data-bs-toggle="modal"
+            data-bs-target="#skillPlus"
+            ><i class="bi bi-plus-circle"></i
+          ></span>
         </div>
-
-        <div id="soft" class="col-lg-4 mt-5">
+        <div *ngFor="let softItem of softData" class="skill-item">
           <div
-            class="skills-header d-flex justify-content-between align-items-center"
+            class="item-title d-flex justify-content-between align-items-center"
           >
-            <h3 class="mb-3 fw-bold">Soft-Skills</h3>
-            <span
-              class="edit-icon"
-              data-bs-toggle="modal"
-              data-bs-target="#skillPlus"
-              ><i class="bi bi-plus-circle"></i
-            ></span>
-          </div>
-          <div class="skill-item">
-            <div
-              class="item-title d-flex justify-content-between align-items-center"
+            <span class="fs-5"
+              ><i [class]="softItem.icon" class="pe-2"></i
+              >{{ softItem.skill }}</span
             >
-              <span class="fs-5"
-                ><i class="fa-solid fa-people-carry-box"></i> Colaborativo</span
-              >
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#skillEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
+            <div class="item-buttons">
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#skillEdit"
+                ><i class="bi bi-pencil-square"></i
+              ></span>
+              <span
+                class="edit-icon"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                ><i class="bi bi-trash3"></i
+              ></span>
             </div>
-            <div class="progress mb-3" style="height: 20px">
-              <div
-                class="progress-bar bg-success"
-                role="progressbar"
-                style="width: 100%"
-                aria-valuemin="0"
-                aria-valuenow="100"
-                aria-valuemax="100"
-              >
-                En las tareas a realizar
-              </div>
-            </div>
-            <div class="skill-item">
-              <div
-                class="item-title d-flex justify-content-between align-items-center"
-              >
-                <span class="fs-5"
-                  ><i class="fa-solid fa-comment-dots"></i> Comunicativo</span
-                >
-                <div class="item-buttons">
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#skillEdit"
-                    ><i class="bi bi-pencil-square"></i
-                  ></span>
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteModal"
-                    ><i class="bi bi-trash3"></i
-                  ></span>
-                </div>
-              </div>
-              <div class="progress mb-3" style="height: 20px">
-                <div
-                  class="progress-bar bg-success"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuemin="0"
-                  aria-valuenow="100"
-                  aria-valuemax="100"
-                >
-                  Con mi equipo de trabajo
-                </div>
-              </div>
-              <div class="skill-item">
-                <div
-                  class="item-title d-flex justify-content-between align-items-center"
-                >
-                  <span class="fs-5"
-                    ><i class="fa-solid fa-hand-holding-heart"></i>
-                    Empático</span
-                  >
-                  <div class="item-buttons">
-                    <span
-                      class="edit-icon"
-                      data-bs-toggle="modal"
-                      data-bs-target="#skillEdit"
-                      ><i class="bi bi-pencil-square"></i
-                    ></span>
-                    <span
-                      class="edit-icon"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                      ><i class="bi bi-trash3"></i
-                    ></span>
-                  </div>
-                </div>
-                <div class="progress mb-3" style="height: 20px">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 100%"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    aria-valuemax="100"
-                  >
-                    Con los que me rodean
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div
-                  class="item-title d-flex justify-content-between align-items-center"
-                >
-                  <span class="fs-5"
-                    ><i class="fa-solid fa-laptop-code"></i> Autodidacta</span
-                  >
-                  <div class="item-buttons">
-                    <span
-                      class="edit-icon"
-                      data-bs-toggle="modal"
-                      data-bs-target="#skillEdit"
-                      ><i class="bi bi-pencil-square"></i
-                    ></span>
-                    <span
-                      class="edit-icon"
-                      data-bs-toggle="modal"
-                      data-bs-target="#deleteModal"
-                      ><i class="bi bi-trash3"></i
-                    ></span>
-                  </div>
-                </div>
-                <div class="progress mb-3" style="height: 20px">
-                  <div
-                    class="progress-bar bg-success"
-                    role="progressbar"
-                    style="width: 100%"
-                    aria-valuemin="0"
-                    aria-valuenow="100"
-                    aria-valuemax="100"
-                  >
-                    Con lo que me apasiona
-                  </div>
-                </div>
-              </div>
+          </div>
+          <div class="progress mb-3" style="height: 20px">
+            <div
+              class="progress-bar bg-success"
+              role="progressbar"
+              style="width: 100%"
+              aria-valuemin="0"
+              aria-valuenow="100"
+              aria-valuemax="100"
+            >
+              {{ softItem.lvl }}
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
