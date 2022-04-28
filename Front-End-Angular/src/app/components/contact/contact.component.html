@@ -1,94 +1,91 @@
 <!--Formulario de contacto-->
 <section id="contact" class="section-info">
-    <div class="container">
-      <div class="section-title">
-        <div
-          class="section-header d-flex justify-content-between align-items-center"
-        >
-          <h2 class="fw-bold">Contacto</h2>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#sectionModal"
-            ><i class="bi bi-pencil-square"></i
-          ></span>
-        </div>
-        <p>
-          Si tienes algún proyecto y te gustaría que forme parte del mismo, te
-          invito a contactarme con el siguiente formulario, también puedes
-          usarlo simplemente para dejarme algún comentario o
-          <b>¡saludarme! 🙋‍♂️</b>
-        </p>
+  <div class="container">
+    <div class="section-title">
+      <div
+        class="section-header d-flex justify-content-between align-items-center"
+      >
+        <h2 class="fw-bold">Contacto</h2>
+        <span
+          class="edit-icon"
+          data-bs-toggle="modal"
+          data-bs-target="#sectionModal"
+          ><i class="bi bi-pencil-square"></i
+        ></span>
       </div>
-      <div class="row d-flex justify-content-center flex-row">
-        <div class="col-lg-6">
-          <h3 class="text-center">¡Construyamos algo juntos!</h3>
-          <hr />
-          <form
-            action="https://formsubmit.co/f4be33e69b9360fa1f60a9026ba46950"
-            method="POST"
-            class="form"
-          >
-            <div class="mb-3">
-              <label for="contactName" class="form-label fw-bold"
-                >* Nombre:</label
-              >
-              <input
-                id="contactName"
-                name="contactName"
-                type="text"
-                class="form-control"
-                placeholder="Ej: Elon Musk"
-                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
-                title="Utiliza únicamente letras y espacios en blanco."
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="contactEmail" class="form-label fw-bold"
-                >* E-Mail:</label
-              >
-              <input
-                id="contactEmail"
-                name="contactEmail"
-                type="email"
-                class="form-control"
-                placeholder="Ej: ejemplo@correo.com"
-                pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$"
-                title="Introduce un correo electrónico válido."
-                required
-              />
-            </div>
-            <div class="mb-3">
-              <label for="contactComment" class="form-label fw-bold"
-                >* Mensaje:</label
-              >
-              <textarea
-                id="contactComment"
-                name="contactComment"
-                cols="30"
-                rows="3"
-                class="form-control"
-                style="resize: none"
-                placeholder="¡Dejame un mensaje!"
-                required
-              ></textarea>
-            </div>
-            <i>* Campos requeridos</i>
-            <div class="mb-3 text-center">
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                type="hidden"
-                name="_next"
-                value="https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html"
-              />
-              <button type="submit" class="btn btn-outline-info mt-3">
-                ¡Enviar!
-              </button>
-            </div>
-          </form>
-          <hr />
-        </div>
+      <p>
+        {{ contactData }}
+      </p>
+    </div>
+    <div class="row d-flex justify-content-center flex-row">
+      <div class="col-lg-6">
+        <h3 class="text-center">¡Construyamos algo juntos!</h3>
+        <hr />
+        <form
+          action="https://formsubmit.co/f4be33e69b9360fa1f60a9026ba46950"
+          method="POST"
+          class="form"
+        >
+          <div class="mb-3">
+            <label for="contactName" class="form-label fw-bold"
+              >* Nombre:</label
+            >
+            <input
+              id="contactName"
+              name="contactName"
+              type="text"
+              class="form-control"
+              placeholder="Ej: Elon Musk"
+              pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+              title="Utiliza únicamente letras y espacios en blanco."
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label fw-bold"
+              >* E-Mail:</label
+            >
+            <input
+              id="contactEmail"
+              name="contactEmail"
+              type="email"
+              class="form-control"
+              placeholder="Ej: ejemplo@correo.com"
+              pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$"
+              title="Introduce un correo electrónico válido."
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="contactComment" class="form-label fw-bold"
+              >* Mensaje:</label
+            >
+            <textarea
+              id="contactComment"
+              name="contactComment"
+              cols="30"
+              rows="3"
+              class="form-control"
+              style="resize: none"
+              placeholder="¡Dejame un mensaje!"
+              required
+            ></textarea>
+          </div>
+          <i>* Campos requeridos</i>
+          <div class="mb-3 text-center">
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html"
+            />
+            <button type="submit" class="btn btn-outline-info mt-3">
+              ¡Enviar!
+            </button>
+          </div>
+        </form>
+        <hr />
       </div>
     </div>
-  </section>
+  </div>
+</section>
