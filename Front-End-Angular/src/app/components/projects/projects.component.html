@@ -1,137 +1,84 @@
 <!--Sección "Proyectos"-->
 <section id="projects" class="section-info">
-    <div class="container">
-      <div class="section-title">
-        <div
-          class="section-header d-flex justify-content-between align-items-center"
-        >
-          <h2 class="fw-bold">Proyectos</h2>
-          <div>
-            <span
-              class="edit-icon"
-              data-bs-toggle="modal"
-              data-bs-target="#projectPlus"
-              ><i class="bi bi-plus-circle"></i
-            ></span>
-            <span
-              class="edit-icon"
-              data-bs-toggle="modal"
-              data-bs-target="#sectionModal"
-              ><i class="bi bi-pencil-square"></i
-            ></span>
-          </div>
+  <div class="container">
+    <div class="section-title">
+      <div
+        class="section-header d-flex justify-content-between align-items-center"
+      >
+        <h2 class="fw-bold">Proyectos</h2>
+        <div>
+          <span
+            class="edit-icon"
+            data-bs-toggle="modal"
+            data-bs-target="#projectPlus"
+            ><i class="bi bi-plus-circle"></i
+          ></span>
+          <span
+            class="edit-icon"
+            data-bs-toggle="modal"
+            data-bs-target="#sectionModal"
+            ><i class="bi bi-pencil-square"></i
+          ></span>
         </div>
-        <p>
-          Algunos de los proyectos en los que he trabajado haciendo uso de
-          diversas tecnologías.
-        </p>
       </div>
-      <div class="row">
-        <div id="project-cards" class="col-lg-12 project-cards">
-          <div class="card">
-            <div class="card-img-container">
-              <img
-                src="../assets/project-1.png"
-                alt="Portfolio Argentina Programa"
-                class="card-img-top"
-              />
-              <span class="h2">Proyecto #1</span>
-            </div>
-            <div class="card-body section-info">
-              <div
-                class="item-title mb-2 d-flex justify-content-between align-items-center"
-              >
-                <h5 class="card-title">
-                  Portfolio - Argentina Programa #YoProgramo
-                </h5>
-                <div class="item-buttons">
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#projectEdit"
-                    ><i class="bi bi-pencil-square"></i
-                  ></span>
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteModal"
-                    ><i class="bi bi-trash3"></i
-                  ></span>
-                </div>
-              </div>
-              <p class="card-text">
-                Proyecto final realizado durante el Curso de Desarrollo Web
-                Fullstack Argentina Programa. Utiliza herramientas como HTML,
-                CSS, JavaScript y Bootstrap.
-              </p>
-              <a
-                href="https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html"
-                target="_BLANK"
-                class="btn btn-outline-info"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BurgosManuel/PortfolioWebFullStack/tree/main/Front-End"
-                target="_BLANK"
-                class="btn btn-outline-secondary"
-                >Repositorio</a
-              >
-            </div>
+      <p>
+        {{ projectsData }}
+      </p>
+    </div>
+    <div class="row">
+      <div id="project-cards" class="col-lg-12 project-cards">
+        <div
+          *ngFor="let project of projectsList; let projectIndex = index"
+          class="card"
+        >
+          <div class="card-img-container">
+            <img
+              [src]="project.img"
+              alt="Portfolio Argentina Programa"
+              class="card-img-top"
+            />
+            <span class="h2">Proyecto # {{ projectIndex + 1 }}</span>
           </div>
-          <div class="card">
-            <div class="card-img-container">
-              <img
-                src="../assets/project-2.png"
-                alt="Flooble"
-                class="card-img-top"
-              />
-              <span class="h2">Proyecto #2</span>
-            </div>
-            <div class="card-body section-info">
-              <div
-                class="item-title mb-2 d-flex justify-content-between align-items-center"
-              >
-                <h5 class="card-title">Flooble - #SelfTaughtDev</h5>
-                <div class="item-buttons">
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#projectEdit"
-                    ><i class="bi bi-pencil-square"></i
-                  ></span>
-                  <span
-                    class="edit-icon"
-                    data-bs-toggle="modal"
-                    data-bs-target="#deleteModal"
-                    ><i class="bi bi-trash3"></i
-                  ></span>
-                </div>
+          <div class="card-body section-info">
+            <div
+              class="item-title mb-2 d-flex justify-content-between align-items-center"
+            >
+              <h5 class="card-title">
+                {{ project.title }}
+              </h5>
+              <div class="item-buttons">
+                <span
+                  class="edit-icon"
+                  data-bs-toggle="modal"
+                  data-bs-target="#projectEdit"
+                  ><i class="bi bi-pencil-square"></i
+                ></span>
+                <span
+                  class="edit-icon"
+                  data-bs-toggle="modal"
+                  data-bs-target="#deleteModal"
+                  ><i class="bi bi-trash3"></i
+                ></span>
               </div>
-              <p class="card-text">
-                Sitio web estático realizado en HTML y CSS vanilla, con el fin
-                de realizar un layout basado en un diseño. Desafío planteado por
-                <a
-                  href="https://selftaught-dev.com/"
-                  target="_BLANK"
-                  class="link-info text-decoration-underline"
-                  >#SelfTaughtDev</a
-                >.
-              </p>
-              <a
-                href="https://burgosmanuel.github.io/flooble/"
-                target="_BLANK"
-                class="btn btn-outline-info"
-                >Live Demo</a
-              >
-              <a
-                href="https://github.com/BurgosManuel/flooble"
-                target="_BLANK"
-                class="btn btn-outline-secondary"
-                >Repositorio</a
-              >
             </div>
+            <p class="card-text">
+              {{ project.description }}
+            </p>
+            <a
+              [href]="project.live"
+              target="_BLANK"
+              class="btn btn-outline-info"
+              >Live Demo</a
+            >
+            <a
+              [href]="project.repo"
+              target="_BLANK"
+              class="btn btn-outline-secondary"
+              >Repositorio</a
+            >
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
