@@ -1,7 +1,20 @@
-<!--Botón para abrir/cerrar barra de navegación-->
-<app-toggle-button (onToggleButton)="toggleSidebar(sideBar)"></app-toggle-button>
+<!--
+  - Botón para abrir/cerrar barra de navegación. 
+  - Bindeamos el evento personalizado (onToggleButton) y ejecutamos la función para modificar el estado del sidebar, tomandolo como parámetro. -->
+<app-toggle-button
+  (onToggleButton)="toggleSidebar(sideBar)"
+></app-toggle-button>
 <aside>
-  <nav id="navbar" class="sidebar" #sideBar>
+  <!-- 
+    - Le damos el nombre de variable #sideBar para ser utilizado como parámetro. Utilizamos la directiva [ngClass] para agregar/quitar la clase en base a la propiedad 'isOpen'.   
+    - Bindeamos el evento (windows:resize) para ejecutar la función cada vez que el tamaño de la ventana cambie, modificando el estado de 'isOpen'. -->
+  <nav
+    #sideBar
+    id="navbar"
+    class="sidebar"
+    [ngClass]="{ hidebar: !isOpen }"
+    (window:resize)="loadSidebar()"
+  >
     <div id="userInfo" class="d-flex flex-wrap justify-content-center mt-3">
       <img
         class="user-profile img-fluid"
