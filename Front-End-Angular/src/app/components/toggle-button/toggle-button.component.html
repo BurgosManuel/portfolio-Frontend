@@ -1,4 +1,4 @@
-<div class="toggler-btn">
-  <i class="bi bi-list fs-5 open-btn"></i>
-  <i class="bi bi-x-lg close-btn d-none"></i>
+<div class="toggler-btn" (click)="toggleSidebar()">
+  <i class="bi bi-list fs-5 open-btn" [ngClass]="{'d-none': !showSidebar}"></i>
+  <i class="bi bi-x-lg close-btn" [ngClass]="{'d-none': showSidebar}"></i>
 </div>
