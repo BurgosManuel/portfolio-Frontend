@@ -83,175 +83,6 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
   color: var(--white);
 }
 
-
-
-.move {
-  transition: 0.5s; /*Añadimos una transición al momento de modificarse el margen*/
-}
-
-/* Movemos el contenedor a la derecha en pantallas grandes, para que la barra lateral no tape el contenido. */
-@media (min-width: 1200px) {
-  /*
-    - Movemos el contenido a la derecha en resolucionbes mayores a.
-    */
-  .move {
-    margin-left: 280px;
-    transition: 0.5s;
-  }
-}
-
-/*
-==========
-BARRA DE NAVEGACIÓN
-==========
-*/
-
-.toggler-btn {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 60;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 40px;
-  height: 40px;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  color: var(--white);
-  background-color: var(--grey);
-  border-radius: 100%;
-}
-
-@media (min-width: 1200px) {
-  /*
-    - Configuramos el boton para que desaparezca en resoluciones mayores a 1200px.
-    */
-  .toggler-btn {
-    display: none;
-  }
-}
-
-.sidebar {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 280px;
-  height: 100vh;
-  padding: 1rem 0;
-
-  background-color: var(--dark);
-  color: #fff;
-
-  transform: translateX(0);
-  transition: transform 0.5s;
-}
-
-/* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
-
-@media (max-height: 730px) {
-  .sidebar {
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
-  }
-  .sidebar::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-}
-
-/* Ocultamos la barra lateral si el usuario intenta "imprimir" el sitio.*/
-@media print {
-  aside {
-    display: none;
-  }
-}
-
-/*Propiedad que usamos para ocultar la barra de navegación.*/
-.hidebar {
-  transform: translateX(-100%);
-}
-
-.user-profile {
-  width: 150px;
-  border: 0.5rem solid var(--grey);
-  border-radius: 100%;
-}
-
-.social li {
-  padding: 0.6rem;
-  margin: 0.6rem;
-  display: inline-block;
-  border-radius: 100%;
-  background-color: var(--grey);
-  line-height: 1;
-}
-
-.social li:hover {
-  background-color: var(--blue);
-  cursor: pointer;
-}
-
-.navigation {
-  color: var(--light);
-}
-
-.nav-item {
-  margin: 1rem 0;
-}
-
-.nav-item a {
-  padding: 10px;
-}
-
-.nav-item i {
-  margin-right: 1rem;
-}
-
-.nav-item a:hover {
-  color: var(--white);
-  transition: 0.3s;
-}
-
-.nav-item a:hover i {
-  color: var(--blue);
-  transition: 0.3s;
-}
-
-.sidebar a:focus {
-  color: var(--white);
-  outline: none;
-  transition: 0.3s;
-}
-
-.sidebar a:focus h2 {
-  color: var(--light);
-  outline: none;
-  transition: 0.3s;
-}
-
-.sidebar a:focus i {
-  color: var(--blue);
-  outline: none;
-  transition: 0.3s;
-}
-
-.ap-container {
-  margin-top: auto;
-}
-
-.ap-logo {
-  width: 100px;
-  height: 60px;
-}
-
 /*
 ==========
 ESTILOS DE SECCIONES (GENERAL)
@@ -280,7 +111,32 @@ ESTILOS DE SECCIONES (GENERAL)
 
 /*
 ==========
-SECCIÓN "SOBRE MÍ"
+ESTILOS ICONOS PARA EDITAR
+==========
+*/
+
+.edit-icon {
+  margin-bottom: 1.5rem;
+  padding-right: 5px;
+}
+
+.edit-icon:hover {
+  cursor: pointer;
+}
+
+/*
+==========
+ESTILO MODALES
+==========
+*/
+
+.modal button[type="submit"] {
+  margin-right: 0.5rem;
+}
+
+/*
+==========
+SECCIÓN "SOBRE MÍ" (Global porque se usa en distintos componentes)
 ==========
 */
 
@@ -313,89 +169,4 @@ SECCIÓN "SOBRE MÍ"
 
 .info-item h5 {
   font-size: 1rem;
-}
-
-/*
-==========
-SECCIÓN "PROYECTOS"
-==========
-*/
-
-.project-cards {
-  display: grid;
-  grid-gap: 1rem;
-}
-/* Alineamos los proyectos en dos columnas en resoluciones de tablet y escritorio.*/
-@media (min-width: 750px) {
-  .project-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.card {
-  background-color: var(--dark);
-  border-color: var(--light);
-  transform: scale(1);
-  transition: 0.2s ease;
-}
-
-.card img {
-  opacity: 1;
-  transition: 0.5s;
-  
-}
-
-.card-img-container {
-  position: relative;
-  background-color: var(--dark);
-}
-
-.card-img-container span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.5s;
-  cursor: default;
-}
-
-.card:hover {
-  transform: scale(0.95);
-  transition: 0.2s;
-}
-
-.card:hover img {
-  opacity: 0.1;
-  transition: 0.5s;
-}
-
-.card:hover span {
-  opacity: 1;
-  transition: 0.5s;
-}
-
-/*
-==========
-ESTILOS ICONOS PARA EDITAR
-==========
-*/
-
-.edit-icon {
-  margin-bottom: 1.5rem;
-  padding-right: 5px;
-}
-
-.edit-icon:hover {
-  cursor: pointer;
-}
-
-/*
-==========
-ESTILO MODALES
-==========
-*/
-
-.modal button[type="submit"] {
-  margin-right: 0.5rem;
 }

@@ -1,0 +1,122 @@
+/*
+==========
+BARRA DE NAVEGACIÓN
+==========
+*/
+.sidebar {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 280px;
+  height: 100vh;
+  padding: 1rem 0;
+
+  background-color: var(--dark);
+  color: #fff;
+
+  transform: translateX(0);
+  transition: transform 0.5s;
+}
+
+/* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
+
+@media (max-height: 730px) {
+  .sidebar {
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  .sidebar::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+}
+
+/* Ocultamos la barra lateral si el usuario intenta "imprimir" el sitio.*/
+@media print {
+  aside {
+    display: none;
+  }
+}
+
+/*Propiedad que usamos para ocultar la barra de navegación.*/
+.hidebar {
+  transform: translateX(-100%);
+}
+
+.user-profile {
+  width: 150px;
+  border: 0.5rem solid var(--grey);
+  border-radius: 100%;
+}
+
+.social li {
+  padding: 0.6rem;
+  margin: 0.6rem;
+  display: inline-block;
+  border-radius: 100%;
+  background-color: var(--grey);
+  line-height: 1;
+}
+
+.social li:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.navigation {
+  color: var(--light);
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-item a {
+  padding: 10px;
+}
+
+.nav-item i {
+  margin-right: 1rem;
+}
+
+.nav-item a:hover {
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav-item a:hover i {
+  color: var(--blue);
+  transition: 0.3s;
+}
+
+.sidebar a:focus {
+  color: var(--white);
+  outline: none;
+  transition: 0.3s;
+}
+
+.sidebar a:focus h2 {
+  color: var(--light);
+  outline: none;
+  transition: 0.3s;
+}
+
+.sidebar a:focus i {
+  color: var(--blue);
+  outline: none;
+  transition: 0.3s;
+}
+
+.ap-container {
+  margin-top: auto;
+}
+
+.ap-logo {
+  width: 100px;
+  height: 60px;
+}
