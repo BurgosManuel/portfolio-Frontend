@@ -7,8 +7,6 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
-
-  apiUrl: string = this.portfolioData.apiUrl;
   jobData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData

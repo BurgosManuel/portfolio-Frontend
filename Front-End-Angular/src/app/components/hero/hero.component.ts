@@ -7,7 +7,6 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent implements OnInit {
-  apiUrl: string = this.portfolioData.apiUrl;
   heroData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData

@@ -7,7 +7,6 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit {
-  apiUrl: string = this.portfolioData.apiUrl;
   skillsData: any;
   frontData: any;
   backData: any;

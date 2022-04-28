@@ -7,7 +7,6 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
-  apiUrl: string = this.portfolioData.apiUrl;
   aboutData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
