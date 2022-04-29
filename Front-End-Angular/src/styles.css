@@ -92,7 +92,13 @@ ESTILOS DE SECCIONES (GENERAL)
 .section-info {
   background-color: var(--dark);
   color: var(--white);
-  padding: 1rem;
+  padding: 8rem 1rem;
+}
+
+@media (max-width: 1200px) {
+  .section-info {
+    padding: 1rem;
+  }
 }
 
 .section-title h2 {
@@ -148,7 +154,7 @@ SECCIÓN "SOBRE MÍ" (Global porque se usa en distintos componentes)
   position: relative;
   padding-left: 1rem;
   border-left: 2px solid var(--blue);
-  margin-bottom: 2rem;
+  margin: 0 3rem 3rem 1rem;
 }
 
 .info-item h4 {

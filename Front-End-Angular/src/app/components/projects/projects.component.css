@@ -22,6 +22,15 @@ SECCIÓN "PROYECTOS"
   transition: 0.2s ease;
 }
 
+.card-body {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.card a {
+  margin-right: .5rem;
+}
+
 .card img {
   opacity: 1;
   transition: 0.5s;
@@ -56,3 +65,4 @@ SECCIÓN "PROYECTOS"
   opacity: 1;
   transition: 0.5s;
 }
+
