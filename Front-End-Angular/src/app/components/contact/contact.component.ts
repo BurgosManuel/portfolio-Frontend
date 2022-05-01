@@ -10,7 +10,7 @@ export class ContactComponent implements OnInit {
   contactData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData.getData().subscribe((data) => {
-      this.contactData = data.contact;
+      this.contactData = data.contact.description;
     });
   }
 

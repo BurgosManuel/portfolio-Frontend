@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PortfolioDataService {
-  apiUrl: string = '../assets/data/data.json';
+  apiUrl: string = 'http://localhost:5000/portfolioData';
 
   constructor(private http: HttpClient) {}
   

@@ -11,7 +11,7 @@ export class AboutComponent implements OnInit {
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
       .getData()
-      .subscribe((data) => (this.aboutData = data.about));
+      .subscribe((data) => (this.aboutData = data.about.description));
   }
   ngOnInit(): void {}
 }

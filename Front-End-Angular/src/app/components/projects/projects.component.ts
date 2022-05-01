@@ -12,8 +12,8 @@ export class ProjectsComponent implements OnInit {
 
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData.getData().subscribe((data) => {
-      this.projectsData = data.projects;
-      this.projectsList = data.projectsList;
+      this.projectsData = data.projects.description;
+      this.projectsList = data.projects.projectsList;
     });
   }
 

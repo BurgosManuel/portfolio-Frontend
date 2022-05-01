@@ -13,10 +13,10 @@ export class SkillsComponent implements OnInit {
   softData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData.getData().subscribe((data) => {
-      this.skillsData = data.skills;
-      this.frontData = data.frontend;
-      this.backData = data.backend;
-      this.softData = data.soft;
+      this.skillsData = data.skills.description;
+      this.frontData = data.skills.frontend;
+      this.backData = data.skills.backend;
+      this.softData = data.skills.soft;
     });
   }
 
