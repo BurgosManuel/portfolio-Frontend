@@ -13,9 +13,8 @@
           ><i class="bi bi-pencil-square"></i
         ></span>
       </div>
-      <p>
-        {{ aboutData }}
-      </p>
+      <!-- Utilizamos el Attr binding para poder utilizar marcado HTML en nuestro JSON -->
+      <p [innerHTML]="aboutData"></p>
     </div>
     <app-professional-info></app-professional-info>
   </div>

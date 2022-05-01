@@ -14,6 +14,15 @@ ESTILOS GLOBALES
 
 html {
   scroll-behavior: smooth;
+  /* Ocultamos la barra de scroll */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Ocultamos la barra de scroll */
+
+html::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 body {

@@ -14,5 +14,9 @@ export class HeroComponent implements OnInit {
       .subscribe((data) => (this.heroData = data.hero));
   }
 
+  showTitle(el: HTMLElement) {
+    el.classList.remove('hideText', 'opacity-0');
+  }
+
   ngOnInit(): void {}
 }
