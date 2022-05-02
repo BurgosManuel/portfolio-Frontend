@@ -14,6 +14,8 @@ import { ProfessionalInfoComponent } from './components/about/professional-info/
 import { EducationComponent } from './components/about/professional-info/education/education.component';
 import { ExperienceComponent } from './components/about/professional-info/experience/experience.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponentComponent } from './components/edit-component/edit-component.component';
+import { EditButtonComponent } from './components/edit-component/edit-button/edit-button.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProfessionalInfoComponent,
     EducationComponent,
     ExperienceComponent,
+    EditComponentComponent,
+    EditButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

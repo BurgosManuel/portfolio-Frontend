@@ -6,15 +6,20 @@
         class="section-header d-flex justify-content-between align-items-center"
       >
         <h2 class="fw-bold">Sobre mí</h2>
-        <span
-          class="edit-icon"
-          data-bs-toggle="modal"
-          data-bs-target="#sectionModal"
-          ><i class="bi bi-pencil-square"></i
-        ></span>
+        <app-edit-button
+          (onToggleEdition)="toggleEdition($event)"
+        ></app-edit-button>
       </div>
       <!-- Utilizamos el Attr binding para poder utilizar marcado HTML en nuestro JSON -->
-      <p [innerHTML]="aboutData"></p>
+      <p
+        *ngIf="!isEditing"
+        [innerHTML]="aboutData"
+        [ngClass]="{ editableItem: isEditing }"
+      ></p>
+      <app-edit-component
+        editableData="{{ aboutData }}"
+        *ngIf="isEditing"
+      ></app-edit-component>
     </div>
     <app-professional-info></app-professional-info>
   </div>

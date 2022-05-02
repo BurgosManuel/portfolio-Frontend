@@ -1,0 +1,8 @@
+.editableItem {
+  width: 100%;
+  background: var(--dark);
+  color: var(--white);
+  padding: 1rem;
+  border: solid 1px var(--blue);
+  resize: none;
+}
