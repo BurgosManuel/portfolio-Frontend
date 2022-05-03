@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditComponentComponent } from './components/edit-component/edit-component.component';
 import { EditButtonComponent } from './components/edit-component/edit-button/edit-button.component';
 import { FormsModule } from '@angular/forms';
+import { PortfolioDataService } from './services/portfolio-data.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     EditButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  providers: [PortfolioDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -7,11 +7,12 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit {
+  url: string = 'http://localhost:5000/experience';
   jobData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
-      .getData()
-      .subscribe((data) => (this.jobData = data.experience));
+      .getData(this.url)
+      .subscribe((data) => (this.jobData = data));
   }
 
   ngOnInit(): void {

@@ -7,11 +7,12 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
+  url: string = 'http://localhost:5000/education';
   educationData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
-      .getData()
-      .subscribe((data) => (this.educationData = data.education));
+      .getData(this.url)
+      .subscribe((data) => (this.educationData = data));
   }
 
   ngOnInit(): void {}

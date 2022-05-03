@@ -7,11 +7,12 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent implements OnInit {
+  url: string = 'http://localhost:5000/hero';
   heroData: any;
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
-      .getData()
-      .subscribe((data) => (this.heroData = data.hero));
+      .getData(this.url)
+      .subscribe((data) => (this.heroData = data));
   }
 
   showTitle(el: HTMLElement) {

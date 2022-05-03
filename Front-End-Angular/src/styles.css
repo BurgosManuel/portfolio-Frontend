@@ -135,8 +135,7 @@ ESTILOS ICONOS PARA EDITAR
   padding-right: 5px;
 }
 
-.edit-icon:hover i {
-  outline: solid 2px blue;
+.edit-icon:hover{
   cursor: pointer;
 }
 

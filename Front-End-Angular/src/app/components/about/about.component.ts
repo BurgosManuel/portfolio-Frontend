@@ -7,13 +7,14 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
+  url: string = 'http://localhost:5000/about';
   isEditing: boolean = false;
   aboutData: any;
 
   constructor(private portfolioData: PortfolioDataService) {
     this.portfolioData
-      .getData()
-      .subscribe((data) => (this.aboutData = data.about.description));
+      .getData(this.url)
+      .subscribe((data) => (this.aboutData = data.description));
   }
 
   toggleEdition(editingState: boolean): void {

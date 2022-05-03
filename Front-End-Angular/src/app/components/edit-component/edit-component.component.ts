@@ -7,10 +7,16 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class EditComponentComponent implements OnInit {
   @Input() editableData: string = 'Test';
-  @Output() onSaveData: EventEmitter<any> = new EventEmitter();
+  @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
+  @Output() onSave: EventEmitter<any> = new EventEmitter();
 
-  saveChange(): void {
-    this.onSaveData.emit(this.editableData);
+  toggleEdition(): void {
+    this.onToggleEdition.emit();
   }
+
+  saveChanges(): void {
+    this.onSave.emit(this.editableData);
+  }
+
   ngOnInit(): void {}
 }
