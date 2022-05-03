@@ -135,7 +135,8 @@ ESTILOS ICONOS PARA EDITAR
   padding-right: 5px;
 }
 
-.edit-icon:hover {
+.edit-icon:hover i {
+  outline: solid 2px blue;
   cursor: pointer;
 }
 
@@ -185,4 +186,3 @@ SECCIÓN "SOBRE MÍ" (Global porque se usa en distintos componentes)
 .info-item h5 {
   font-size: 1rem;
 }
-

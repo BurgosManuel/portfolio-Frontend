@@ -20,5 +20,9 @@ export class AboutComponent implements OnInit {
     this.isEditing = editingState;
   }
 
+  saveChanges(newData: any): void {
+    this.aboutData = newData;
+  }
+
   ngOnInit(): void {}
 }

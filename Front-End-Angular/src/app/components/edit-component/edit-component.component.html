@@ -1,1 +1,1 @@
-<textarea rows="3" class="editableItem" [innerHTML]="editableData"></textarea>
+<textarea rows="3" class="editableItem" [(ngModel)]="editableData" (change)="saveChange()"></textarea>

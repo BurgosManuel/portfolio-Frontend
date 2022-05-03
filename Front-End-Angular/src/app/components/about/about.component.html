@@ -10,16 +10,17 @@
           (onToggleEdition)="toggleEdition($event)"
         ></app-edit-button>
       </div>
+      <app-edit-component
+        (onSaveData)="saveChanges($event)"
+        [editableData]="aboutData"
+        *ngIf="isEditing"
+      ></app-edit-component>
       <!-- Utilizamos el Attr binding para poder utilizar marcado HTML en nuestro JSON -->
       <p
         *ngIf="!isEditing"
         [innerHTML]="aboutData"
         [ngClass]="{ editableItem: isEditing }"
       ></p>
-      <app-edit-component
-        editableData="{{ aboutData }}"
-        *ngIf="isEditing"
-      ></app-edit-component>
     </div>
     <app-professional-info></app-professional-info>
   </div>

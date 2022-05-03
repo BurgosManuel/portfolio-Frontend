@@ -16,6 +16,7 @@ import { ExperienceComponent } from './components/about/professional-info/experi
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponentComponent } from './components/edit-component/edit-component.component';
 import { EditButtonComponent } from './components/edit-component/edit-button/edit-button.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { EditButtonComponent } from './components/edit-component/edit-button/edi
     EditComponentComponent,
     EditButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

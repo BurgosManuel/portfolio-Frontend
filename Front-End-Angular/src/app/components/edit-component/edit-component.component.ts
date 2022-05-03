@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-edit-component',
@@ -7,5 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class EditComponentComponent implements OnInit {
   @Input() editableData: string = 'Test';
+  @Output() onSaveData: EventEmitter<any> = new EventEmitter();
+
+  saveChange(): void {
+    this.onSaveData.emit(this.editableData);
+  }
   ngOnInit(): void {}
 }
