@@ -7,23 +7,27 @@
       >
         <h2 class="fw-bold">Proyectos</h2>
         <div>
+          <app-edit-button
+            *ngIf="!isEditing"
+            (onToggleEdition)="toggleEdition($event)"
+          ></app-edit-button>
           <span
             class="edit-icon"
             data-bs-toggle="modal"
             data-bs-target="#projectPlus"
             ><i class="bi bi-plus-circle"></i
           ></span>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#sectionModal"
-            ><i class="bi bi-pencil-square"></i
-          ></span>
         </div>
       </div>
-      <p>
-        {{ sectionData }}
-      </p>
+      <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
+      <app-edit-component
+        *ngIf="isEditing"
+        [editableData]="sectionData"
+        (onToggleEdition)="toggleEdition($event)"
+        (onSave)="saveChanges($event)"
+      ></app-edit-component>
+      <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
+      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
     </div>
     <div class="row">
       <div id="project-cards" class="col-lg-12 project-cards">

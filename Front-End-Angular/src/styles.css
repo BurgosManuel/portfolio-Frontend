@@ -81,15 +81,20 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
   padding-right: 0 !important;
 }
 
+/*Modificamos el color de fondo de los modaless por defecto de Bootstrap*/
+.modal-content {
+  background: var(--dark) !important;
+}
+
 /*Modificamos los colores de los input por defecto de Bootstrap*/
 .form-control {
-  background-color: var(--dark);
-  color: var(--white);
+  background-color: var(--dark) !important;
+  color: var(--white) !important;
 }
 
 .form-control:focus {
-  background-color: var(--dark);
-  color: var(--white);
+  background-color: var(--dark) !important;
+  color: var(--white) !important;
 }
 
 /*

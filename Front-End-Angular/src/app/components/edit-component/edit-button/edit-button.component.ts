@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-edit-button',
@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./edit-button.component.css'],
 })
 export class EditButtonComponent implements OnInit {
-  isEditing: boolean = false;
+  @Input() isEditing: boolean = false;
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   constructor() {}
 

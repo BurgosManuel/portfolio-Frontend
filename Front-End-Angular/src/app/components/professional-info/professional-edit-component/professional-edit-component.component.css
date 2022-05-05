@@ -1,0 +1,10 @@
+.editableItem {
+    max-width: 90%;
+    background: var(--dark);
+    color: var(--white);
+    padding: 1rem;
+    margin: 1rem;
+    border: solid 1px var(--blue);
+    border-radius: 2rem;
+    resize: none;
+  }

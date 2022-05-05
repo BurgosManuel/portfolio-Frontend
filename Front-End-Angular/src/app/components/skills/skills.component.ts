@@ -20,13 +20,16 @@ export class SkillsComponent extends Section {
   // Generamos un array de arrays, que contendrá la información de cada una de las habilidades.
   dataList: any[] = [];
 
-
-  // Obtenemos los datos de las habilidades a través del servicio realizando iteraciones, por cada URL se pushea un elemento al dataList.
   override ngOnInit(): void {
+    // Obtenemos los datos de las habilidades a través del servicio realizando iteraciones, por cada URL se pushea un elemento al dataList.
     for (let url of this.urlList) {
       this.portfolioData.getData(url).subscribe((data) => {
         this.dataList.push(data);
       });
     }
+    // Al sobrescribir la lógica del ngOnInit, debemos reasignar los datos de la seccion.
+    this.portfolioData
+      .getData(this.url)
+      .subscribe((data) => (this.sectionData = data.description));
   }
 }

@@ -8,23 +8,19 @@
         <h2 class="fw-bold">Sobre mí</h2>
         <!-- Componente 'Edit Button'-->
         <app-edit-button
+          [isEditing]="isEditing"
           (onToggleEdition)="toggleEdition($event)"
-          *ngIf="!isEditing"
         ></app-edit-button>
       </div>
-        <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
+      <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
+        *ngIf="isEditing"
         [editableData]="sectionData"
         (onToggleEdition)="toggleEdition($event)"
-        *ngIf="isEditing"
         (onSave)="saveChanges($event)"
       ></app-edit-component>
-      <!-- Utilizamos el Attr binding para poder utilizar marcado HTML en nuestro JSON -->
-      <p
-        *ngIf="!isEditing"
-        [innerHTML]="sectionData"
-        [ngClass]="{ editableItem: isEditing }"
-      ></p>
+      <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
+      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
     </div>
     <!-- Seccion educacion/experiencia -->
     <app-professional-info></app-professional-info>

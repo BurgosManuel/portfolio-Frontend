@@ -2,10 +2,10 @@
 <section
 id="home"
 class="hero-container d-flex align-items-center justify-content-center"
-[ngStyle]="{'background-image':'url(' + heroData.heroimg + ')'}"
+[ngStyle]="{'background-image':'url(' + sectionData.heroimg + ')'}"
 >
 <div #heroText class="home-content opacity-0 hideText" (window:load)="showTitle(heroText)">
-  <h1 class="display-3 fw-bold">{{ heroData.title }}</h1>
-  <p class="fs-4">{{ heroData.subtitle }}</p>
+  <h1 class="display-3 fw-bold">{{ sectionData.title }}</h1>
+  <p class="fs-4">{{ sectionData.subtitle }}</p>
 </div>
 </section>

@@ -13,19 +13,22 @@
   "about": {
     "description": "¡Hola! Soy Manuel, apasionado por la tecnología, la música y la docencia. Apunto a crecer profesionalmente como <b>Desarrollador Web Fullstack</b>.<br>Busco estar en constante formación y llevar lo aprendido a la práctica, soy responsable, empático, dedicado y curioso. Me encantaría formar parte de proyectos que me permitan desarrollarme como profesional y mejorar mis habilidades, así como también colaborar con un equipo de trabajo para cumplir objetivos."
   },
+  "aboutImg": {
+    "imgLink": "assets/about.jpg"
+  },
   "education": [
     {
       "id": 1,
       "title": "Desarrollo Web FullStack",
       "date": "2021 - 2022",
-      "school": "Argentina Programa",
+      "place": "Argentina Programa",
       "description": "Curso de Desarrollo Web FullStack donde se estudian diversas tecnologías como ser HTML, CSS, Bootstrap, Angular, Java, Spring Boot, entre otras."
     },
     {
       "id": 2,
       "title": "Profesorado de Música - Piano",
       "date": "2018 - 2022",
-      "school": "Instituto Superior de Música (UNT)",
+      "place": "Instituto Superior de Música (UNT)",
       "description": "Pedagogía, Psicología del Alumno, Manejo de Grupos, Planificación de Clases, Proyectos, Prácticas Profesionales, Composición, Ejecución Instrumental, Arreglos, etc."
     }
   ],
@@ -34,7 +37,7 @@
       "id": 1,
       "title": "FullStack Web Developer",
       "date": "2022 - Presente",
-      "company": "Freelancer",
+      "place": "Freelancer",
       "description": "Desarrollo de proyectos personales a fin de desarrollar mis habilidades."
     }
   ],

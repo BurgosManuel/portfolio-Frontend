@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { Section } from 'src/section';
 
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css'],
 })
-export class HeroComponent implements OnInit {
-  url: string = 'http://localhost:5000/hero';
-  heroData: any;
-  constructor(private portfolioData: PortfolioDataService) {
-    this.portfolioData
-      .getData(this.url)
-      .subscribe((data) => (this.heroData = data));
-  }
+export class HeroComponent extends Section {
+  // Sobrescribimos la url de la Clase Section.
+  override url: string = 'http://localhost:5000/hero';
 
+  // Método que nos mostrará los elementos cuando la ventana carga a través del (window:load).
   showTitle(el: HTMLElement) {
     el.classList.remove('hideText', 'opacity-0');
   }
 
-  ngOnInit(): void {}
+  // Sobrescribimos los datos que recibimos de la url, de manera que obtengamos el objeto completo.
+  override ngOnInit(): void {
+    this.portfolioData
+    .getData(this.url)
+    .subscribe((data) => (this.sectionData = data));
+  }
 }
