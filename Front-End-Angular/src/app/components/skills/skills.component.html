@@ -14,7 +14,7 @@
         ></span>
       </div>
       <p>
-        {{ skillsData }}
+        {{ sectionData }}
       </p>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
             ><i class="bi bi-plus-circle"></i
           ></span>
         </div>
-        <div *ngFor="let frontItem of frontData" class="skill-item">
+        <div *ngFor="let frontItem of dataList[0]" class="skill-item">
           <div
             class="item-title d-flex justify-content-between align-items-center"
           >
@@ -80,7 +80,7 @@
             ><i class="bi bi-plus-circle"></i
           ></span>
         </div>
-        <div *ngFor="let backItem of backData" class="skill-item">
+        <div *ngFor="let backItem of dataList[1]" class="skill-item">
           <div
             class="item-title d-flex justify-content-between align-items-center"
           >
@@ -130,7 +130,7 @@
             ><i class="bi bi-plus-circle"></i
           ></span>
         </div>
-        <div *ngFor="let softItem of softData" class="skill-item">
+        <div *ngFor="let softItem of dataList[2]" class="skill-item">
           <div
             class="item-title d-flex justify-content-between align-items-center"
           >

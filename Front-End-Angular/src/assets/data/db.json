@@ -39,7 +39,8 @@
     }
   ],
   "skills": {
-    "description": "Estas son algunas de mis habilidades, tanto técnicas como blandas, con las que cuento para el ámbito profesional.",
+    "description": "Estas son algunas de mis habilidades, tanto técnicas como blandas, con las que cuento para el ámbito profesional."
+  },
   "frontend": [
     {
       "id": 1,
@@ -118,30 +119,28 @@
       "icon": "fa-solid fa-laptop-code",
       "lvl": "Con lo que me apasiona"
     }
-  ]
-  },
+  ],
   "projects": {
-    "description": "Algunos de los proyectos en los que he trabajado haciendo uso de diversas tecnologías.",
-    "projectsList": [
-      {
-        "id": 1,
-        "title": "Portfolio - Argentina Programa #YoProgramo",
-        "description": "Proyecto final realizado durante el Curso de Desarrollo Web Fullstack Argentina Programa. Utiliza herramientas como HTML, CSS, JavaScript y Bootstrap.",
-        "img": "../assets/project-1.png",
-        "live": "https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html",
-        "repo": "https://github.com/BurgosManuel/PortfolioWebFullStack/tree/main/Front-End"
-      },
-      {
-        "id": 2,
-        "title": "Flooble - #SelfTaughtDev",
-        "description": "Sitio web estático realizado en HTML y CSS vanilla, con el fin de realizar un layout basado en un diseño. Desafío planteado por #SelfTaughtDev.",
-        "img": "../assets/project-2.png",
-        "live": "https://burgosmanuel.github.io/flooble/",
-        "repo": "https://github.com/BurgosManuel/flooble"
-      }
-    ]
+    "description": "Algunos de los proyectos en los que he trabajado haciendo uso de diversas tecnologías."
   },
-
+  "projectsList": [
+    {
+      "id": 1,
+      "title": "Portfolio - Argentina Programa #YoProgramo",
+      "description": "Proyecto final realizado durante el Curso de Desarrollo Web Fullstack Argentina Programa. Utiliza herramientas como HTML, CSS, JavaScript y Bootstrap.",
+      "img": "../assets/project-1.png",
+      "live": "https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html",
+      "repo": "https://github.com/BurgosManuel/PortfolioWebFullStack/tree/main/Front-End"
+    },
+    {
+      "id": 2,
+      "title": "Flooble - #SelfTaughtDev",
+      "description": "Sitio web estático realizado en HTML y CSS vanilla, con el fin de realizar un layout basado en un diseño. Desafío planteado por #SelfTaughtDev.",
+      "img": "../assets/project-2.png",
+      "live": "https://burgosmanuel.github.io/flooble/",
+      "repo": "https://github.com/BurgosManuel/flooble"
+    }
+  ],
   "contact": {
     "description": "Si tienes algún proyecto y te gustaría que forme parte del mismo, te invito a contactarme con el siguiente formulario, también puedes usarlo simplemente para dejarme algún comentario o ¡saludarme! 🙋‍♂️"
   }

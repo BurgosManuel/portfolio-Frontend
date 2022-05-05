@@ -1,29 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { Section } from 'src/section';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })
-export class AboutComponent implements OnInit {
-  url: string = 'http://localhost:5000/about';
-  isEditing: boolean = false;
-  aboutData: any;
-
-  constructor(private portfolioData: PortfolioDataService) {
-    this.portfolioData
-      .getData(this.url)
-      .subscribe((data) => (this.aboutData = data.description));
-  }
-
-  toggleEdition(editingState: boolean): void {
-    this.isEditing = editingState;
-  }
-
-  saveChanges(newData: any): void {
-    this.aboutData = newData;
-  }
-
-  ngOnInit(): void {}
+export class AboutComponent extends Section {
+  // Sobrescribimos la url de la Clase Section, pero mantenemos el resto de lógica.
+  override url = 'http://localhost:5000/about';
 }
