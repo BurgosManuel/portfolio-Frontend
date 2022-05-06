@@ -19,7 +19,9 @@ import { EditButtonComponent } from './components/edit-component/edit-button/edi
 import { FormsModule } from '@angular/forms';
 import { PortfolioDataService } from './services/portfolio-data.service';
 import { ProfessionalItemComponent } from './components/professional-info/professional-item/professional-item.component';
-import { ProfessionalEditComponentComponent } from './components/professional-info/professional-edit-component/professional-edit-component.component';
+import { ProfessionalEditComponent } from './components/professional-info/professional-edit/professional-edit.component';
+import { ProfessionalAddComponent } from './components/professional-info/professional-add/professional-add.component';
+import { ProfessionalAddItemComponent } from './components/professional-info/professional-add-item/professional-add-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ProfessionalEditComponentComponent } from './components/professional-in
     EditComponentComponent,
     EditButtonComponent,
     ProfessionalItemComponent,
-    ProfessionalEditComponentComponent
+    ProfessionalEditComponent,
+    ProfessionalAddComponent,
+    ProfessionalAddItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PortfolioDataService],

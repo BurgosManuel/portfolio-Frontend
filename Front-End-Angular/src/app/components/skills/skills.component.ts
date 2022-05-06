@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
-import { Section } from 'src/section';
+import { Component } from '@angular/core';
+import { Section } from 'src/app/classes/section';
 
 @Component({
   selector: 'app-skills',

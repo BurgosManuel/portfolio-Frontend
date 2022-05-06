@@ -1,51 +1,49 @@
-<h4 class="text-center">Editar elementos</h4>
 <form
-  class="editableItem text-center"
-  *ngFor="let editableItem of editableData"
+class="editableItem text-center"
 >
-  <h5>#{{ editableItem.id }}</h5>
+<h4 class="text-center">Agregar Elemento</h4>
   <input
     name="title"
     type="text"
     class="form-control mb-3"
-    placeholder="Title"
-    [(ngModel)]="editableItem.title"
+    placeholder="Titulo"
+    [(ngModel)]="sampleItem.title"
   />
   <input
     name="date"
     type="text"
     class="form-control mb-3"
-    placeholder="Date"
-    [(ngModel)]="editableItem.date"
+    placeholder="Fecha"
+    [(ngModel)]="sampleItem.date"
   />
   <input
     name="place"
     type="text"
     class="form-control mb-3"
-    placeholder="Place"
-    [ngModel]="editableItem.place"
+    placeholder="Lugar"
+    [(ngModel)]="sampleItem.place"
   />
   <textarea
     name="description"
     rows="5"
     type="text"
     class="form-control mb-3"
-    placeholder="Description"
-    [(ngModel)]="editableItem.description"
+    placeholder="Descripcion"
+    [(ngModel)]="sampleItem.description"
   ></textarea>
   <!-- Botones para guardar/cancelar -->
   <div class="p-2">
     <button
       type="button"
       class="btn btn-outline-success m-2"
-      (click)="toggleEdition(); saveChanges()"
+      (click)="toggleAdding(); addItem()"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>
     <button
       type="button"
       class="btn btn-outline-danger"
-      (click)="toggleEdition(); reload()"
+      (click)="toggleAdding()"
     >
       <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
     </button>

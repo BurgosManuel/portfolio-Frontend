@@ -18,17 +18,17 @@
   },
   "education": [
     {
-      "id": 1,
-      "title": "Desarrollo Web FullStack",
+      "id": 92,
+      "title": "Desarrollo Web Fullstack",
       "date": "2021 - 2022",
       "place": "Argentina Programa",
       "description": "Curso de Desarrollo Web FullStack donde se estudian diversas tecnologías como ser HTML, CSS, Bootstrap, Angular, Java, Spring Boot, entre otras."
     },
     {
-      "id": 2,
+      "id": 69,
       "title": "Profesorado de Música - Piano",
       "date": "2018 - 2022",
-      "place": "Instituto Superior de Música (UNT)",
+      "place": "Instituto Superior de Música de la UNT",
       "description": "Pedagogía, Psicología del Alumno, Manejo de Grupos, Planificación de Clases, Proyectos, Prácticas Profesionales, Composición, Ejecución Instrumental, Arreglos, etc."
     }
   ],

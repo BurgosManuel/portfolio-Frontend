@@ -1,5 +1,6 @@
-import { Directive, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { PortfolioDataService } from './app/services/portfolio-data.service';
+import { Directive, OnInit } from '@angular/core';
+import { PortfolioDataService } from '../services/portfolio-data.service';
+import { Item } from './items';
 
 @Directive()
 export class Section implements OnInit {
@@ -31,22 +32,13 @@ export class Section implements OnInit {
 }
 
 @Directive()
-export class Edition {
-  @Input() editableData: any;
-  @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
-  @Output() onSave: EventEmitter<any> = new EventEmitter();
-
-  toggleEdition(): void {
-    this.onToggleEdition.emit();
-  }
-
-  saveChanges(): void {
-    this.onSave.emit(this.editableData);
-  }
-}
-
-@Directive()
 export class ItemsSection extends Section {
+  isAdding: boolean = false;
+
+  toggleAdding(addingState: boolean): void {
+    this.isAdding = addingState;
+  }
+
   reloadToggle(editingState: boolean) {
     if (this.isEditing) {
       window.location.reload();
@@ -54,10 +46,19 @@ export class ItemsSection extends Section {
     this.isEditing = editingState;
   }
 
+  addItem(item: Item) {
+    this.portfolioData.addItem(this.url, item).subscribe();
+  }
+  
+  deleteItem(item: any) {
+    console.log('Delete: ', item);
+    this.portfolioData.deleteItem(this.url, item).subscribe();
+  }
+
   updateItem(itemsList: any): void {
     for (let item of itemsList) {
       let newUrl = this.url + `/${item.id}`;
-      this.portfolioData.updateProfessionalItem(newUrl, item).subscribe();
+      this.portfolioData.updateItem(newUrl, item).subscribe();
     }
   }
 
@@ -69,15 +70,4 @@ export class ItemsSection extends Section {
   }
 }
 
-// Esta interfaz nos sirve para brindarle estructura al objeto que retornemos a través del servicio.
-export interface ISection {
-  description: string;
-}
 
-export interface Item {
-  id: number;
-  title: string;
-  date: string;
-  place: string;
-  description: string;
-}

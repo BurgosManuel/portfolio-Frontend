@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Edition } from 'src/section';
+import { Edition } from 'src/app/classes/edition';
 
 @Component({
   selector: 'app-edit-component',

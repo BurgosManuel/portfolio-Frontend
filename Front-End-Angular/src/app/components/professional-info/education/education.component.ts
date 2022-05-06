@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
-import { ItemsSection, Section } from 'src/section';
+import { ItemsSection } from 'src/app/classes/section';
 
 @Component({
   selector: 'app-education',

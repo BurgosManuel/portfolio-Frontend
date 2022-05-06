@@ -1,0 +1,12 @@
+<!-- 
+- Creamos los botones de edicion. Los mismos aparecen/desaparecen dependiendo de la propiedad 'isEditing'.
+- Al hacerles click cambian el estado de 'isEditing'.
+-->
+<span id="editionIcon" class="edit-icon">
+  <i
+    class="bi bi-plus-circle"
+    [ngClass]="!isAdding ? 'bi bi-plus-circle' : 'bi bi-x-square'"
+    (click)="toggleAdding(); reload()"
+  ></i>
+</span>
+

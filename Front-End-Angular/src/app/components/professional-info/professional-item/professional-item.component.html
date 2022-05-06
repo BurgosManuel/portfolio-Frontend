@@ -1,11 +1,8 @@
-<div *ngFor="let professionalItem of professionalData" class="info-item">
+<div *ngFor="let professionalItem of professionalData; let i = index" class="info-item">
   <div class="item-title d-flex justify-content-between align-items-center">
     <h4>{{ professionalItem.title }}</h4>
     <div class="item-buttons">
-      <span
-        class="edit-icon"
-        data-bs-toggle="modal"
-        data-bs-target="#deleteModal"
+      <span class="edit-icon" (click)="onDelete(professionalItem, i)"
         ><i class="bi bi-trash3"></i
       ></span>
     </div>

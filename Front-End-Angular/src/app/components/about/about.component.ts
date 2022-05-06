@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Section } from 'src/section';
+import { Section } from 'src/app/classes/section';
 
 @Component({
   selector: 'app-about',
