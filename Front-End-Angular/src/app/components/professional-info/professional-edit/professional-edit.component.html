@@ -1,28 +1,26 @@
-<h4 class="text-center">Editar elementos</h4>
 <form
   class="editableItem text-center"
-  *ngFor="let editableItem of editableData"
 >
   <input
     name="title"
     type="text"
     class="form-control mb-3"
     placeholder="Title"
-    [(ngModel)]="editableItem.title"
+    [(ngModel)]="editableData.title"
   />
   <input
     name="date"
     type="text"
     class="form-control mb-3"
     placeholder="Date"
-    [(ngModel)]="editableItem.date"
+    [(ngModel)]="editableData.date"
   />
   <input
     name="place"
     type="text"
     class="form-control mb-3"
     placeholder="Place"
-    [ngModel]="editableItem.place"
+    [ngModel]="editableData.place"
   />
   <textarea
     name="description"
@@ -30,7 +28,7 @@
     type="text"
     class="form-control mb-3"
     placeholder="Description"
-    [(ngModel)]="editableItem.description"
+    [(ngModel)]="editableData.description"
   ></textarea>
   <!-- Botones para guardar/cancelar -->
   <div class="p-2">

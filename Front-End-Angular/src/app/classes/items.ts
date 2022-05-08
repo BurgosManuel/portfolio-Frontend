@@ -1,4 +1,4 @@
-export interface Item {
+export interface ProfessionalItem {
   id: number;
   title: string;
   date: string;
@@ -6,7 +6,15 @@ export interface Item {
   description: string;
 }
 
+export interface SkillItem {
+  id: number;
+  skill: string;
+  icon: string;
+  lvl: string;
+  progress: string;
+}
+
 // Esta interfaz nos sirve para brindarle estructura al objeto que retornemos a través del servicio.
 export interface SectionItem {
-    description: string;
-  }
+  description: string;
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfessionalAddComponent } from './professional-add.component';
+import { DeleteButtonComponent } from './delete-button.component';
 
-describe('ProfessionalAddComponent', () => {
-  let component: ProfessionalAddComponent;
-  let fixture: ComponentFixture<ProfessionalAddComponent>;
+describe('DeleteButtonComponent', () => {
+  let component: DeleteButtonComponent;
+  let fixture: ComponentFixture<DeleteButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfessionalAddComponent ]
+      declarations: [ DeleteButtonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfessionalAddComponent);
+    fixture = TestBed.createComponent(DeleteButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

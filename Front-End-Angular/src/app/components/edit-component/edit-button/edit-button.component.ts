@@ -5,15 +5,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   templateUrl: './edit-button.component.html',
   styleUrls: ['./edit-button.component.css'],
 })
-export class EditButtonComponent implements OnInit {
+export class EditButtonComponent{
   @Input() isEditing: boolean = false;
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
-  constructor() {}
 
   toggleEdition():void {
     this.isEditing = !this.isEditing;
     this.onToggleEdition.emit(this.isEditing);
   }
-
-  ngOnInit(): void {}
 }

@@ -6,167 +6,48 @@
         class="section-header d-flex justify-content-between align-items-center"
       >
         <h2 class="fw-bold">Habilidades</h2>
-        <span
-          class="edit-icon"
-          data-bs-toggle="modal"
-          data-bs-target="#sectionModal"
-          ><i class="bi bi-pencil-square"></i
-        ></span>
+        <app-edit-button
+          *ngIf="!isEditing"
+          (onToggleEdition)="toggleEdition($event)"
+        ></app-edit-button>
       </div>
-      <p>
-        {{ sectionData }}
-      </p>
+      <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
+      <app-edit-component
+        *ngIf="isEditing"
+        [editableData]="sectionData"
+        (onToggleEdition)="toggleEdition($event)"
+      ></app-edit-component>
+      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
     </div>
+
     <div class="row">
-      <div id="frontend" class="col-lg-4 mt-5">
-        <div
-          class="skills-header d-flex justify-content-between align-items-center"
-        >
-          <h3 class="mb-3 fw-bold">Front-End</h3>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#skillPlus"
-            ><i class="bi bi-plus-circle"></i
-          ></span>
-        </div>
-        <div *ngFor="let frontItem of dataList[0]" class="skill-item">
-          <div
-            class="item-title d-flex justify-content-between align-items-center"
-          >
-            <span class="fs-5"
-              ><i [class]="frontItem.icon" class="pe-2"></i
-              >{{ frontItem.skill }}</span
-            >
-            <div class="item-buttons">
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#skillEdit"
-                ><i class="bi bi-pencil-square"></i
-              ></span>
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#deleteModal"
-                ><i class="bi bi-trash3"></i
-              ></span>
-            </div>
-          </div>
-          <div class="progress mb-3" style="height: 20px">
-            <div
-              class="progress-bar bg-warning"
-              role="progressbar"
-              [style.width]="frontItem.progress"
-              aria-valuemin="0"
-              aria-valuenow="95"
-              aria-valuemax="100"
-            >
-              {{ frontItem.lvl }}
-            </div>
-          </div>
-        </div>
+      <div class="col-lg-4 mt-5">
+        <app-skills-list
+          [url]="urlList[0]"
+          [skillsTitle]="'Front-End'"
+          [skillsArray]="skillsList[0]"
+          [barColor]="'bg-warning'"
+          id="frontend"
+        ></app-skills-list>
       </div>
 
-      <div id="backend" class="col-lg-4 mt-5">
-        <div
-          class="skills-header d-flex justify-content-between align-items-center"
-        >
-          <h3 class="mb-3 fw-bold">Back-End</h3>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#skillPlus"
-            ><i class="bi bi-plus-circle"></i
-          ></span>
-        </div>
-        <div *ngFor="let backItem of dataList[1]" class="skill-item">
-          <div
-            class="item-title d-flex justify-content-between align-items-center"
-          >
-            <span class="fs-5"
-              ><i [class]="backItem.icon" class="pe-2"></i
-              >{{ backItem.skill }}</span
-            >
-            <div class="item-buttons">
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#skillEdit"
-                ><i class="bi bi-pencil-square"></i
-              ></span>
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#deleteModal"
-                ><i class="bi bi-trash3"></i
-              ></span>
-            </div>
-          </div>
-          <div class="progress mb-3" style="height: 20px">
-            <div
-              class="progress-bar bg-info"
-              role="progressbar"
-              [style.width]="backItem.progress"
-              aria-valuemin="0"
-              aria-valuenow="40"
-              aria-valuemax="100"
-            >
-              {{ backItem.lvl }}
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-skills-list
+        [url]="urlList[1]"
+        [skillsTitle]="'Back-End'"
+        [skillsArray]="skillsList[1]"
+        [barColor]="'bg-info'"
+        id="backend"
+        class="col-lg-4 mt-5"
+      ></app-skills-list>
 
-      <div id="soft" class="col-lg-4 mt-5">
-        <div
-          class="skills-header d-flex justify-content-between align-items-center"
-        >
-          <h3 class="mb-3 fw-bold">Soft-Skills</h3>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#skillPlus"
-            ><i class="bi bi-plus-circle"></i
-          ></span>
-        </div>
-        <div *ngFor="let softItem of dataList[2]" class="skill-item">
-          <div
-            class="item-title d-flex justify-content-between align-items-center"
-          >
-            <span class="fs-5"
-              ><i [class]="softItem.icon" class="pe-2"></i
-              >{{ softItem.skill }}</span
-            >
-            <div class="item-buttons">
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#skillEdit"
-                ><i class="bi bi-pencil-square"></i
-              ></span>
-              <span
-                class="edit-icon"
-                data-bs-toggle="modal"
-                data-bs-target="#deleteModal"
-                ><i class="bi bi-trash3"></i
-              ></span>
-            </div>
-          </div>
-          <div class="progress mb-3" style="height: 20px">
-            <div
-              class="progress-bar bg-success"
-              role="progressbar"
-              style="width: 100%"
-              aria-valuemin="0"
-              aria-valuenow="100"
-              aria-valuemax="100"
-            >
-              {{ softItem.lvl }}
-            </div>
-          </div>
-        </div>
-      </div>
+      <app-skills-list
+        [url]="urlList[2]"
+        [skillsTitle]="'Soft-Skills'"
+        [skillsArray]="skillsList[2]"
+        [barColor]="'bg-success'"
+        id="soft"
+        class="col-lg-4 mt-5"
+      ></app-skills-list>
     </div>
   </div>
 </section>

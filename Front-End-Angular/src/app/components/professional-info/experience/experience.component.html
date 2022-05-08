@@ -4,24 +4,27 @@
   >
     <h3 class="mb-3 fw-bold">Experiencia Laboral</h3>
     <div class="mb-3">
-      <app-edit-button
-        [isEditing]="isEditing"
-        (onToggleEdition)="reloadToggle($event)"
-      ></app-edit-button>
-      <app-professional-add [isAdding]="isAdding" (onToggleAdding)="toggleAdding($event)"></app-professional-add>
+      <app-add-button
+        [isAdding]="isAdding"
+        (onToggleAdding)="toggleAdding($event)"
+      ></app-add-button>
     </div>
   </div>
-  <app-professional-add-item *ngIf="isAdding" [itemsList]="sectionData" (onToggleAdding)="toggleAdding($event)" (onAddItem)="addItem($event)"></app-professional-add-item>
+
+  <app-professional-add-item
+    *ngIf="isAdding"
+    [itemsList]="sectionData"
+    (onToggleAdding)="toggleAdding($event)"
+    (onAddItem)="addItem($event)"
+  ></app-professional-add-item>
+
   <!-- Iteramos a traves del array de elementos, y generamos uno nuevo con su respectivo Data Binding. -->
-  <app-professional-edit
-    *ngIf="isEditing"
-    [editableData]="sectionData"
-    (onToggleEdition)="toggleEdition($event)"
-    (onSave)="updateItem($event)"
-  ></app-professional-edit>
-  <app-professional-item
-    *ngIf="!isEditing"
-    [professionalData]="sectionData"
-    (onItemDelete)="deleteItem($event)"
-  ></app-professional-item>
+  <div *ngFor="let experienceItem of sectionData; let i = index">
+    <app-professional-item
+      *ngIf="!isEditing"
+      [url]="url + '/' + experienceItem.id"
+      [professionalItem]="experienceItem"
+      (onItemDelete)="deleteItem(experienceItem, i)"
+    ></app-professional-item>
+  </div>
 </div>

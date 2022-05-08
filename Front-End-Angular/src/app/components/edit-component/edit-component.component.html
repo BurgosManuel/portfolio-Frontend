@@ -2,7 +2,10 @@
 <textarea rows="3" class="editableItem" [(ngModel)]="editableData"></textarea>
 <!-- Botones para guardar/cancelar -->
 <div class="p-2">
-  <button class="btn btn-outline-success me-2" (click)="toggleEdition(); saveChanges()">
+  <button
+    class="btn btn-outline-success me-2"
+    (click)="toggleEdition(); saveChanges()"
+  >
     <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
   </button>
   <button class="btn btn-outline-danger" (click)="toggleEdition()">

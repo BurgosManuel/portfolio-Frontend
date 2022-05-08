@@ -1,24 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { addComponent } from 'src/app/classes/addComponent';
-import { ProfessionalItem } from 'src/app/classes/items';
+import { Directive, Input, EventEmitter, Output } from '@angular/core';
 
-@Component({
-  selector: 'app-professional-add-item',
-  templateUrl: './professional-add-item.component.html',
-  styleUrls: ['./professional-add-item.component.css'],
-})
-export class ProfessionalAddItemComponent  {
+@Directive()
+export class addComponent {
   @Input() isAdding: boolean = false;
   @Input() itemsList: any[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  sampleItem: ProfessionalItem = {
-    id: 0,
-    title: '',
-    date: '',
-    place: '',
-    description: '',
-  };
+  sampleItem: any;
 
   toggleAdding(): void {
     this.onToggleAdding.emit();

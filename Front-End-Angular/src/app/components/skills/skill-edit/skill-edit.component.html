@@ -1,0 +1,71 @@
+<form class="editableItem">
+  <div class="mb-3">
+    <label for="skill" class="form-label mb-2">Habilidad:</label>
+    <input
+      id="skill"
+      name="skill"
+      class="form-control mb-3"
+      type="text"
+      placeholder="EJ: HTML"
+      required
+      [(ngModel)]="editableData.skill"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="icon" class="form-label"
+      >Icono: <i [class]="editableData.icon"></i><br
+    /></label>
+    <input
+      id="icon"
+      name="icon"
+      type="text"
+      class="form-control"
+      placeholder="Iconos de Bootstrap Icons o FontAwesome"
+      [(ngModel)]="editableData.icon"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="skill-lvl" class="form-label mb-2">Nivel:</label>
+    <select
+      class="form-select mb-3"
+      name="lvl"
+      id="skill-lvl"
+      required
+      [(ngModel)]="editableData.lvl"
+    >
+      <option value="default" disabled selected>Elige un nivel...</option>
+      <option value="Básico">Básico</option>
+      <option value="Intermedio">Intermedio</option>
+      <option value="Avanzado">Avanzado</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="progress"
+      >Barra de progreso: {{ editableData.progress }}%</label
+    >
+    <input
+      class="form-range"
+      name="progress"
+      id="progress"
+      type="range"
+      required
+      [(ngModel)]="editableData.progress"
+    />
+  </div>
+  <div class="p-2">
+    <button
+      type="button"
+      class="btn btn-outline-success m-2"
+      (click)="toggleEdition(); saveChanges()"
+    >
+      <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="toggleEdition(); reload()"
+    >
+      <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
+    </button>
+  </div>
+</form>

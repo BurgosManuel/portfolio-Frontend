@@ -13,4 +13,8 @@ export class Edition {
   saveChanges(): void {
     this.onSave.emit(this.editableData);
   }
+
+  reload(): void {
+    window.location.reload();
+  }
 }

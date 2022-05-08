@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Item } from 'src/app/classes/items';
+import { ProfessionalItem } from 'src/app/classes/items';
 
 @Component({
-  selector: 'app-professional-add',
-  templateUrl: './professional-add.component.html',
-  styleUrls: ['./professional-add.component.css'],
+  selector: 'app-add-button',
+  templateUrl: './add-button.component.html',
+  styleUrls: ['./add-button.component.css'],
 })
-export class ProfessionalAddComponent implements OnInit {
+export class AddButtonComponent{
   @Input() isAdding: boolean = false;
-  @Input() itemsList: Item[] = [];
+  @Input() itemsList: ProfessionalItem[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   constructor() {}
 
@@ -22,6 +22,4 @@ export class ProfessionalAddComponent implements OnInit {
       window.location.reload();
     }
   }
-
-  ngOnInit(): void {}
 }

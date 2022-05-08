@@ -50,76 +50,73 @@
       "skill": "HTML",
       "icon": "fa-brands fa-html5",
       "lvl": "Avanzado",
-      "progress": "90%"
-    },
-    {
-      "id": 2,
-      "skill": "CSS",
-      "icon": "fa-brands fa-css3-alt",
-      "lvl": "Avanzado",
-      "progress": "90%"
-    },
-    {
-      "id": 3,
-      "skill": "JavaScript",
-      "icon": "fa-brands fa-js-square",
-      "lvl": "Intermedio",
-      "progress": "65%"
+      "progress": "90"
     },
     {
       "id": 4,
       "skill": "Bootstrap",
       "icon": "fa-brands fa-bootstrap",
       "lvl": "Intermedio",
-      "progress": "65%"
+      "progress": "65"
     },
     {
-      "id": 5,
-      "skill": "Angular",
-      "icon": "fa-brands fa-angular",
-      "lvl": "Intermedio",
-      "progress": "65%"
+      "id": 82,
+      "skill": "CSS",
+      "icon": "fa-brands fa-css3",
+      "lvl": "Avanzado",
+      "progress": 90
+    },
+    {
+      "id": 71,
+      "skill": "123",
+      "icon": "asdasd",
+      "lvl": "Básico",
+      "progress": 61
     }
   ],
   "backend": [
-    {
-      "id": 1,
-      "skill": "Java/Spring Boot",
-      "icon": "fa-brands fa-java",
-      "lvl": "Básico",
-      "progress": "40%"
-    },
     {
       "id": 2,
       "skill": "MySql",
       "icon": "fa-solid fa-database",
       "lvl": "Básico",
-      "progress": "40%"
+      "progress": "40"
+    },
+    {
+      "id": 15,
+      "skill": "Java/Spring Boot",
+      "icon": "fa-brands fa-java",
+      "lvl": "Básico",
+      "progress": 24
+    },
+    {
+      "id": 87,
+      "skill": "HTML",
+      "icon": "fa-brands fa-html5",
+      "lvl": "Avanzado",
+      "progress": "80"
     }
   ],
   "soft": [
     {
-      "id": 1,
-      "skill": "Colaborativo",
-      "icon": "fa-solid fa-people-carry-box",
-      "lvl": "En las tareas a realizar"
-    },
-    {
       "id": 2,
       "skill": "Comunicativo",
       "icon": "fa-solid fa-comment-dots",
+      "progress": "100",
       "lvl": "Con mi equipo de trabajo"
     },
     {
       "id": 3,
       "skill": "Empático",
       "icon": "fa-solid fa-hand-holding-heart",
+      "progress": "100",
       "lvl": "Con los que me rodean"
     },
     {
       "id": 4,
       "skill": "Autodidacta",
       "icon": "fa-solid fa-laptop-code",
+      "progress": "100",
       "lvl": "Con lo que me apasiona"
     }
   ],

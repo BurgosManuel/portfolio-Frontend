@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SectionItem, Item } from 'src/app/classes/items';
+import { SectionItem } from 'src/app/classes/items';
 
 // Utilizando el modulo HTTPHeaders, generamos una variable que nos permitirá indicar que el archivo que estamos enviando es un JSON. Esto es necesario para los POST/PUT/PATCH en json-server.
 const httpOptions = {
@@ -35,7 +35,7 @@ export class PortfolioDataService {
     return this.http.put<any>(url, data, httpOptions);
   }
 
-  addItem(url: string, data: Item): Observable<any> {
+  addItem(url: string, data: any): Observable<any> {
     console.log(data, url);
     return this.http.post<any>(url, data, httpOptions);
   }
