@@ -6,12 +6,12 @@
   },
   "nav": {
     "name": "Manuel Burgos",
-    "profilepic": "assets/profile",
+    "profilepic": "https://avatars.githubusercontent.com/u/83843908?v=4",
     "linkedin": "https://www.linkedin.com/in/manuelburgos-dev/",
     "github": "https://github.com/BurgosManuel"
   },
   "about": {
-    "description": "podemos modificar el texto"
+    "description": "¡Hola! Soy Manuel, apasionado por la tecnología, la música y la docencia. Apunto a crecer profesionalmente como <b>Desarrollador Web Fullstack</b>.<br>Busco estar en constante formación y llevar lo aprendido a la práctica, soy responsable, empático, dedicado y curioso. Me encantaría formar parte de proyectos que me permitan desarrollarme como profesional y mejorar mis habilidades, así como también colaborar con un equipo de trabajo para cumplir objetivos."
   },
   "aboutImg": {
     "imgLink": "assets/about.jpg"
@@ -30,13 +30,6 @@
       "date": "2018 - 2022",
       "place": "Instituto Superior de Música de la UNT",
       "description": "Pedagogía, Psicología del Alumno, Manejo de Grupos, Planificación de Clases, Proyectos, Prácticas Profesionales, Composición, Ejecución Instrumental, Arreglos, etc."
-    },
-    {
-      "id": 42,
-      "title": "Podemos agregar nuevos elementos",
-      "date": "Tambien podemos editarlos",
-      "place": "asdasd",
-      "description": "si actualizamos los datos persisten "
     }
   ],
   "experience": [
@@ -60,6 +53,20 @@
       "progress": "90"
     },
     {
+      "id": 2,
+      "skill": "CSS",
+      "icon": "fa-brands fa-css3-alt",
+      "lvl": "Avanzado",
+      "progress": "90"
+    },
+    {
+      "id": 3,
+      "skill": "JavaScript",
+      "icon": "fa-brands fa-js-square",
+      "lvl": "Intermedio",
+      "progress": "65"
+    },
+    {
       "id": 4,
       "skill": "Bootstrap",
       "icon": "fa-brands fa-bootstrap",
@@ -67,57 +74,57 @@
       "progress": "65"
     },
     {
-      "id": 82,
-      "skill": "CSS",
-      "icon": "fa-brands fa-css3",
-      "lvl": "Avanzado",
-      "progress": 90
+      "id": 5,
+      "skill": "Angular",
+      "icon": "fa-brands fa-angular",
+      "lvl": "Intermedio",
+      "progress": "65"
     }
   ],
   "backend": [
+    {
+      "id": 1,
+      "skill": "Java/Spring Boot",
+      "icon": "fa-brands fa-java",
+      "lvl": "Básico",
+      "progress": "40"
+    },
     {
       "id": 2,
       "skill": "MySql",
       "icon": "fa-solid fa-database",
       "lvl": "Básico",
       "progress": "40"
-    },
-    {
-      "id": 15,
-      "skill": "Java/Spring Boot",
-      "icon": "fa-brands fa-java",
-      "lvl": "Básico",
-      "progress": 24
-    },
-    {
-      "id": 87,
-      "skill": "HTML",
-      "icon": "fa-brands fa-html5",
-      "lvl": "Avanzado",
-      "progress": "80"
     }
   ],
   "soft": [
     {
+      "id": 1,
+      "skill": "Colaborativo",
+      "icon": "fa-solid fa-people-carry-box",
+      "lvl": "En las tareas a realizar",
+      "progress": "100"
+    },
+    {
       "id": 2,
       "skill": "Comunicativo",
       "icon": "fa-solid fa-comment-dots",
-      "progress": "100",
-      "lvl": "Avanzado"
+      "lvl": "Con mi equipo de trabajo",
+      "progress": "100"
     },
     {
       "id": 3,
       "skill": "Empático",
       "icon": "fa-solid fa-hand-holding-heart",
-      "progress": "100",
-      "lvl": "Con los que me rodean"
+      "lvl": "Con los que me rodean",
+      "progress": "100"
     },
     {
       "id": 4,
       "skill": "Autodidacta",
       "icon": "fa-solid fa-laptop-code",
-      "progress": "100",
-      "lvl": "Con lo que me apasiona"
+      "lvl": "Con lo que me apasiona",
+      "progress": "100"
     }
   ],
   "projects": {

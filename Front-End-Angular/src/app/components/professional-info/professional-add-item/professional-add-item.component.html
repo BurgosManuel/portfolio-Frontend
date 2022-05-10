@@ -8,6 +8,7 @@
       type="text"
       class="form-control mb-3"
       placeholder="Título/Puesto"
+      autocomplete="off"
       [(ngModel)]="sampleItem.title"
     />
   </div>
@@ -19,6 +20,7 @@
       type="text"
       class="form-control mb-3"
       placeholder="Inicio - Fin"
+      autocomplete="off"
       [(ngModel)]="sampleItem.date"
     />
   </div>
@@ -30,7 +32,8 @@
       type="text"
       class="form-control mb-3"
       placeholder="Empresa/Institución"
-      [ngModel]="sampleItem.place"
+      autocomplete="off"
+      [(ngModel)]="sampleItem.place"
     />
   </div>
   <div class="mb-2">

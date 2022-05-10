@@ -6,13 +6,14 @@ import { Edition } from 'src/app/classes/edition';
   templateUrl: './edit-component.component.html',
   styleUrls: ['./edit-component.component.css'],
 })
-export class EditComponentComponent{
+export class EditComponentComponent {
   @Input() editableData: any;
+  @Input() isEditing: boolean = false;
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
 
   toggleEdition(): void {
-    this.onToggleEdition.emit();
+    this.onToggleEdition.emit(this.isEditing);
   }
 
   saveChanges(): void {

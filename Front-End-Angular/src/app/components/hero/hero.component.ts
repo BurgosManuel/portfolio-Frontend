@@ -9,6 +9,8 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 })
 export class HeroComponent {
   url: string = 'http://localhost:5000/hero';
+  titleUrl: string = 'http://localhost:5000/nav';
+  username: string = '';
   sectionData: any;
 
   // Inyectamos el servicio utilizando el modificador 'Protected', de manera que las instancias de esta clase puedan acceder al servicio.
@@ -23,6 +25,10 @@ export class HeroComponent {
   ngOnInit(): void {
     this.portfolioData.getData(this.url).subscribe((data) => {
       this.sectionData = data;
+    });
+
+    this.portfolioData.getData(this.titleUrl).subscribe((data) => {
+      this.username = data.name;
     });
   }
 }

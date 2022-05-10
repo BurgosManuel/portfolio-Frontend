@@ -8,6 +8,7 @@
         <h2 class="fw-bold">Proyectos</h2>
         <div>
           <app-edit-button
+            [isEditing]="isEditing"
             (onToggleEdition)="toggleEdition($event)"
           ></app-edit-button>
           <app-add-button

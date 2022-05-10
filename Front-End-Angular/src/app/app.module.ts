@@ -30,6 +30,8 @@ import { DeleteButtonComponent } from './components/edit-component/delete-button
 import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
 import { ProjectEditComponent } from './components/projects/project-edit/project-edit.component';
 import { ProjectAddComponent } from './components/projects/project-add/project-add.component';
+import { NavbarEditionComponent } from './components/navbar/navbar-edition/navbar-edition.component';
+import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ProjectAddComponent } from './components/projects/project-add/project-a
     DeleteButtonComponent,
     ProjectItemComponent,
     ProjectEditComponent,
-    ProjectAddComponent
+    ProjectAddComponent,
+    NavbarEditionComponent,
+    NavbarItemComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PortfolioDataService],

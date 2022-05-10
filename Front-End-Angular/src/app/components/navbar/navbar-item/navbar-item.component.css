@@ -1,0 +1,72 @@
+.user-profile {
+  width: 150px;
+  border: 0.5rem solid var(--grey);
+  border-radius: 100%;
+}
+
+.social li {
+  padding: 0.6rem;
+  margin: 0.6rem;
+  display: inline-block;
+  border-radius: 100%;
+  background-color: var(--grey);
+  line-height: 1;
+}
+
+.social li:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.navigation {
+  color: var(--light);
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-item a {
+  padding: 10px;
+}
+
+.nav-item i {
+  margin-right: 1rem;
+}
+
+.nav-item a:hover {
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.nav-item a:hover i {
+  color: var(--blue);
+  transition: 0.3s;
+}
+
+.sidebar a:focus {
+  color: var(--white);
+  outline: none;
+  transition: 0.3s;
+}
+
+.sidebar a:focus h2 {
+  color: var(--light);
+  outline: none;
+  transition: 0.3s;
+}
+
+.sidebar a:focus i {
+  color: var(--blue);
+  outline: none;
+  transition: 0.3s;
+}
+
+.ap-container {
+    margin-top: 4rem;
+}
+
+.ap-logo {
+  width: 100px;
+  height: 60px;
+}
