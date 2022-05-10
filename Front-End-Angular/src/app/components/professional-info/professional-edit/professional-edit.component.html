@@ -1,37 +1,52 @@
-<form
-  class="editableItem text-center"
->
-  <input
-    name="title"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Title"
-    [(ngModel)]="editableData.title"
-  />
-  <input
-    name="date"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Date"
-    [(ngModel)]="editableData.date"
-  />
-  <input
-    name="place"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Place"
-    [ngModel]="editableData.place"
-  />
-  <textarea
-    name="description"
-    rows="5"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Description"
-    [(ngModel)]="editableData.description"
-  ></textarea>
+<form class="editable-item">
+  <h4 class="text-center">Editar</h4>
+  <div class="mb-2">
+    <label for="professionalTitle" class="form-label">Titulo</label>
+    <input
+      id="professionalTitle"
+      name="professionalTitle"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Título/Puesto"
+      [(ngModel)]="editableData.title"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalDate" class="form-label">Fecha</label>
+    <input
+      id="professionalDate"
+      name="professionalDate"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Inicio - Fin"
+      [(ngModel)]="editableData.date"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalPlace" class="form-label">Lugar</label>
+    <input
+      id="professionalPlace"
+      name="professionalPlace"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Empresa/Institución"
+      [(ngModel)]="editableData.place"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalDescription" class="form-label">Descripcion</label>
+    <textarea
+      id="professionalDescription"
+      name="professionalDescription"
+      rows="5"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Breve descripción de la carrera o puesto..."
+      [(ngModel)]="editableData.description"
+    ></textarea>
+  </div>
   <!-- Botones para guardar/cancelar -->
-  <div class="p-2">
+  <div class="p-2 text-center">
     <button
       type="button"
       class="btn btn-outline-success m-2"

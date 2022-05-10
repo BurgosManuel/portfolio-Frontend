@@ -144,14 +144,14 @@ ESTILOS ICONOS PARA EDITAR
   cursor: pointer;
 }
 
-.editableItem {
+.editable-item {
   width: 100%;
   background: var(--dark);
   color: var(--white);
-  padding: 2rem;
-  margin: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   border: solid 1px var(--blue);
-  border-radius: 2rem;
+  border-radius: 5px;
   resize: none;
 }
 

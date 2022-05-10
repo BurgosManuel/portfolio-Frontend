@@ -1,23 +1,22 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { addComponent } from 'src/app/classes/addComponent';
-import { SkillItem } from 'src/app/classes/items';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-skill-add-item',
-  templateUrl: './skill-add-item.component.html',
-  styleUrls: ['./skill-add-item.component.css'],
+  selector: 'app-project-add',
+  templateUrl: './project-add.component.html',
+  styleUrls: ['./project-add.component.css'],
 })
-export class SkillAddItemComponent {
+export class ProjectAddComponent {
   @Input() isAdding: boolean = false;
   @Input() itemsList: any[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  sampleItem: SkillItem = {
+  sampleItem = {
     id: 1,
-    skill: '',
-    icon: '',
-    lvl: 'default',
-    progress: '0',
+    title: '',
+    description: '',
+    img: '',
+    live: '',
+    repo: '',
   };
 
   toggleAdding(): void {

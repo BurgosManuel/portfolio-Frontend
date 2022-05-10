@@ -13,7 +13,7 @@
         ></app-edit-button>
       </div>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
-      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
+      <p *ngIf="!isEditing" [(innerHTML)]="sectionData"></p>
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"

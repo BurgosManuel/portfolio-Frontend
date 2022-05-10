@@ -1,0 +1,74 @@
+<form class="editable-item">
+  <h4 class="text-center">Agregar</h4>
+  <div class="mb-4">
+    <label for="projectTitle" class="form-label">Título</label>
+    <input
+      id="projectTitle"
+      name="projectTitle"
+      type="text"
+      class="form-control"
+      placeholder="Título del Proyecto"
+      [(ngModel)]="sampleItem.title"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="projectDescription" class="form-label">Descripción</label>
+    <textarea
+      name="projectDescription"
+      id="projectDescription"
+      class="form-control"
+      rows="5"
+      placeholder="Breve descripción del proyecto..."
+      [(ngModel)]="sampleItem.description"
+    ></textarea>
+  </div>
+  <div class="mb-4">
+    <label for="projectImg" class="form-label">URL de imagen</label>
+    <input
+      id="projectImg"
+      name="projectImg"
+      type="text"
+      class="form-control"
+      placeholder="https://tusitio.com/imagen.png"
+      [(ngModel)]="sampleItem.img"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="projectLive" class="form-label">URL del Live Demo</label>
+    <input
+      id="projectLive"
+      name="projectLive"
+      type="text"
+      class="form-control"
+      placeholder="https://tusitio.com/"
+      [(ngModel)]="sampleItem.live"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="projectRepo" class="form-label">URL del Repositorio</label>
+    <input
+      id="projectRepo"
+      name="projectRepo"
+      type="text"
+      class="form-control"
+      placeholder="https://github.com/usuario/repositorio"
+      [(ngModel)]="sampleItem.repo"
+    />
+  </div>
+  <div class="p-2 text-center">
+    <button
+      type="button"
+      class="btn btn-outline-success m-2"
+      (click)="toggleAdding(); addItem()"
+    >
+      <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-danger"
+      (click)="toggleAdding()"
+    >
+      <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
+    </button>
+  </div>
+</form>

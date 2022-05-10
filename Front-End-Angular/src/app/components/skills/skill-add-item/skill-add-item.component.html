@@ -1,6 +1,7 @@
-<form class="editableItem">
+<form class="editable-item">
+  <h4 class="text-center">Agregar</h4>
   <div class="mb-3">
-    <label for="skill" class="form-label mb-2">Habilidad:</label>
+    <label for="skill" class="form-label mb-2">Habilidad</label>
     <input
       id="skill"
       name="skill"
@@ -13,19 +14,19 @@
   </div>
   <div class="mb-3">
     <label for="icon" class="form-label"
-      >Icono: <i [class]="sampleItem.icon"></i><br
+      >Icono ( <i [class]="sampleItem.icon"></i> )<br
     /></label>
     <input
       id="icon"
       name="icon"
       type="text"
       class="form-control"
-      placeholder="Iconos de Bootstrap Icons o FontAwesome"
+      placeholder="EJ: fa-brands fa-html5"
       [(ngModel)]="sampleItem.icon"
     />
   </div>
   <div class="mb-3">
-    <label for="skill-lvl" class="form-label mb-2">Nivel:</label>
+    <label for="skill-lvl" class="form-label mb-2">Nivel</label>
     <select
       class="form-select mb-3"
       name="lvl"
@@ -41,7 +42,7 @@
   </div>
   <div class="mb-3">
     <label class="form-label" for="progress"
-      >Barra de progreso: {{ sampleItem.progress }}%</label
+      >Barra de progreso ({{ sampleItem.progress }}%)</label
     >
     <input
       class="form-range"

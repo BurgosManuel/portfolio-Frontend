@@ -1,21 +1,20 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Edition } from 'src/app/classes/edition';
-import { SkillItem } from 'src/app/classes/items';
 
 @Component({
-  selector: 'app-skill-edit',
-  templateUrl: './skill-edit.component.html',
-  styleUrls: ['./skill-edit.component.css'],
+  selector: 'app-project-edit',
+  templateUrl: './project-edit.component.html',
+  styleUrls: ['./project-edit.component.css']
 })
-export class SkillEditComponent {
+export class ProjectEditComponent {
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
-  @Input() editableData: SkillItem = {
+  @Input() editableData = {
     id: 1,
-    skill: '',
-    icon: '',
-    lvl: 'default',
-    progress: '0',
+    title: '',
+    description: '',
+    img: '',
+    live: '',
+    repo: '',
   };
 
   toggleEdition(): void {
@@ -29,4 +28,5 @@ export class SkillEditComponent {
   reload(): void {
     window.location.reload();
   }
+
 }

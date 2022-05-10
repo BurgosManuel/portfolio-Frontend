@@ -1,38 +1,52 @@
-<form
-class="editableItem text-center"
->
-<h4 class="text-center">Agregar Elemento</h4>
-  <input
-    name="title"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Titulo"
-    [(ngModel)]="sampleItem.title"
-  />
-  <input
-    name="date"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Fecha"
-    [(ngModel)]="sampleItem.date"
-  />
-  <input
-    name="place"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Lugar"
-    [(ngModel)]="sampleItem.place"
-  />
-  <textarea
-    name="description"
-    rows="5"
-    type="text"
-    class="form-control mb-3"
-    placeholder="Descripcion"
-    [(ngModel)]="sampleItem.description"
-  ></textarea>
+<form class="editable-item">
+  <h4 class="text-center">Agregar</h4>
+  <div class="mb-2">
+    <label for="professionalTitle" class="form-label">Titulo</label>
+    <input
+      id="professionalTitle"
+      name="professionalTitle"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Título/Puesto"
+      [(ngModel)]="sampleItem.title"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalDate" class="form-label">Fecha</label>
+    <input
+      id="professionalDate"
+      name="professionalDate"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Inicio - Fin"
+      [(ngModel)]="sampleItem.date"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalPlace" class="form-label">Lugar</label>
+    <input
+      id="professionalPlace"
+      name="professionalPlace"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Empresa/Institución"
+      [ngModel]="sampleItem.place"
+    />
+  </div>
+  <div class="mb-2">
+    <label for="professionalDescription" class="form-label">Descripcion</label>
+    <textarea
+      id="professionalDescription"
+      name="professionalDescription"
+      rows="5"
+      type="text"
+      class="form-control mb-3"
+      placeholder="Breve descripción de la carrera o puesto..."
+      [(ngModel)]="sampleItem.description"
+    ></textarea>
+  </div>
   <!-- Botones para guardar/cancelar -->
-  <div class="p-2">
+  <div class="p-2 text-center">
     <button
       type="button"
       class="btn btn-outline-success m-2"

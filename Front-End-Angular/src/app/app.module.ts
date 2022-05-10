@@ -27,6 +27,9 @@ import { SkillEditComponent } from './components/skills/skill-edit/skill-edit.co
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
 import { SkillAddItemComponent } from './components/skills/skill-add-item/skill-add-item.component';
 import { DeleteButtonComponent } from './components/edit-component/delete-button/delete-button.component';
+import { ProjectItemComponent } from './components/projects/project-item/project-item.component';
+import { ProjectEditComponent } from './components/projects/project-edit/project-edit.component';
+import { ProjectAddComponent } from './components/projects/project-add/project-add.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { DeleteButtonComponent } from './components/edit-component/delete-button
     SkillEditComponent,
     SkillItemComponent,
     SkillAddItemComponent,
-    DeleteButtonComponent
+    DeleteButtonComponent,
+    ProjectItemComponent,
+    ProjectEditComponent,
+    ProjectAddComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PortfolioDataService],

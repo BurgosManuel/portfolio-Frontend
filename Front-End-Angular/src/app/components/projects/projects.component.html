@@ -8,80 +8,43 @@
         <h2 class="fw-bold">Proyectos</h2>
         <div>
           <app-edit-button
-            *ngIf="!isEditing"
             (onToggleEdition)="toggleEdition($event)"
           ></app-edit-button>
-          <span
-            class="edit-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#projectPlus"
-            ><i class="bi bi-plus-circle"></i
-          ></span>
+          <app-add-button
+            *ngIf="!isAdding"
+            [itemsList]="projectsList"
+            [isAdding]="isAdding"
+            (onToggleAdding)="toggleAdding($event)"
+          >
+          </app-add-button>
         </div>
       </div>
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="sectionData"
+        [editableData]="projectsDescription"
         (onToggleEdition)="toggleEdition($event)"
         (onSave)="saveChanges($event)"
       ></app-edit-component>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
-      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
+      <p *ngIf="!isEditing" [innerHTML]="projectsDescription"></p>
     </div>
     <div class="row">
       <div id="project-cards" class="col-lg-12 project-cards">
-        <div
-          *ngFor="let project of projectsList; let projectIndex = index"
-          class="card"
-        >
-          <div class="card-img-container">
-            <img
-              [src]="project.img"
-              alt="Portfolio Argentina Programa"
-              class="card-img-top"
-            />
-            <span class="h2">Proyecto # {{ projectIndex + 1 }}</span>
-          </div>
-          <div class="card-body">
-            <div
-              class="item-title mb-2 d-flex justify-content-between align-items-center"
-            >
-              <h5 class="card-title">
-                {{ project.title }}
-              </h5>
-              <div class="item-buttons">
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#projectEdit"
-                  ><i class="bi bi-pencil-square"></i
-                ></span>
-                <span
-                  class="edit-icon"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
-                  ><i class="bi bi-trash3"></i
-                ></span>
-              </div>
-            </div>
-            <p class="card-text">
-              {{ project.description }}
-            </p>
-            <a
-              [href]="project.live"
-              target="_BLANK"
-              class="btn btn-outline-info"
-              >Live Demo</a
-            >
-            <a
-              [href]="project.repo"
-              target="_BLANK"
-              class="btn btn-outline-secondary"
-              >Repositorio</a
-            >
-          </div>
-        </div>
+        <app-project-add
+          *ngIf="isAdding"
+          [isAdding]="isAdding"
+          [itemsList]="projectsList"
+          (onToggleAdding)="toggleAdding($event)"
+          (onAddItem)="addItem($event)"
+        ></app-project-add>
+        <app-project-item
+          *ngFor="let project of projectsList; let i = index"
+          [projectItem]="project"
+          [url]="url + '/' + project.id"
+          [index]="i"
+          (onItemDelete)="deleteItem(project, i)"
+        ></app-project-item>
       </div>
     </div>
   </div>
