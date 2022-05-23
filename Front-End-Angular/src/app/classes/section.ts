@@ -19,6 +19,7 @@ export class Section implements OnInit {
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
   saveChanges(newData: any): void {
     this.sectionData = newData;
+    console.log(newData);
     this.portfolioData.updateSection(this.url, newData).subscribe();
   }
 

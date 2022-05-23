@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Section } from 'src/app/classes/section';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({

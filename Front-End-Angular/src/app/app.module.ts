@@ -10,7 +10,6 @@ import { AboutComponent } from './components/about/about.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ProfessionalInfoComponent } from './components/professional-info/professional-info.component';
 import { EducationComponent } from './components/professional-info/education/education.component';
 import { ExperienceComponent } from './components/professional-info/experience/experience.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -43,7 +42,6 @@ import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item
     SkillsComponent,
     ProjectsComponent,
     ContactComponent,
-    ProfessionalInfoComponent,
     EducationComponent,
     ExperienceComponent,
     EditComponentComponent,

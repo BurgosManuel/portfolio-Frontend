@@ -3,3 +3,10 @@
     border-right: none;
     border-radius: 0;
 }
+
+.user-profile {
+    width: 150px;
+    border: 0.5rem solid var(--grey);
+    border-radius: 100%;
+  }
+  

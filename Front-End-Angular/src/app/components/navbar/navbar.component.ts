@@ -41,7 +41,6 @@ export class NavbarComponent extends Section {
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
     this.portfolioData.getData(this.url).subscribe((data) => {
       this.sectionData = data;
-      console.log(data);
     });
   }
 }
