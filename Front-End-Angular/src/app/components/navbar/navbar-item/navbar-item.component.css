@@ -4,6 +4,10 @@
   border-radius: 100%;
 }
 
+a:hover {
+  color: white;
+}
+
 .social li {
   padding: 0.6rem;
   margin: 0.6rem;
@@ -63,7 +67,7 @@
 }
 
 .ap-container {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .ap-logo {

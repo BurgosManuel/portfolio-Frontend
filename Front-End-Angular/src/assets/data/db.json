@@ -135,7 +135,7 @@
       "id": 1,
       "title": "Portfolio - Argentina Programa #YoProgramo",
       "description": "Proyecto final realizado durante el Curso de Desarrollo Web Fullstack Argentina Programa. Utiliza herramientas como HTML, CSS, JS (Angular) y Bootstrap.",
-      "img": "../assets/project-1.png",
+      "img": "assets/project-1.png",
       "live": "https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html",
       "repo": "https://github.com/BurgosManuel/PortfolioWebFullStack/tree/main/Front-End"
     },
@@ -143,7 +143,7 @@
       "id": 2,
       "title": "Lista de Tareas - FreeCodeCamp",
       "description": "Aplicación web de tipo \"To-Do List\", cuenta con funciones para agregar y eliminar tareas. Realizada utilizando HTML, CSS y Angular. ",
-      "img": "../assets/project-2.png",
+      "img": "assets/project-2.png",
       "live": "https://trapecio-lista-tareas.herokuapp.com/",
       "repo": "https://github.com/BurgosManuel/ListaDeTareas"
     }
