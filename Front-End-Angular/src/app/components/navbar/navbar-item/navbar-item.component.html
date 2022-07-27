@@ -5,17 +5,17 @@
   >
     <img
       class="user-profile img-fluid"
-      [src]="navbarItem.profilepic"
+      [src]="personaItem?.img_url"
       alt="Foto de Perfil"
     />
     <a href="index.html"
-      ><h2 class="fs-4 fw-bold m-3">{{ navbarItem.name }}</h2></a
+      ><h2 class="fs-4 fw-bold m-3">{{ personaItem?.nombre}}</h2></a
     >
     <ul class="social">
-      <a [href]="navbarItem.linkedin" target="_BLANK"
+      <a [href]="personaItem?.linkedin_url" target="_BLANK"
         ><li><i class="bi bi-linkedin fs-5"></i></li
       ></a>
-      <a [href]="navbarItem.github" target="_BLANK"
+      <a [href]="personaItem?.github_url" target="_BLANK"
         ><li><i class="bi bi-github fs-5"></i></li
       ></a>
     </ul>
@@ -47,9 +47,9 @@
   <app-navbar-edition
     *ngIf="isEditing"
     [isEditing]="isEditing"
-    [editableData]="navbarItem"
+    [personaEditable]="personaItem"
     (onToggleEdition)="toggleEdition($event)"
-    (onSave)="updateItem($event)"
+    (onSave)="updatePersona($event)"
   >
   </app-navbar-edition>
   <div

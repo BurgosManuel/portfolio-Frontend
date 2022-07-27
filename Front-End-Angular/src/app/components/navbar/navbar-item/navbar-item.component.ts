@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Persona } from 'src/app/model/Persona';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({
@@ -9,12 +10,7 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 export class NavbarItemComponent {
   @Input() url: any;
   @Input() isEditing: boolean = false;
-  @Input() navbarItem = {
-    name: '',
-    profilepic: '',
-    linkedin: '',
-    github: '',
-  };
+  @Input() personaItem?: Persona;
 
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
 
@@ -24,8 +20,8 @@ export class NavbarItemComponent {
     this.isEditing = editingState;
   }
 
-  updateItem(updatedItem: any) {
-    this.navbarItem = updatedItem;
+  updatePersona(updatedItem: Persona) {
+    this.personaItem = updatedItem;
     this.onItemUpdate.emit(updatedItem);
   }
 }

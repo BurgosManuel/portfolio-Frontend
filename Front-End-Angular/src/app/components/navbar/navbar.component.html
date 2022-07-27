@@ -19,7 +19,7 @@
       class="align-self-end p-2"
       [isEditing]="isEditing"
       (onToggleEdition)="toggleEdition($event); reload()"
-    ></app-edit-button>
-    <app-navbar-item [navbarItem]="sectionData" [isEditing]="isEditing" (onItemUpdate)="updateItem($event)"></app-navbar-item>
+      ></app-edit-button>
+      <app-navbar-item [personaItem]="personaData" [isEditing]="isEditing" (onItemUpdate)="actualizarPersona($event)"></app-navbar-item>
   </nav>
 </aside>

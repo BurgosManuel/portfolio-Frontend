@@ -3,7 +3,7 @@
   <div class="d-flex flex-column align-items-center justify-content-center mt-3">    
     <img
       class="user-profile img-fluid"
-      [src]="editableData.profilepic"
+      [src]="personaEditable?.img_url"
       alt="Foto de Perfil"
     />
   </div>
@@ -16,7 +16,7 @@
       class="form-control"
       placeholder="EJ: Manuel Burgos"
       autocomplete="off"
-      [(ngModel)]="editableData.name"
+      [(ngModel)]="personaEditable!.nombre"
     />
   </div>
   <div class="mb-4">
@@ -28,7 +28,7 @@
       class="form-control"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
-      [(ngModel)]="editableData.profilepic"
+      [(ngModel)]="personaEditable!.img_url"
     />
   </div>
   <div class="mb-4">
@@ -40,7 +40,7 @@
       class="form-control"
       placeholder="https://www.linkedin.com/in/usuario/"
       autocomplete="off"
-      [(ngModel)]="editableData.linkedin"
+      [(ngModel)]="personaEditable!.linkedin_url"
     />
   </div>
   <div class="mb-4">
@@ -52,14 +52,14 @@
       class="form-control"
       placeholder="https://www.github.com/usuario/"
       autocomplete="off"
-      [(ngModel)]="editableData.github"
+      [(ngModel)]="personaEditable!.github_url"
     />
   </div>
   <div class="p-2 text-center">
     <button
       type="button"
       class="btn btn-outline-success m-2"
-      (click)="toggleEdition(); saveChanges(); reload()"
+      (click)="toggleEdition(); saveChanges()"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>
