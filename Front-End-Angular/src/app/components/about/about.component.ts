@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Educacion } from 'src/app/model/Educacion';
+import { Experiencia } from 'src/app/model/Experiencia';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
@@ -10,6 +12,9 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 export class AboutComponent {
   // Sobrescribimos la url de la Clase Section, pero mantenemos el resto de lógica
   @Input() seccionData?: Seccion;
+  @Input() educacionData?: Educacion[];
+  @Input() experienciaData?: Experiencia[];
+
   @Input() imgUrl: any;
   isEditing: boolean = false;
 

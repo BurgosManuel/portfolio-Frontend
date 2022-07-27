@@ -1,23 +1,23 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Edition } from 'src/app/classes/edition';
+import { Experiencia } from 'src/app/model/Experiencia';
 
 @Component({
-  selector: 'app-professional-edit',
-  templateUrl: './professional-edit.component.html',
-  styleUrls: ['./professional-edit.component.css'],
+  selector: 'app-experience-edit',
+  templateUrl: './experience-edit.component.html',
+  styleUrls: ['./experience-edit.component.css'],
 })
-export class ProfessionalEditComponent {
+export class ExperienceEditComponent {
 
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
-  @Input() editableData: any;
+  @Input() experienciaEditable?: Experiencia;
 
   toggleEdition(): void {
     this.onToggleEdition.emit();
   }
 
   saveChanges(): void {
-    this.onSave.emit(this.editableData);
+    this.onSave.emit(this.experienciaEditable);
   }
 
   reload(): void {

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfessionalItemComponent } from './professional-item.component';
+import { ExperienceAddItemComponent } from './experience-add-item.component';
 
-describe('ProfessionalItemComponent', () => {
-  let component: ProfessionalItemComponent;
-  let fixture: ComponentFixture<ProfessionalItemComponent>;
+describe('ExperienceAddItemComponent', () => {
+  let component: ExperienceAddItemComponent;
+  let fixture: ComponentFixture<ExperienceAddItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfessionalItemComponent ]
+      declarations: [ ExperienceAddItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfessionalItemComponent);
+    fixture = TestBed.createComponent(ExperienceAddItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

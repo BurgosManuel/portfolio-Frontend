@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Educacion } from './model/Educacion';
+import { Experiencia } from './model/Experiencia';
 import { Persona } from './model/Persona';
 import { Seccion } from './model/Seccion';
 import { PortfolioDataService } from './services/portfolio-data.service';
@@ -12,7 +14,10 @@ import { PortfolioDataService } from './services/portfolio-data.service';
 export class AppComponent {
   datosPersona?: Persona;
   datosSecciones?: Seccion[];
-  mostrar:boolean = false;
+  educacionData?: Educacion[];
+  experienciaData?: Experiencia[];
+
+  mostrar: boolean = false;
 
   eventsSubject: Subject<void> = new Subject<void>();
 
@@ -34,7 +39,22 @@ export class AppComponent {
       .subscribe((data) => {
         this.datosSecciones = data;
         console.log('DatosSecciones: ', data);
-        this.mostrar = true;
       });
+
+    this.portfolioData
+      .getData('http://localhost:8080/educacion')
+      .subscribe((data) => {
+        this.educacionData = data;
+        console.log('Datos Educacion: ', data);
+      });
+
+    this.portfolioData
+      .getData('http://localhost:8080/experiencia')
+      .subscribe((data) => {
+        this.experienciaData = data;
+        console.log('Datos Experiencia: ', data);
+      });
+
+    this.mostrar = true;
   }
 }

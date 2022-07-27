@@ -1,51 +1,51 @@
 <form class="editable-item">
-  <h4 class="text-center">Agregar</h4>
+  <h4 class="text-center">Editar</h4>
   <div class="mb-2">
-    <label for="professionalTitle" class="form-label">Titulo</label>
+    <label for="educationTitulo" class="form-label">Titulo</label>
     <input
-      id="professionalTitle"
-      name="professionalTitle"
+      id="educationTitulo"
+      name="educationTitulo"
       type="text"
       class="form-control mb-3"
       placeholder="Título/Puesto"
       autocomplete="off"
-      [(ngModel)]="sampleItem.title"
+      [(ngModel)]="educacionEditable!.titulo"
     />
   </div>
   <div class="mb-2">
-    <label for="professionalDate" class="form-label">Fecha</label>
+    <label for="educacionFecha" class="form-label">Fecha</label>
     <input
-      id="professionalDate"
-      name="professionalDate"
+      id="educacionFecha"
+      name="educacionFecha"
       type="text"
       class="form-control mb-3"
       placeholder="Inicio - Fin"
       autocomplete="off"
-      [(ngModel)]="sampleItem.date"
+      [(ngModel)]="educacionEditable!.fecha"
     />
   </div>
   <div class="mb-2">
-    <label for="professionalPlace" class="form-label">Lugar</label>
+    <label for="educacionInstitucion" class="form-label">Lugar</label>
     <input
-      id="professionalPlace"
-      name="professionalPlace"
+      id="educacionInstitucion"
+      name="educacionInstitucion"
       type="text"
       class="form-control mb-3"
       placeholder="Empresa/Institución"
       autocomplete="off"
-      [(ngModel)]="sampleItem.place"
+      [(ngModel)]="educacionEditable!.institucion"
     />
   </div>
   <div class="mb-2">
-    <label for="professionalDescription" class="form-label">Descripcion</label>
+    <label for="educacionDescripcion" class="form-label">Descripcion</label>
     <textarea
-      id="professionalDescription"
-      name="professionalDescription"
+      id="educacionDescripcion"
+      name="educacionDescripcion"
       rows="5"
       type="text"
       class="form-control mb-3"
       placeholder="Breve descripción de la carrera o puesto..."
-      [(ngModel)]="sampleItem.description"
+      [(ngModel)]="educacionEditable!.descripcion"
     ></textarea>
   </div>
   <!-- Botones para guardar/cancelar -->
@@ -53,14 +53,14 @@
     <button
       type="button"
       class="btn btn-outline-success m-2"
-      (click)="toggleAdding(); addItem()"
+      (click)="toggleEdition(); saveChanges()"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>
     <button
       type="button"
       class="btn btn-outline-danger"
-      (click)="toggleAdding()"
+      (click)="toggleEdition(); reload()"
     >
       <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
     </button>

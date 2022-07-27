@@ -1,5 +1,5 @@
 <form class="editable-item">
-  <h4 class="text-center">Editar</h4>
+  <h4 class="text-center">Agregar</h4>
   <div class="mb-2">
     <label for="professionalTitle" class="form-label">Titulo</label>
     <input
@@ -9,8 +9,7 @@
       class="form-control mb-3"
       placeholder="Título/Puesto"
       autocomplete="off"
-      [(ngModel)]="editableData.title"
-    />
+      [(ngModel)]="educacionItem!.titulo"/>
   </div>
   <div class="mb-2">
     <label for="professionalDate" class="form-label">Fecha</label>
@@ -21,7 +20,7 @@
       class="form-control mb-3"
       placeholder="Inicio - Fin"
       autocomplete="off"
-      [(ngModel)]="editableData.date"
+      [(ngModel)]="educacionItem!.fecha"
     />
   </div>
   <div class="mb-2">
@@ -33,7 +32,7 @@
       class="form-control mb-3"
       placeholder="Empresa/Institución"
       autocomplete="off"
-      [(ngModel)]="editableData.place"
+      [(ngModel)]="educacionItem!.institucion"
     />
   </div>
   <div class="mb-2">
@@ -45,7 +44,7 @@
       type="text"
       class="form-control mb-3"
       placeholder="Breve descripción de la carrera o puesto..."
-      [(ngModel)]="editableData.description"
+      [(ngModel)]="educacionItem!.descripcion"
     ></textarea>
   </div>
   <!-- Botones para guardar/cancelar -->
@@ -53,14 +52,14 @@
     <button
       type="button"
       class="btn btn-outline-success m-2"
-      (click)="toggleEdition(); saveChanges()"
+      (click)="toggleAdding(); addItem()"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>
     <button
       type="button"
       class="btn btn-outline-danger"
-      (click)="toggleEdition(); reload()"
+      (click)="toggleAdding()"
     >
       <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
     </button>

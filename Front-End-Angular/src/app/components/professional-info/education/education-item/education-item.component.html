@@ -1,7 +1,7 @@
 <div [ngClass]="{'info-item': !isEditing}">
   <div *ngIf="!isEditing" class="item-container">
     <div class="item-title d-flex justify-content-between align-items-center">
-      <h4>{{ professionalItem.title }}</h4>
+      <h4>{{ educacionItem!.titulo }}</h4>
       <div class="item-buttons">
         <app-edit-button
           (onToggleEdition)="toggleEdition($event)"
@@ -9,18 +9,18 @@
         <app-delete-button (onItemDelete)="onDelete()"></app-delete-button>
       </div>
     </div>
-    <h5>{{ professionalItem.date }}</h5>
+    <h5>{{ educacionItem!.fecha }}</h5>
     <p>
-      <em>{{ professionalItem.place }}</em>
+      <em>{{ educacionItem!.institucion }}</em>
     </p>
     <p>
-      {{ professionalItem.description }}
+      {{ educacionItem!.descripcion }}
     </p>
   </div>
-  <app-professional-edit
+  <app-education-edit
     *ngIf="isEditing"
-    [editableData]="professionalItem"
+    [educacionEditable]="educacionItem"
     (onToggleEdition)="toggleEdition($event)"
     (onSave)="updateItem($event)"
-  ></app-professional-edit>
+  ></app-education-edit>
 </div>

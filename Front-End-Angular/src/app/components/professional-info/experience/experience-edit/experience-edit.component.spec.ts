@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfessionalEditComponent } from './professional-edit.component';
+import { ExperienceEditComponent } from './experience-edit.component';
 
-describe('ProfessionalEditComponent', () => {
-  let component: ProfessionalEditComponent;
-  let fixture: ComponentFixture<ProfessionalEditComponent>;
+describe('ExperienceEditComponent', () => {
+  let component: ExperienceEditComponent;
+  let fixture: ComponentFixture<ExperienceEditComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfessionalEditComponent ]
+      declarations: [ ExperienceEditComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfessionalEditComponent);
+    fixture = TestBed.createComponent(ExperienceEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

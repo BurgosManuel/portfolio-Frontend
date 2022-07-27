@@ -11,20 +11,19 @@
     </div>
   </div>
 
-  <app-professional-add-item
+  <app-education-add-item
     *ngIf="isAdding"
-    [itemsList]="sectionData"
+    [educacionList]="educacionData"
     (onToggleAdding)="toggleAdding($event)"
-    (onAddItem)="addItem($event)"
-  ></app-professional-add-item>
+    ></app-education-add-item>
+    <!-- (onAddItem)="addItem($event)" -->
   <!-- Iteramos a traves del array de elementos, y generamos uno nuevo con su respectivo Data Binding. -->
 
-  <div *ngFor="let educationItem of sectionData; let i = index">
-    <app-professional-item
+  <div *ngFor="let educacionItem of educacionData; let i = index">
+    <app-education-item
       *ngIf="!isEditing"
-      [url]="url + '/' + educationItem.id"
-      [professionalItem]="educationItem"
-      (onItemDelete)="deleteItem(educationItem, i)"
-    ></app-professional-item>
-  </div>
+      [educacionItem]="educacionItem"
+      ></app-education-item>
+    </div>
+    <!-- (onItemDelete)="deleteItem(educacionItem, i)" -->
 </div>

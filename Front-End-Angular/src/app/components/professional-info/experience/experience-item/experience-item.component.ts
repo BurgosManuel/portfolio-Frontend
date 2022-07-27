@@ -1,22 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ItemsSection, Section } from 'src/app/classes/section';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Experiencia } from 'src/app/model/Experiencia';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({
-  selector: 'app-professional-item',
-  templateUrl: './professional-item.component.html',
-  styleUrls: ['./professional-item.component.css'],
+  selector: 'app-experience-item',
+  templateUrl: './experience-item.component.html',
+  styleUrls: ['./experience-item.component.css'],
 })
-export class ProfessionalItemComponent {
+export class ExperienceItemComponent {
   @Input() url: any;
-  @Input() professionalItem: any;
+  @Input() experienciaItem?: Experiencia;
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
   
   constructor(private portfolioData: PortfolioDataService) {}
   onDelete() {
-    this.onItemDelete.emit(this.professionalItem);
+    this.onItemDelete.emit(this.experienciaItem);
   }
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
@@ -24,8 +24,8 @@ export class ProfessionalItemComponent {
     this.isEditing = editingState;
   }
 
-  updateItem(updatedItem: any) {
-    this.professionalItem = updatedItem;
+  updateItem(updatedItem: Experiencia) {
+    this.experienciaItem = updatedItem;
     this.onItemUpdate.emit(this.updateItem);
     this.portfolioData.updateItem(this.url, updatedItem).subscribe();
   }
