@@ -5,8 +5,7 @@
 }
 
 .user-profile {
-    width: 150px;
+    width: 100px;
     border: 0.5rem solid var(--grey);
     border-radius: 100%;
   }
-  

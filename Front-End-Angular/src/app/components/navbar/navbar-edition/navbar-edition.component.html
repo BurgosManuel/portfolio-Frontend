@@ -8,7 +8,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarName" class="form-label">Nombre</label>
+    <label for="sidebarName" class="form-label">Nombre: </label>
     <input
       id="sidebarName"
       name="sidebarName"
@@ -20,7 +20,19 @@
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarImg" class="form-label">Foto de Perfil (URL)</label>
+    <label for="sidebarName" class="form-label">Título: </label>
+    <input
+      id="sidebarTitle"
+      name="sidebarTitle"
+      type="text"
+      class="form-control"
+      placeholder="EJ: Desarrollador Fullstack"
+      autocomplete="off"
+      [(ngModel)]="personaEditable!.titulo"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="sidebarImg" class="form-label">Foto de Perfil (URL): </label>
     <input
       id="sidebarImg"
       name="sidebarImg"
@@ -32,7 +44,19 @@
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarLinkedin" class="form-label">LinkedIn (URL)</label>
+    <label for="sidebarImg" class="form-label">Banner (URL): </label>
+    <input
+      id="sidebarBanner"
+      name="sidebarBanner"
+      type="text"
+      class="form-control"
+      placeholder="http://tusitio.com/imagen.png"
+      autocomplete="off"
+      [(ngModel)]="personaEditable!.banner_url"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="sidebarLinkedin" class="form-label">LinkedIn: </label>
     <input
       id="sidebarLinkedin"
       name="sidebarLinkedin"
@@ -44,7 +68,7 @@
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarGithub" class="form-label">Github (URL)</label>
+    <label for="sidebarGithub" class="form-label">Github: </label>
     <input
       id="sidebarGithub"
       name="sidebarGithub"

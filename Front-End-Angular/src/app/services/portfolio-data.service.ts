@@ -23,6 +23,7 @@ export class PortfolioDataService {
     return this.http.get(url);
   }
 
+  // Creamos el método para actualizar elementos (método PUT).
   updateData(url:string, data: any): Observable<any>{
     return this.http.put(url, data);
   }
