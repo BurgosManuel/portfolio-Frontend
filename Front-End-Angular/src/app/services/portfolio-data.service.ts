@@ -18,20 +18,25 @@ export class PortfolioDataService {
   // Inyectamos el httpclient
   constructor(private http: HttpClient) {}
 
-  // Creamos el método que nos retornará los datos desde la API.
+  // Creamos el método que nos retornará los datos desde la API (GET).
   getData(url: string): Observable<any> {
     return this.http.get(url);
   }
 
-  // Creamos el método para actualizar elementos (método PUT).
-  updateData(url:string, data: any): Observable<any>{
+  // Creamos el método para actualizar elementos (PUT).
+  updateData(url: string, data: any): Observable<any> {
     return this.http.put(url, data);
   }
 
+  // Creamos el método para realizar envios de información (POST).
+  createData(url: string, data: any): Observable<any> {
+    return this.http.post(url, data);
+  }
 
-
-
-
+  // Creamos el método para eliminar información (DELETE).
+  deleteData(url: string, data: any): Observable<any> {
+    return this.http.delete(url, data);
+  }
 
   // Método que actualiza los datos, la misma genera un objeto 'ISection', que tomará una key 'description' y un value 'data', formato que tenemos en nuestro JSON con información.
   updateSection(url: string, data: any): Observable<any> {

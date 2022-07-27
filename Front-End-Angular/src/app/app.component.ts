@@ -53,8 +53,8 @@ export class AppComponent {
       .subscribe((data) => {
         this.experienciaData = data;
         console.log('Datos Experiencia: ', data);
+        this.mostrar = true;
       });
 
-    this.mostrar = true;
   }
 }

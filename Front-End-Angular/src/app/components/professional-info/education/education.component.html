@@ -15,15 +15,15 @@
     *ngIf="isAdding"
     [educacionList]="educacionData"
     (onToggleAdding)="toggleAdding($event)"
-    ></app-education-add-item>
-    <!-- (onAddItem)="addItem($event)" -->
+    (onAddItem)="addItem($event)"
+  ></app-education-add-item>
   <!-- Iteramos a traves del array de elementos, y generamos uno nuevo con su respectivo Data Binding. -->
 
   <div *ngFor="let educacionItem of educacionData; let i = index">
     <app-education-item
       *ngIf="!isEditing"
       [educacionItem]="educacionItem"
-      ></app-education-item>
-    </div>
-    <!-- (onItemDelete)="deleteItem(educacionItem, i)" -->
+      (onItemDelete)="deleteItem(educacionItem, i)"
+    ></app-education-item>
+  </div>
 </div>

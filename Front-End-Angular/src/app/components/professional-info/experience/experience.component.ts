@@ -24,12 +24,16 @@ export class ExperienceComponent {
     this.isAdding = addingState;
   }
 
-  addItem(item: any) {
-    // this.portfolioData.addItem(this.url, item).subscribe();
+  addItem(experienciaItem: Experiencia) {
+    const url = 'http://localhost:8080/experiencia/agregar'
+    this.portfolioData.createData(url, experienciaItem).subscribe();
+    console.log("Experiencia Agregar: ", experienciaItem)
   }
 
-  deleteItem(item: any, index: number): void {
-    // this.seccionData.splice(index, 1);
-    // this.portfolioData.deleteItem(this.url, item).subscribe();
+  deleteItem(experienciaItem: Experiencia, index: number): void {
+    const url = `http://localhost:8080/experiencia/eliminar/${experienciaItem.id}`
+    this.experienciaData?.splice(index, 1);
+    this.portfolioData.deleteData(url, experienciaItem).subscribe();
+    console.log('Experiencia a eliminar: ', experienciaItem)
   }
 }

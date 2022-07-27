@@ -25,12 +25,16 @@ export class EducationComponent {
     this.isAdding = addingState;
   }
 
-  // addItem(item: any) {
-  //   this.portfolioData.addItem(this.url, item).subscribe();
-  // }
+  addItem(educacionItem: Educacion) {
+    const url = 'http://localhost:8080/educacion/agregar'
+    this.portfolioData.createData(url, educacionItem).subscribe();
+    console.log("Educacion Agregar: ", educacionItem)
+  }
 
-  // deleteItem(item: any, index: number): void {
-  //   this.seccionData.splice(index, 1);
-  //   this.portfolioData.deleteItem(this.url, item).subscribe();
-  // }
+  deleteItem(educacionItem: Educacion, index: number): void {
+    const url = `http://localhost:8080/educacion/eliminar/${educacionItem.id}`
+    this.educacionData?.splice(index, 1);
+    this.portfolioData.deleteData(url, educacionItem).subscribe();
+    console.log('Educacion a eliminar: ', educacionItem)
+  }
 }

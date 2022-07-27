@@ -25,8 +25,10 @@ export class EducationItemComponent {
   }
 
   updateItem(updatedItem: Educacion) {
-    // this.educacionItem = updatedItem;
-    // this.onItemUpdate.emit(this.updateItem);
-    // this.portfolioData.updateItem(this.url, updatedItem).subscribe();
+    const url = `http://localhost:8080/educacion/editar/${updatedItem.id}`;
+    this.educacionItem = updatedItem;
+    this.onItemUpdate.emit(this.updateItem);
+    this.portfolioData.updateData(url, updatedItem).subscribe();
+    console.log('Updated Item Educacion: ', updatedItem)
   }
 }
