@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Persona } from 'src/app/model/Persona';
 
 @Component({
@@ -11,7 +12,13 @@ export class HeroComponent {
   @Input() personaData?: Persona;
 
   // Método que nos mostrará los elementos cuando la ventana carga a través del (window:load).
-  showTitle(el: HTMLElement) {
-    el.classList.remove('hideText', 'opacity-0');
+  showTitle() {
+    const el = document.querySelector('#heroText');
+    console.log("Text", el);
+    el?.classList.remove('hideText', 'opacity-0');
+  }
+
+  ngOnInit(){
+    setTimeout(this.showTitle, 200);
   }
 }

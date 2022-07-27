@@ -22,7 +22,7 @@ export class NavbarComponent {
 
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
   actualizarPersona(personaActualizada: Persona): void {
-    const url: string = `http://localhost:8080/editar/persona/${personaActualizada.id}`;
+    const url: string = `http://localhost:8080/personas/editar/${personaActualizada.id}`;
     this.personaData = personaActualizada;
     this.portfolioData.updateData(url, personaActualizada).subscribe();
     console.log('Persona Actualizada: ', personaActualizada, url);
@@ -55,12 +55,7 @@ export class NavbarComponent {
   }
 
   ngOnInit(): void {
-    console.log('Navbar Component Editing: ', this.isEditing);
-
     // Determinamos si el sidebar -al instanciarse- estará abierto o cerrado.
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
-    // this.portfolioData.getData(this.url).subscribe((data) => {
-    //   this.sectionData = data;
-    // });
   }
 }

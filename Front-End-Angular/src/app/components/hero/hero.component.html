@@ -5,10 +5,9 @@
   [ngStyle]="{ 'background-image': 'url(' + personaData!.banner_url + ')' }"
 >
   <div
-    #heroText
+    id="heroText"
     class="home-content opacity-0 hideText"
-    (window:load)="showTitle(heroText)"
-  >
+    >
     <h1 class="display-3 fw-bold">{{ personaData!.nombre }}</h1>
     <p class="fs-4">{{ personaData!.titulo }}</p>
   </div>

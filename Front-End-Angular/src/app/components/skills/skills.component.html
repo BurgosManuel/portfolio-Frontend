@@ -14,7 +14,7 @@
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="sectionData"
+        [seccionEditable]="sectionData"
         (onToggleEdition)="toggleEdition($event)"
       ></app-edit-component>
       <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>

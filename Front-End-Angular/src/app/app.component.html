@@ -1,10 +1,12 @@
-<!--Barra de navegación-->
-<app-navbar [personaData]="datosPersona"></app-navbar>
-<!--Contenido desplazable de la página-->
-<main class="move">
-  <app-hero [personaData]="datosPersona"></app-hero>
-  <app-about></app-about>
-  <app-skills></app-skills>
-  <app-projects></app-projects>
-  <app-contact></app-contact>
-</main>
+<div *ngIf="mostrar">
+  <!--Barra de navegación-->
+  <app-navbar [personaData]="datosPersona"></app-navbar>
+  <!--Contenido desplazable de la página-->
+  <main class="move">
+    <app-hero [personaData]="datosPersona"></app-hero>
+    <app-about [seccionData]="datosSecciones![0]" [imgUrl]="datosPersona!.about_url"></app-about>
+    <app-skills></app-skills>
+    <app-projects></app-projects>
+    <app-contact></app-contact>
+  </main>
+</div>

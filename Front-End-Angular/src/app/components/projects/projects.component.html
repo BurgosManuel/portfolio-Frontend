@@ -23,7 +23,7 @@
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="projectsDescription"
+        [seccionEditable]="projectsDescription"
         (onToggleEdition)="toggleEdition($event)"
         (onSave)="saveChanges($event)"
       ></app-edit-component>
