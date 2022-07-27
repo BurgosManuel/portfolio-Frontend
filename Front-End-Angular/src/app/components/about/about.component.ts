@@ -21,7 +21,7 @@ export class AboutComponent {
   }
 
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
-  saveChanges(newData: Seccion): void {
+  updateSeccion(newData: Seccion): void {
     const url = `http://localhost:8080/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();

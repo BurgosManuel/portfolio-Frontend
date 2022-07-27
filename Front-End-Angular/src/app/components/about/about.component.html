@@ -19,7 +19,7 @@
         *ngIf="isEditing"
         [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
-        (onSave)="saveChanges($event)"
+        (onSave)="updateSeccion($event)"
         (onUpdateImg)="saveImg($event)"
       ></app-edit-component>
     </div>

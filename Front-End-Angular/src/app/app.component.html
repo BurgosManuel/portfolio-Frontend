@@ -5,7 +5,7 @@
   <main class="move">
     <app-hero [personaData]="datosPersona"></app-hero>
     <app-about [seccionData]="datosSecciones![0]" [imgUrl]="datosPersona!.about_url"></app-about>
-    <app-skills></app-skills>
+    <app-skills [seccionData]="datosSecciones![1]"></app-skills>
     <app-projects></app-projects>
     <app-contact></app-contact>
   </main>

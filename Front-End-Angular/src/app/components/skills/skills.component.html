@@ -14,10 +14,11 @@
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [seccionEditable]="sectionData"
+        [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
+        (onSave)="updateSeccion($event)"
       ></app-edit-component>
-      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
+      <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>
     </div>
 
     <div class="row">
