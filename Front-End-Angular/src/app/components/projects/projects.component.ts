@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Section } from 'src/app/classes/section';
+import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({
@@ -8,12 +9,11 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  descriptionUrl: string = 'http://localhost:5000/projects';
   url: string = 'http://localhost:5000/projectsList';
   isEditing: boolean = false;
   isAdding: boolean = false;
-  projectsDescription: any;
   projectsList: any[] = [];
+  @Input() seccionData?: Seccion;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -22,10 +22,12 @@ export class ProjectsComponent implements OnInit {
     this.isEditing = editingState;
   }
 
-  // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
-  saveChanges(newData: any): void {
-    this.projectsDescription = newData;
-    this.portfolioData.updateSection(this.descriptionUrl, newData).subscribe();
+   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
+   updateSeccion(newData: Seccion): void {
+    const url = `http://localhost:8080/secciones/editar/${this.seccionData?.id}`;
+    this.seccionData = newData;
+    this.portfolioData.updateData(url, newData).subscribe();
+    console.log('Nuevos datos Proyectos:', newData);
   }
 
   toggleAdding(addingState: boolean): void {
@@ -57,10 +59,6 @@ export class ProjectsComponent implements OnInit {
 
   // Asignamos el valor de la lista a la propiedad al momento de instanciarce, haciendo uso del servicio.
   ngOnInit(): void {
-    this.portfolioData
-      .getData(this.descriptionUrl)
-      .subscribe((data) => (this.projectsDescription = data.description));
-
 
     // Obtenemos los datos para el array de elementos (projectsList).
     this.portfolioData.getData(this.url).subscribe((data) => {
