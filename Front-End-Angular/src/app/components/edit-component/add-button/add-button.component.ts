@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ProfessionalItem } from 'src/app/classes/items';
 
 @Component({
   selector: 'app-add-button',
@@ -8,7 +7,7 @@ import { ProfessionalItem } from 'src/app/classes/items';
 })
 export class AddButtonComponent{
   @Input() isAdding: boolean = false;
-  @Input() itemsList: ProfessionalItem[] = [];
+  @Input() itemsList: any[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   constructor() {}
 

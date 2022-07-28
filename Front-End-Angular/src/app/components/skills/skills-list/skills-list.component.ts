@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ItemsSection } from 'src/app/classes/section';
+import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({
@@ -8,9 +9,9 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./skills-list.component.css'],
 })
 export class SkillsListComponent {
-  @Input() url: any;
-  @Input() skillsArray: any[] = [];
-  @Input() skillsTitle: string = 'Example';
+  @Input() habilidadesList?: Habilidad[];
+  @Input() habilidadesTitulo?: string;
+  @Input() habilidadTipo?: string;
   @Input() barColor: string = 'bg-primary';
   isAdding: boolean = false;
 
@@ -20,13 +21,20 @@ export class SkillsListComponent {
     this.isAdding = addingState;
   }
 
-  addItem(item: any) {
-    this.portfolioData.addItem(this.url, item).subscribe();
+  addItem(habilidadItem: Habilidad) {
+    const url = 'http://localhost:8080/habilidades/agregar';
+    this.portfolioData.createData(url, habilidadItem).subscribe();
+    console.log("Agregar Habilidad: ", habilidadItem)
   }
 
-  deleteItem(item: any, index: number): void {
-    this.skillsArray.splice(index, 1);
-    this.portfolioData.deleteItem(this.url, item).subscribe();
+  deleteItem(habilidadItem: Habilidad, index: number): void {
+    const url = `http://localhost:8080/habilidades/eliminar/${habilidadItem.id}`;
+    this.habilidadesList?.splice(index, 1);
+    this.portfolioData.deleteData(url, habilidadItem).subscribe();
+    console.log('Habilidad a eliminar: ', habilidadItem);
   }
 
+  ngOnInit(){
+    console.log('skill list tipo', this.habilidadTipo)
+  }
 }

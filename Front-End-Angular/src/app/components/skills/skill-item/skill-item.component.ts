@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ItemsSection } from 'src/app/classes/section';
+import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
 @Component({
@@ -9,18 +10,10 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 })
 export class SkillItemComponent {
   isEditing: boolean = false;
-  @Input() url: any;
-  @Input() urlList: any[] = [];
-  @Input() skillsArray: any[] = [];
+  @Input() habilidadesList: Habilidad[] = [];
   @Input() skillsTitle: string = 'Example';
   @Input() barColor: string = 'bg-primary';
-  @Input() skillItem = {
-    id: 1,
-    skill: 'HTML',
-    icon: 'fa-brands fa-html5',
-    lvl: 'Avanzado',
-    progress: '80',
-  };
+  @Input() habilidadItem?: Habilidad;
 
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
@@ -28,7 +21,7 @@ export class SkillItemComponent {
   constructor(private portfolioData: PortfolioDataService) {}
 
   onDelete() {
-    this.onItemDelete.emit(this.skillItem);
+    this.onItemDelete.emit(this.habilidadItem);
   }
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
@@ -36,9 +29,10 @@ export class SkillItemComponent {
     this.isEditing = editingState;
   }
 
-  updateItem(updatedItem: any) {
-    this.skillItem = updatedItem;
-    this.onItemUpdate.emit(this.updateItem);
-    this.portfolioData.updateItem(this.url, updatedItem).subscribe();
+  updateItem(updatedItem: Habilidad) {
+    const url = `http://localhost:8080/habilidades/editar/${updatedItem.id}`;
+    this.habilidadItem = updatedItem;
+    this.portfolioData.updateData(url, updatedItem).subscribe();
+    console.log('Updated Item Habilidad: ', updatedItem);
   }
 }

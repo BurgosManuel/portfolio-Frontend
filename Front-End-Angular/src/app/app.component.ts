@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Educacion } from './model/Educacion';
 import { Experiencia } from './model/Experiencia';
+import { Habilidad } from './model/Habilidad';
 import { Persona } from './model/Persona';
 import { Seccion } from './model/Seccion';
 import { PortfolioDataService } from './services/portfolio-data.service';
@@ -16,6 +17,7 @@ export class AppComponent {
   datosSecciones?: Seccion[];
   educacionData?: Educacion[];
   experienciaData?: Experiencia[];
+  habilidadesData?: Habilidad[];
 
   mostrar: boolean = false;
 
@@ -53,8 +55,14 @@ export class AppComponent {
       .subscribe((data) => {
         this.experienciaData = data;
         console.log('Datos Experiencia: ', data);
-        this.mostrar = true;
       });
 
+    this.portfolioData
+      .getData('http://localhost:8080/habilidades')
+      .subscribe((data) => {
+        this.habilidadesData = data;
+        console.log('Datos Skills: ', data);
+        this.mostrar = true;
+      });
   }
 }
