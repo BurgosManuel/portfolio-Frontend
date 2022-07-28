@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Section } from 'src/app/classes/section';
+import { Proyecto } from 'src/app/model/Proyecto';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 
@@ -8,11 +8,10 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements OnInit {
-  url: string = 'http://localhost:5000/projectsList';
+export class ProjectsComponent {
   isEditing: boolean = false;
   isAdding: boolean = false;
-  projectsList: any[] = [];
+  @Input() proyectosData?: Proyecto[];
   @Input() seccionData?: Seccion;
 
   constructor(private portfolioData: PortfolioDataService) {}
@@ -22,8 +21,8 @@ export class ProjectsComponent implements OnInit {
     this.isEditing = editingState;
   }
 
-   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
-   updateSeccion(newData: Seccion): void {
+  // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
+  updateSeccion(newData: Seccion): void {
     const url = `http://localhost:8080/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
@@ -41,28 +40,16 @@ export class ProjectsComponent implements OnInit {
     this.isEditing = editingState;
   }
 
-  addItem(item: any) {
-    this.portfolioData.addItem(this.url, item).subscribe();
+  addItem(proyectoItem: Proyecto) {
+    const url = 'http://localhost:8080/proyectos/agregar';
+    this.portfolioData.createData(url, proyectoItem).subscribe();
+    console.log("Agregar Proyecto: ", proyectoItem)
   }
 
-  deleteItem(item: any, index: number): void {
-    this.projectsList.splice(index, 1);
-    this.portfolioData.deleteItem(this.url, item).subscribe();
-  }
-
-  updateItems(itemsList: any): void {
-    for (let item of itemsList) {
-      let newUrl = this.url + `/${item.id}`;
-      this.portfolioData.updateItem(newUrl, item).subscribe();
-    }
-  }
-
-  // Asignamos el valor de la lista a la propiedad al momento de instanciarce, haciendo uso del servicio.
-  ngOnInit(): void {
-
-    // Obtenemos los datos para el array de elementos (projectsList).
-    this.portfolioData.getData(this.url).subscribe((data) => {
-      this.projectsList = data;
-    });
+  deleteItem(proyectoItem: Proyecto, index: number): void {
+    const url = `http://localhost:8080/proyectos/eliminar/${proyectoItem.id}`;
+    this.proyectosData?.splice(index, 1);
+    this.portfolioData.deleteData(url, proyectoItem).subscribe();
+    console.log('Habilidad a eliminar: ', proyectoItem);
   }
 }

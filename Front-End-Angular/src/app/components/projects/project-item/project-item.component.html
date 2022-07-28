@@ -1,6 +1,6 @@
 <div class="card" *ngIf="!isEditing">
   <div class="card-img-container">
-    <img [src]="projectItem.img" alt="Portfolio Argentina Programa" />
+    <img [src]="proyectoItem!.img_url" alt="Portfolio Argentina Programa" />
     <span class="h2">Proyecto #{{ index + 1 }}</span>
   </div>
   <div class="card-body">
@@ -8,7 +8,7 @@
       class="item-title mb-2 d-flex justify-content-between align-items-center"
     >
       <h5 class="card-title">
-        {{ projectItem.title }}
+        {{ proyectoItem!.titulo }}
       </h5>
       <div class="item-buttons">
         <app-edit-button
@@ -19,13 +19,13 @@
       </div>
     </div>
     <p class="card-text">
-      {{ projectItem.description }}
+      {{ proyectoItem!.descripcion }}
     </p>
-    <a [href]="projectItem.live" target="_BLANK" class="btn btn-outline-info mb-2"
+    <a [href]="proyectoItem!.demo_url" target="_BLANK" class="btn btn-outline-info mb-2"
       >Live Demo</a
     >
     <a
-      [href]="projectItem.repo"
+      [href]="proyectoItem!.repo_url"
       target="_BLANK"
       class="btn btn-outline-secondary"
       >Repositorio</a
@@ -34,7 +34,7 @@
 </div>
 <app-project-edit
   *ngIf="isEditing"
-  [editableData]="projectItem"
+  [proyectoEditable]="proyectoItem"
   (onToggleEdition)="toggleEdition($event)"
   (onSave)="updateItem($event)"
 ></app-project-edit>

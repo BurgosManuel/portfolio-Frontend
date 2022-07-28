@@ -9,7 +9,7 @@
       class="form-control"
       placeholder="Título del Proyecto"
       autocomplete="off"
-      [(ngModel)]="editableData.title"
+      [(ngModel)]="proyectoEditable!.titulo"
     />
   </div>
   <div class="mb-4">
@@ -20,7 +20,7 @@
       class="form-control"
       rows="5"
       placeholder="Breve descripción del proyecto..."
-      [(ngModel)]="editableData.description"
+      [(ngModel)]="proyectoEditable!.descripcion"
     ></textarea>
   </div>
   <div class="mb-4">
@@ -32,7 +32,7 @@
       class="form-control"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
-      [(ngModel)]="editableData.img"
+      [(ngModel)]="proyectoEditable!.img_url"
     />
   </div>
   <div class="mb-4">
@@ -44,7 +44,7 @@
       class="form-control"
       placeholder="http://tusitio.com/"
       autocomplete="off"
-      [(ngModel)]="editableData.live"
+      [(ngModel)]="proyectoEditable!.demo_url"
     />
   </div>
   <div class="mb-4">
@@ -56,7 +56,7 @@
       class="form-control"
       placeholder="http://github.com/usuario/repositorio"
       autocomplete="off"
-      [(ngModel)]="editableData.repo"
+      [(ngModel)]="proyectoEditable!.repo_url"
     />
   </div>
   <div class="p-2 text-center">

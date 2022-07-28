@@ -4,6 +4,7 @@ import { Educacion } from './model/Educacion';
 import { Experiencia } from './model/Experiencia';
 import { Habilidad } from './model/Habilidad';
 import { Persona } from './model/Persona';
+import { Proyecto } from './model/Proyecto';
 import { Seccion } from './model/Seccion';
 import { PortfolioDataService } from './services/portfolio-data.service';
 
@@ -18,6 +19,7 @@ export class AppComponent {
   educacionData?: Educacion[];
   experienciaData?: Experiencia[];
   habilidadesData?: Habilidad[];
+  proyectosData?: Proyecto[];
 
   mostrar: boolean = false;
 
@@ -62,6 +64,13 @@ export class AppComponent {
       .subscribe((data) => {
         this.habilidadesData = data;
         console.log('Datos Skills: ', data);
+      });
+
+      this.portfolioData
+      .getData('http://localhost:8080/proyectos')
+      .subscribe((data) => {
+        this.proyectosData = data;
+        console.log('Datos Proyectos: ', data);
         this.mostrar = true;
       });
   }
