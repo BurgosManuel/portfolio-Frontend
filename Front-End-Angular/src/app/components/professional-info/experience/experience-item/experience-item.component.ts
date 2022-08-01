@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-experience-item',
@@ -13,6 +14,7 @@ export class ExperienceItemComponent {
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
+  baseUrl: string = environment.baseUrl;
   
   constructor(private portfolioData: PortfolioDataService) {}
   onDelete() {
@@ -25,7 +27,7 @@ export class ExperienceItemComponent {
   }
 
   updateItem(updatedItem: Experiencia) {
-    const url = `http://localhost:8080/experiencia/editar/${updatedItem.id}`;
+    const url = `${this.baseUrl}/experiencia/editar/${updatedItem.id}`;
     this.experienciaItem = updatedItem;
     this.onItemUpdate.emit(this.updateItem);
     this.portfolioData.updateData(url, updatedItem).subscribe();

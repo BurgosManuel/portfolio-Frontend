@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Section } from 'src/app/classes/section';
 import { Persona } from 'src/app/model/Persona';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +11,7 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 export class NavbarComponent {
   @Input() personaData?: Persona;
   isEditing: boolean = false;
+  baseUrl: string = environment.baseUrl;
 
   // Inyectamos el servicio utilizando el modificador 'Protected', de manera que las instancias de esta clase puedan acceder al servicio.
   constructor(protected portfolioData: PortfolioDataService) {}
@@ -22,7 +23,7 @@ export class NavbarComponent {
 
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
   actualizarPersona(personaActualizada: Persona): void {
-    const url: string = `http://localhost:8080/personas/editar/${personaActualizada.id}`;
+    const url: string = `${this.baseUrl}/personas/editar/${personaActualizada.id}`;
     this.personaData = personaActualizada;
     this.portfolioData.updateData(url, personaActualizada).subscribe();
     console.log('Persona Actualizada: ', personaActualizada, url);

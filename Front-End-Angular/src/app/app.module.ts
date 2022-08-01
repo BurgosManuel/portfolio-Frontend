@@ -35,6 +35,7 @@ import { ExperienceAddItemComponent } from './components/professional-info/exper
 import { ExperienceEditComponent } from './components/professional-info/experience/experience-edit/experience-edit.component';
 import { ExperienceItemComponent } from './components/professional-info/experience/experience-item/experience-item.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

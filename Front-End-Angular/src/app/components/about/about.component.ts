@@ -3,6 +3,7 @@ import { Educacion } from 'src/app/model/Educacion';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -10,10 +11,12 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
+
   // Sobrescribimos la url de la Clase Section, pero mantenemos el resto de lógica
   @Input() seccionData?: Seccion;
   @Input() educacionData?: Educacion[];
   @Input() experienciaData?: Experiencia[];
+  baseUrl: string = environment.baseUrl;
 
   @Input() imgUrl: any;
   isEditing: boolean = false;
@@ -27,7 +30,7 @@ export class AboutComponent {
 
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
   updateSeccion(newData: Seccion): void {
-    const url = `http://localhost:8080/secciones/editar/${this.seccionData?.id}`;
+    const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
     console.log('Nuevos datos About:', newData);

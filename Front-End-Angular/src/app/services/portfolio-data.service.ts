@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SectionItem } from 'src/app/classes/items';
-import { Persona } from '../model/Persona';
 
 // Utilizando el modulo HTTPHeaders, generamos una variable que nos permitirá indicar que el archivo que estamos enviando es un JSON. Esto es necesario para los POST/PUT/PATCH en json-server.
 const httpOptions = {
@@ -36,29 +34,5 @@ export class PortfolioDataService {
   // Creamos el método para eliminar información (DELETE).
   deleteData(url: string, data: any): Observable<any> {
     return this.http.delete(url, data);
-  }
-
-  // Método que actualiza los datos, la misma genera un objeto 'ISection', que tomará una key 'description' y un value 'data', formato que tenemos en nuestro JSON con información.
-  updateSection(url: string, data: any): Observable<any> {
-    const sectionData: SectionItem = {
-      description: data,
-    };
-    // Pasamos como parámetros la url, el objeto generado a partir de los datos, y los httpOptions definidos previamente.
-    return this.http.put<any>(url, sectionData, httpOptions);
-  }
-
-  updateItem(url: string, data: any): Observable<any> {
-    return this.http.put<any>(url, data, httpOptions);
-  }
-
-  addItem(url: string, data: any): Observable<any> {
-    console.log(data, url);
-    return this.http.post<any>(url, data, httpOptions);
-  }
-
-  deleteItem(url: string, data: any): Observable<any> {
-    let itemUrl = url + `/${data.id}`;
-    console.log('newUrl = ', itemUrl);
-    return this.http.delete<any>(itemUrl, data);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-project-item',
@@ -14,6 +15,7 @@ export class ProjectItemComponent {
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
+  baseUrl: string = environment.baseUrl;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -27,7 +29,7 @@ export class ProjectItemComponent {
   }
 
   updateItem(updatedItem: Proyecto) {
-    const url = `http://localhost:8080/proyectos/editar/${updatedItem.id}`;
+    const url = `${this.baseUrl}/proyectos/editar/${updatedItem.id}`;
     this.proyectoItem = updatedItem;
     this.portfolioData.updateData(url, updatedItem).subscribe();
     console.log('Updated Item Proyecto: ', updatedItem);

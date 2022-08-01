@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Educacion } from './model/Educacion';
 import { Experiencia } from './model/Experiencia';
 import { Habilidad } from './model/Habilidad';
@@ -20,58 +20,60 @@ export class AppComponent {
   experienciaData?: Experiencia[];
   habilidadesData?: Habilidad[];
   proyectosData?: Proyecto[];
+  baseUrl: string = environment.baseUrl;
+  personaId: number = 1;
 
   mostrar: boolean = false;
 
-  eventsSubject: Subject<void> = new Subject<void>();
+  constructor(private portfolioData: PortfolioDataService) {}
 
-  emitEventToChild() {
-    this.eventsSubject.next();
-  }
-
-  constructor(private portfolioData: PortfolioDataService) {
+  getData() {
     // Obtenemos los datos de Persona para el Nav, Hero y About.
     this.portfolioData
-      .getData('http://localhost:8080/personas/1')
+      .getData(`${this.baseUrl}/personas/${this.personaId}`)
       .subscribe((data) => {
         this.datosPersona = data;
         console.log('DatosPersona: ', data);
       });
 
     this.portfolioData
-      .getData('http://localhost:8080/secciones')
+      .getData(`${this.baseUrl}/secciones`)
       .subscribe((data) => {
         this.datosSecciones = data;
         console.log('DatosSecciones: ', data);
       });
 
     this.portfolioData
-      .getData('http://localhost:8080/educacion')
+      .getData(`${this.baseUrl}/educacion`)
       .subscribe((data) => {
         this.educacionData = data;
         console.log('Datos Educacion: ', data);
       });
 
     this.portfolioData
-      .getData('http://localhost:8080/experiencia')
+      .getData(`${this.baseUrl}/experiencia`)
       .subscribe((data) => {
         this.experienciaData = data;
         console.log('Datos Experiencia: ', data);
       });
 
     this.portfolioData
-      .getData('http://localhost:8080/habilidades')
+      .getData(`${this.baseUrl}/habilidades`)
       .subscribe((data) => {
         this.habilidadesData = data;
         console.log('Datos Skills: ', data);
+        this.mostrar = true;
       });
 
-      this.portfolioData
-      .getData('http://localhost:8080/proyectos')
+    this.portfolioData
+      .getData(`${this.baseUrl}/proyectos`)
       .subscribe((data) => {
         this.proyectosData = data;
         console.log('Datos Proyectos: ', data);
-        this.mostrar = true;
       });
+  }
+
+  ngOnInit() {
+    this.getData();
   }
 }

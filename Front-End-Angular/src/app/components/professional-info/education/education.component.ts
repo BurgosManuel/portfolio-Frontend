@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
-import { ItemsSection } from 'src/app/classes/section';
 import { Educacion } from 'src/app/model/Educacion';
 
 @Component({

@@ -1,6 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Edition } from 'src/app/classes/edition';
-import { SkillItem } from 'src/app/classes/items';
 import { Habilidad } from 'src/app/model/Habilidad';
 
 @Component({

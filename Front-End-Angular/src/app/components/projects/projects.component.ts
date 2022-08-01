@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-projects',
@@ -13,6 +14,7 @@ export class ProjectsComponent {
   isAdding: boolean = false;
   @Input() proyectosData?: Proyecto[];
   @Input() seccionData?: Seccion;
+  baseUrl: string = environment.baseUrl;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -23,7 +25,7 @@ export class ProjectsComponent {
 
   // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
   updateSeccion(newData: Seccion): void {
-    const url = `http://localhost:8080/secciones/editar/${this.seccionData?.id}`;
+    const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
     console.log('Nuevos datos Proyectos:', newData);
@@ -41,13 +43,13 @@ export class ProjectsComponent {
   }
 
   addItem(proyectoItem: Proyecto) {
-    const url = 'http://localhost:8080/proyectos/agregar';
+    const url = `${this.baseUrl}/proyectos/agregar`;
     this.portfolioData.createData(url, proyectoItem).subscribe();
-    console.log("Agregar Proyecto: ", proyectoItem)
+    console.log('Agregar Proyecto: ', proyectoItem);
   }
 
   deleteItem(proyectoItem: Proyecto, index: number): void {
-    const url = `http://localhost:8080/proyectos/eliminar/${proyectoItem.id}`;
+    const url = `${this.baseUrl}/proyectos/eliminar/${proyectoItem.id}`;
     this.proyectosData?.splice(index, 1);
     this.portfolioData.deleteData(url, proyectoItem).subscribe();
     console.log('Habilidad a eliminar: ', proyectoItem);
