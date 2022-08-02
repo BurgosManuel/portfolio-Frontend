@@ -34,6 +34,14 @@ export class SkillsComponent implements OnInit {
     console.log('Nuevos datos Skills:', newData);
   }
 
+  reloadSeccion() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
+  }
+
   ngOnInit(): void {
     this.habilidadesFront = this.habilidadesData?.filter(
       (el) => el.tipo == 'Frontend'

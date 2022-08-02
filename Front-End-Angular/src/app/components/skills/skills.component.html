@@ -17,6 +17,7 @@
         [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
         (onSave)="updateSeccion($event)"
+        (onCancel)="reloadSeccion()"
       ></app-edit-component>
       <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>
     </div>

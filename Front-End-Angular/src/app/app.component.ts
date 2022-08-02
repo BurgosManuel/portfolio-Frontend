@@ -27,6 +27,14 @@ export class AppComponent {
 
   constructor(private portfolioData: PortfolioDataService) {}
 
+  reloadPersona() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/personas/${this.datosPersona?.id}`)
+      .subscribe((data) => {
+        this.datosPersona = data;
+      });
+  }
+
   getData() {
     // Obtenemos los datos de Persona para el Nav, Hero y About.
     this.portfolioData
@@ -75,5 +83,10 @@ export class AppComponent {
 
   ngOnInit() {
     this.getData();
+    this.portfolioData.getRefresh().subscribe((value: boolean) => {
+      if(value) {
+        this.reloadPersona();
+      }
+    })
   }
 }

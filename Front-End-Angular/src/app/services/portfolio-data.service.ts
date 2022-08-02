@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 // Utilizando el modulo HTTPHeaders, generamos una variable que nos permitirá indicar que el archivo que estamos enviando es un JSON. Esto es necesario para los POST/PUT/PATCH en json-server.
 const httpOptions = {
@@ -13,6 +13,21 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PortfolioDataService {
+  // Creamos un observable que retornará un boolean.
+  private refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+
+  // Creamos el método que nos permitirá acceder al obervable y suscribirnos a su valor (True/False).
+  public getRefresh(): Observable<boolean> {
+    return this.refresh.asObservable();
+  }
+
+  // Creamos el método que permitirá modificar el valor del observable.
+  public setRefresh(value: boolean): void {
+    this.refresh.next(value);
+  }
+
   // Inyectamos el httpclient
   constructor(private http: HttpClient) {}
 

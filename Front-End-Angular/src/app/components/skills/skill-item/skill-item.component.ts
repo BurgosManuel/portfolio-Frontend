@@ -36,4 +36,12 @@ export class SkillItemComponent {
     this.portfolioData.updateData(url, updatedItem).subscribe();
     console.log('Updated Item Habilidad: ', updatedItem);
   }
+
+  reloadItem() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/habilidades/${this.habilidadItem?.id}`)
+      .subscribe((data) => {
+        this.habilidadItem = data;
+      });
+  }
 }

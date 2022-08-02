@@ -27,4 +27,12 @@ export class ContactComponent {
     this.portfolioData.updateData(url, newData).subscribe();
     console.log('Nuevos datos Proyectos:', newData);
   }
+
+  reloadSeccion() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
+  }
 }

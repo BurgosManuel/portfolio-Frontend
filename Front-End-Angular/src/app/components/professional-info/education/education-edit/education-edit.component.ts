@@ -10,6 +10,7 @@ export class EducationEditComponent {
 
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
+  @Output() onCancel: EventEmitter<any> = new EventEmitter();
   @Input() educacionEditable?: Educacion;
 
   toggleEdition(): void {
@@ -21,6 +22,6 @@ export class EducationEditComponent {
   }
 
   reload(): void {
-    window.location.reload();
+    this.onCancel.emit()
   }
 }

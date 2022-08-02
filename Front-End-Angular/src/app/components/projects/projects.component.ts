@@ -31,6 +31,14 @@ export class ProjectsComponent {
     console.log('Nuevos datos Proyectos:', newData);
   }
 
+  reloadSeccion() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
+  }
+
   toggleAdding(addingState: boolean): void {
     this.isAdding = addingState;
   }

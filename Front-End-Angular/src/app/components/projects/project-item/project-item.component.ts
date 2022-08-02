@@ -34,4 +34,12 @@ export class ProjectItemComponent {
     this.portfolioData.updateData(url, updatedItem).subscribe();
     console.log('Updated Item Proyecto: ', updatedItem);
   }
+
+  reloadItem() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/proyectos/${this.proyectoItem?.id}`)
+      .subscribe((data) => {
+        this.proyectoItem = data;
+      });
+  }
 }

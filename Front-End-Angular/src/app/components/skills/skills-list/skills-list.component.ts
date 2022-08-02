@@ -29,8 +29,10 @@ export class SkillsListComponent {
   }
 
   deleteItem(habilidadItem: Habilidad, index: number): void {
-    const url = `${this.baseUrl}/habilidades/eliminar/${habilidadItem.id}`;
+    // Eliminamos en front
     this.habilidadesList?.splice(index, 1);
+    // Eliminamos en back
+    const url = `${this.baseUrl}/habilidades/eliminar/${habilidadItem.id}`;
     this.portfolioData.deleteData(url, habilidadItem).subscribe();
     console.log('Habilidad a eliminar: ', habilidadItem);
   }

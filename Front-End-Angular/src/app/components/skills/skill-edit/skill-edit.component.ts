@@ -9,6 +9,7 @@ import { Habilidad } from 'src/app/model/Habilidad';
 export class SkillEditComponent {
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
+  @Output() onCancel: EventEmitter<any> = new EventEmitter();
   @Input() habilidadEditable?: Habilidad;
 
   toggleEdition(): void {
@@ -20,6 +21,6 @@ export class SkillEditComponent {
   }
 
   reload(): void {
-    window.location.reload();
+    this.onCancel.emit();
   }
 }

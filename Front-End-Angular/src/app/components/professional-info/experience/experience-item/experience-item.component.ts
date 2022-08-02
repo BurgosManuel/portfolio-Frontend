@@ -33,4 +33,12 @@ export class ExperienceItemComponent {
     this.portfolioData.updateData(url, updatedItem).subscribe();
     console.log('Updated Item Experiencia: ', updatedItem)
   }
+
+  reloadItem() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/experiencia/${this.experienciaItem?.id}`)
+      .subscribe((data) => {
+        this.experienciaItem = data;
+      });
+  }
 }

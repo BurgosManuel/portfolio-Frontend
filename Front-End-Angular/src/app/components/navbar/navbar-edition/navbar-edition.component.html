@@ -1,6 +1,8 @@
-<form class="editable-item">
+<form #navForm="ngForm" (ngSubmit)="saveChanges()" class="editable-item">
   <h4 class="text-center">Editar</h4>
-  <div class="d-flex flex-column align-items-center justify-content-center mt-3">    
+  <div
+    class="d-flex flex-column align-items-center justify-content-center mt-3"
+  >
     <img
       class="user-profile img-fluid"
       [src]="personaEditable?.img_url"
@@ -8,16 +10,29 @@
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarName" class="form-label">Nombre: </label>
+    <label for="sidebarName" class="form-label">Nombre y Apellido: </label>
     <input
       id="sidebarName"
       name="sidebarName"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarName.errors && (sidebarName.dirty || sidebarName.touched)
+      }"
       placeholder="EJ: Manuel Burgos"
       autocomplete="off"
+      minlength="4"
+      required
+      #sidebarName="ngModel"
       [(ngModel)]="personaEditable!.nombre"
     />
+    <div *ngIf="sidebarName.errors?.['required']" class="text-danger mt-2">
+      <p>El nombre es obligatorio.</p>
+    </div>
+    <div *ngIf="sidebarName.errors?.['minlength']" class="text-danger mt-2">
+      <p>El nombre debe tener al menos 4 carácteres.</p>
+    </div>
   </div>
   <div class="mb-4">
     <label for="sidebarName" class="form-label">Título: </label>
@@ -28,8 +43,17 @@
       class="form-control"
       placeholder="EJ: Desarrollador Fullstack"
       autocomplete="off"
+      [class]="{
+        'is-invalid':
+          sidebarTitle.errors && (sidebarTitle.dirty || sidebarTitle.touched)
+      }"
+      required
+      #sidebarTitle="ngModel"
       [(ngModel)]="personaEditable!.titulo"
     />
+    <div *ngIf="sidebarTitle.errors?.['required']" class="text-danger mt-2">
+      <p>El título es obligatorio.</p>
+    </div>
   </div>
   <div class="mb-4">
     <label for="sidebarImg" class="form-label">Foto de Perfil (URL): </label>
@@ -81,9 +105,9 @@
   </div>
   <div class="p-2 text-center">
     <button
-      type="button"
+      type="submit"
       class="btn btn-outline-success m-2"
-      (click)="toggleEdition(); saveChanges()"
+      [disabled]="!navForm.form.valid"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>

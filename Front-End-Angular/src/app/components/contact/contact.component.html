@@ -18,6 +18,7 @@
         [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
         (onSave)="updateSeccion($event)"
+        (onCancel)="reloadSeccion()"
       ></app-edit-component>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
       <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>

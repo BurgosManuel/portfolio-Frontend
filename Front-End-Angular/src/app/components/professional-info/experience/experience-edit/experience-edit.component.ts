@@ -10,6 +10,8 @@ export class ExperienceEditComponent {
 
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
+  @Output() onCancel: EventEmitter<any> = new EventEmitter();
+
   @Input() experienciaEditable?: Experiencia;
 
   toggleEdition(): void {
@@ -21,6 +23,6 @@ export class ExperienceEditComponent {
   }
 
   reload(): void {
-    window.location.reload();
+    this.onCancel.emit();
   }
 }

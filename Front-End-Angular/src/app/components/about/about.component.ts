@@ -44,4 +44,12 @@ export class AboutComponent {
     };
     // this.portfolioData.updateItem(this.imgUrl, aboutItem).subscribe();
   }
+
+  reloadSeccion() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
+  }
 }

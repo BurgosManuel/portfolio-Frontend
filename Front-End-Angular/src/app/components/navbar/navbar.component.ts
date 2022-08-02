@@ -49,11 +49,11 @@ export class NavbarComponent {
   //   this.portfolioData.updateItem(this.url, updatedItem).subscribe();
   // }
 
-  reload(): void {
-    if (!this.isEditing) {
-      window.location.reload();
-    }
-  }
+  // reload(): void {
+  //   if (!this.isEditing) {
+  //     window.location.reload();
+  //   }
+  // }
 
   ngOnInit(): void {
     // Determinamos si el sidebar -al instanciarse- estará abierto o cerrado.

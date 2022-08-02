@@ -9,6 +9,7 @@ export class EditComponentComponent implements OnInit {
   @Input() seccionEditable: any;
   @Input() isEditing: boolean = false;
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
+  @Output() onCancel: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
 
   toggleEdition(): void {
@@ -20,7 +21,7 @@ export class EditComponentComponent implements OnInit {
   }
 
   reload(): void {
-    window.location.reload();
+    this.onCancel.emit();
   }
 
   ngOnInit(): void {}

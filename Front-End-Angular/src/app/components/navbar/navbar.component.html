@@ -18,8 +18,8 @@
     <app-edit-button
       class="align-self-end p-2"
       [isEditing]="isEditing"
-      (onToggleEdition)="toggleEdition($event); reload()"
+      (onToggleEdition)="toggleEdition($event)"
       ></app-edit-button>
-      <app-navbar-item [personaItem]="personaData" [isEditing]="isEditing" (onItemUpdate)="actualizarPersona($event)"></app-navbar-item>
+      <app-navbar-item [personaData]="personaData" [isEditing]="isEditing" (onItemUpdate)="actualizarPersona($event)" (onToggleItem)="toggleEdition($event)"></app-navbar-item>
   </nav>
 </aside>
