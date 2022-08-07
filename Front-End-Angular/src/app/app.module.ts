@@ -37,6 +37,7 @@ import { ExperienceItemComponent } from './components/professional-info/experien
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 
 @NgModule({
@@ -75,7 +76,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     PortfolioComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [PortfolioDataService],
+  providers: [PortfolioDataService, authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
