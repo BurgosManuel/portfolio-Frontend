@@ -34,6 +34,9 @@ import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item
 import { ExperienceAddItemComponent } from './components/professional-info/experience/experience-add-item/experience-add-item.component';
 import { ExperienceEditComponent } from './components/professional-info/experience/experience-edit/experience-edit.component';
 import { ExperienceItemComponent } from './components/professional-info/experience/experience-item/experience-item.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 
 @NgModule({
@@ -66,7 +69,10 @@ import { ExperienceItemComponent } from './components/professional-info/experien
     NavbarItemComponent,
     ExperienceAddItemComponent,
     ExperienceEditComponent,
-    ExperienceItemComponent
+    ExperienceItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    PortfolioComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [PortfolioDataService],
