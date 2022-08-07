@@ -38,10 +38,15 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        console.log("Login Data", data)
+        console.log("ID Persona: ", data.id)
       },
       error: (err: any) => {
-        this.errorMessage = err.error.message;
+        if(err.status == 401) {
+          this.errorMessage = "Usuario y/o contraseña incorrectos."
+        } else {
+          this.errorMessage = `${err.status}: ${err.statusText}`
+        }
+        console.log(err)
         this.isLoginFailed = true;
       },
     };

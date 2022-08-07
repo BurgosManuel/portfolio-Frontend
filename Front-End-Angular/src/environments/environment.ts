@@ -6,10 +6,8 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
   authApi: 'http://localhost:8080/api/auth',
-  testApi: 'http://localhost:8080/api/test',
-  personaId: 1
+  testApi: 'http://localhost:8080/api/test'
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

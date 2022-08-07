@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+declare let window: any;
 
 @Component({
   selector: 'app-delete-button',
@@ -6,9 +7,19 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./delete-button.component.css'],
 })
 export class DeleteButtonComponent {
-  @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
+  @Output() deleteBtnEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Input() modalTarget: any;
+
+
+  openModal() {
+    const modal = new window.bootstrap.Modal(document.getElementById(this.modalTarget));
+    modal.show();
+  }
 
   onDelete() {
-    this.onItemDelete.emit();
+    this.deleteBtnEvent.emit();
+  }
+
+  ngOnInit() {
   }
 }

@@ -14,11 +14,13 @@ export class EducationItemComponent {
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
+  modalTarget: string = ''
 
   constructor(private portfolioData: PortfolioDataService) {}
 
   onDelete() {
     this.onItemDelete.emit(this.educacionItem);
+    console.log("EDUCACION DELETE:", this.educacionItem);
   }
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
@@ -40,5 +42,8 @@ export class EducationItemComponent {
       .subscribe((data) => {
         this.educacionItem = data;
       });
+  }
+  ngOnInit(){
+      this.modalTarget = 'modalEdu' + this.educacionItem?.id;
   }
 }

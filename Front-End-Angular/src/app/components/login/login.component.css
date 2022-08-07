@@ -33,11 +33,10 @@
   
   form {
     position: relative;
-    z-index: 10;
+    z-index: 1;
   }
   
-  .alert {
-    position: relative;
+  .toFront {
     z-index: 50;
   }
   

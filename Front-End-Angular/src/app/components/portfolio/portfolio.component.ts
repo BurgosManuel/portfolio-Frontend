@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Educacion } from 'src/app/model/Educacion';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { Habilidad } from 'src/app/model/Habilidad';
@@ -6,7 +7,10 @@ import { Persona } from 'src/app/model/Persona';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { environment } from 'src/environments/environment';
+export let personaID: number = 3;
+
 
 @Component({
   selector: 'app-portfolio',
@@ -21,11 +25,13 @@ export class PortfolioComponent implements OnInit {
   habilidadesData?: Habilidad[];
   proyectosData?: Proyecto[];
   baseUrl: string = environment.baseUrl;
-  personaId: number = 1;
 
   mostrar: boolean = false;
 
-  constructor(private portfolioData: PortfolioDataService) {}
+  constructor(
+    private portfolioData: PortfolioDataService,
+    private tokenStorage: TokenStorageService
+  ) {}
 
   reloadPersona() {
     this.portfolioData
@@ -38,9 +44,10 @@ export class PortfolioComponent implements OnInit {
   getData() {
     // Obtenemos los datos de Persona para el Nav, Hero y About.
     this.portfolioData
-      .getData(`${this.baseUrl}/personas/${this.personaId}`)
+      .getData(`${this.baseUrl}/personas/${personaID}`)
       .subscribe((data) => {
         this.datosPersona = data;
+        console.log("PersonaDATA", data)
       });
 
     this.portfolioData
@@ -82,5 +89,8 @@ export class PortfolioComponent implements OnInit {
         this.reloadPersona();
       }
     });
+    personaID = this.tokenStorage.getUser().id;
+    console.log("Persona ID", personaID)
   }
+
 }
