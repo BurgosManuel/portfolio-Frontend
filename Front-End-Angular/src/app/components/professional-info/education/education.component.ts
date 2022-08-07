@@ -33,7 +33,7 @@ export class EducationComponent {
         .subscribe((data) => {
           this.educacionData = data;
         });
-    }, 1000);
+    }, 500);
   }
 
   deleteItem(educacionItem: Educacion, index: number): void {

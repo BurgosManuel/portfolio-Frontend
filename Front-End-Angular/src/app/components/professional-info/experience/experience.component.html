@@ -15,7 +15,7 @@
     *ngIf="isAdding"
     [experienciaList]="experienciaData"
     (onToggleAdding)="toggleAdding($event)"
-    (onAddItem)="addItem($event)"
+    (onAddItem)="reloadData()"
   ></app-experience-add-item>
 
   <!-- Iteramos a traves del array de elementos, y generamos uno nuevo con su respectivo Data Binding. -->

@@ -15,7 +15,8 @@ export class ExperienceItemComponent {
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
-  
+  modalTarget: string = '';
+
   constructor(private portfolioData: PortfolioDataService) {}
   onDelete() {
     this.onItemDelete.emit(this.experienciaItem);
@@ -39,5 +40,9 @@ export class ExperienceItemComponent {
       .subscribe((data) => {
         this.experienciaItem = data;
       });
+  }
+
+  ngOnInit() {
+    this.modalTarget = 'modalExp' + this.experienciaItem?.id;
   }
 }

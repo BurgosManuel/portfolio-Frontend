@@ -26,9 +26,14 @@ export class ExperienceComponent {
     this.isAdding = addingState;
   }
 
-  addItem(experienciaItem: Experiencia) {
-    const url = `${this.baseUrl}/experiencia/agregar`;
-    this.portfolioData.createData(url, experienciaItem).subscribe();
+  reloadData() {
+    setTimeout(() => {
+      this.portfolioData
+        .getData(`${this.baseUrl}/experiencia/listar`)
+        .subscribe((data) => {
+          this.experienciaData = data;
+        });
+    }, 500);
   }
 
   deleteItem(experienciaItem: Experiencia, index: number): void {

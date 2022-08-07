@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { personaID } from 'src/app/components/portfolio/portfolio.component';
 import { Educacion } from 'src/app/model/Educacion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -13,7 +14,7 @@ export class EducationAddItem  {
   @Input() educacionList?: Educacion[];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  educacionItem: Educacion = new Educacion(1, "", "", "", "");
+  educacionItem: Educacion = new Educacion(personaID, "", "", "", "");
   baseUrl: string = environment.baseUrl;
 
   constructor(private portfolioData: PortfolioDataService){}
