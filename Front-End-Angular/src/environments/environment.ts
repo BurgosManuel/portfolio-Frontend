@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
+  authApi: 'http://localhost:8080/api/auth',
   personaId: 1
 };
 
