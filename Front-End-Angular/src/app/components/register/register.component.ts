@@ -1,15 +1,39 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistroForm } from 'src/app/model/RegistroForm';
+import { AuthService } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  form: RegistroForm = new RegistroForm('', '', '');
 
-  constructor() { }
+  isSuccessful: boolean = false;
+  registerFailed: boolean = false;
+  errorMessage: string = '';
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {}
+
+  registerUser(): void {
+    const { username, email, password } = this.form;
+
+    const observer = {
+      next: (data: any) => {
+        console.log('Registro Data', data);
+        this.isSuccessful = true;
+        this.registerFailed = false;
+      },
+      error: (err: any) => {
+        this.errorMessage = err.error.message;
+        this.registerFailed = true;
+      },
+    };
+
+    this.authService.register(username, email, password).subscribe(observer);
   }
 
+  ngOnInit(): void {}
 }
