@@ -15,7 +15,7 @@
           (onToggleEdition)="toggleEdition($event)"
           [isEditing]="isEditing"
         ></app-edit-button>
-        <app-delete-button (onItemDelete)="onDelete()"></app-delete-button>
+        <app-delete-button (deleteBtnEvent)="onDelete()" [modalTarget]="modalTarget"></app-delete-button>
       </div>
     </div>
     <p class="card-text">

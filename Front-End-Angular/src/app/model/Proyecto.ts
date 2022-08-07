@@ -1,5 +1,5 @@
 export class Proyecto {
-  id: number;
+  id?: number;
   persona_id: number;
   titulo: string;
   descripcion: string;
@@ -8,7 +8,6 @@ export class Proyecto {
   demo_url: string;
 
   constructor(
-    id: number,
     persona_id: number,
     titulo: string,
     descripcion: string,
@@ -16,7 +15,6 @@ export class Proyecto {
     repo_url: string,
     demo_url: string
   ) {
-    this.id = id;
     this.persona_id = persona_id;
     this.titulo = titulo;
     this.descripcion = descripcion;

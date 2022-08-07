@@ -39,25 +39,24 @@ export class ProjectsComponent {
       });
   }
 
+  reloadData() {
+    setTimeout(() => {
+      this.portfolioData
+        .getData(`${this.baseUrl}/proyectos/listar`)
+        .subscribe((data) => {
+          this.proyectosData = data;
+        });
+    }, 500);
+  }
+
   toggleAdding(addingState: boolean): void {
     this.isAdding = addingState;
-  }
-
-  reloadToggle(editingState: boolean) {
-    if (this.isEditing) {
-      window.location.reload();
-    }
-    this.isEditing = editingState;
-  }
-
-  addItem(proyectoItem: Proyecto) {
-    const url = `${this.baseUrl}/proyectos/agregar`;
-    this.portfolioData.createData(url, proyectoItem).subscribe();
   }
 
   deleteItem(proyectoItem: Proyecto, index: number): void {
     const url = `${this.baseUrl}/proyectos/eliminar/${proyectoItem.id}`;
     this.proyectosData?.splice(index, 1);
     this.portfolioData.deleteData(url, proyectoItem).subscribe();
+    console.log("Eliminar Proyecto:", proyectoItem)
   }
 }

@@ -38,7 +38,7 @@
           [isAdding]="isAdding"
           [proyectosList]="proyectosData!"
           (onToggleAdding)="toggleAdding($event)"
-          (onAddItem)="addItem($event)"
+          (onAddItem)="reloadData()"
         ></app-project-add>
         <app-project-item
           *ngFor="let proyectoItem of proyectosData; let i = index"
