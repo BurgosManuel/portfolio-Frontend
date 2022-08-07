@@ -32,7 +32,6 @@ export class ProjectItemComponent {
     const url = `${this.baseUrl}/proyectos/editar/${updatedItem.id}`;
     this.proyectoItem = updatedItem;
     this.portfolioData.updateData(url, updatedItem).subscribe();
-    console.log('Updated Item Proyecto: ', updatedItem);
   }
 
   reloadItem() {

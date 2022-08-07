@@ -9,23 +9,23 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../services/token-storage.service';
 
-const TOKEN_KEY = 'Authorization'; // Para el backend de Spring Boot.
+const TOKEN_HEADER_KEY = 'Authorization'; // Para el backend de Spring Boot.
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private token: TokenStorageService) {}
+  constructor(private tokenService: TokenStorageService) {}
 
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    let authReq = req;
-    const token = this.token.getToken();
-    if (token != null) {
-      authReq = req.clone({
-        headers: req.headers.set(TOKEN_KEY, 'Bearer ' + token),
-      });
-    }
+    const token = this.tokenService.getToken();
+    let authReq = !token
+      ? req
+      : req.clone({
+          setHeaders: { Authorization: `Bearer ${token}` },
+        });
+
     return next.handle(authReq);
   }
 }

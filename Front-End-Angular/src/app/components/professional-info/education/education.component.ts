@@ -27,13 +27,11 @@ export class EducationComponent {
   addItem(educacionItem: Educacion) {
     const url = 'http://localhost:8080/educacion/agregar'
     this.portfolioData.createData(url, educacionItem).subscribe();
-    console.log("Educacion Agregar: ", educacionItem)
   }
 
   deleteItem(educacionItem: Educacion, index: number): void {
     const url = `http://localhost:8080/educacion/eliminar/${educacionItem.id}`
     this.educacionData?.splice(index, 1);
     this.portfolioData.deleteData(url, educacionItem).subscribe();
-    console.log('Educacion a eliminar: ', educacionItem)
   }
 }

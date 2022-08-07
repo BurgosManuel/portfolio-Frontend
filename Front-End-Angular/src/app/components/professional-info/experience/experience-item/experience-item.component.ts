@@ -31,7 +31,6 @@ export class ExperienceItemComponent {
     this.experienciaItem = updatedItem;
     this.onItemUpdate.emit(this.updateItem);
     this.portfolioData.updateData(url, updatedItem).subscribe();
-    console.log('Updated Item Experiencia: ', updatedItem)
   }
 
   reloadItem() {

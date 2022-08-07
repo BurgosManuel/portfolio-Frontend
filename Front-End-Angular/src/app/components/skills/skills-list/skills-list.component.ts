@@ -25,7 +25,6 @@ export class SkillsListComponent {
   addItem(habilidadItem: Habilidad) {
     const url = `${this.baseUrl}/habilidades/agregar`;
     this.portfolioData.createData(url, habilidadItem).subscribe();
-    console.log('Agregar Habilidad: ', habilidadItem);
   }
 
   deleteItem(habilidadItem: Habilidad, index: number): void {
@@ -34,10 +33,8 @@ export class SkillsListComponent {
     // Eliminamos en back
     const url = `${this.baseUrl}/habilidades/eliminar/${habilidadItem.id}`;
     this.portfolioData.deleteData(url, habilidadItem).subscribe();
-    console.log('Habilidad a eliminar: ', habilidadItem);
   }
 
   ngOnInit() {
-    console.log('skill list tipo', this.habilidadTipo);
   }
 }

@@ -15,7 +15,6 @@ export class HeroComponent {
   // Método que nos mostrará los elementos cuando la ventana carga a través del (window:load).
   showTitle() {
     const el = document.querySelector('#heroText');
-    console.log('Text', el);
     el?.classList.remove('hideText', 'opacity-0');
   }
 

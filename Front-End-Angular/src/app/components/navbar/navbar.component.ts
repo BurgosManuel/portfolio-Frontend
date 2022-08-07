@@ -26,7 +26,6 @@ export class NavbarComponent {
     const url: string = `${this.baseUrl}/personas/editar/${personaActualizada.id}`;
     this.personaData = personaActualizada;
     this.portfolioData.updateData(url, personaActualizada).subscribe();
-    console.log('Persona Actualizada: ', personaActualizada, url);
   }
 
   // Creamos una propiedad que almacene el min-width para que se considere la sidebar 'Abierta'
@@ -43,18 +42,7 @@ export class NavbarComponent {
   loadSidebar() {
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
   }
-
-  // updateItem(updatedItem: any) {
-  //   this.sectionData = updatedItem;
-  //   this.portfolioData.updateItem(this.url, updatedItem).subscribe();
-  // }
-
-  // reload(): void {
-  //   if (!this.isEditing) {
-  //     window.location.reload();
-  //   }
-  // }
-
+  
   ngOnInit(): void {
     // Determinamos si el sidebar -al instanciarse- estará abierto o cerrado.
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);

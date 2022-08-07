@@ -31,7 +31,6 @@ export class SkillsComponent implements OnInit {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
-    console.log('Nuevos datos Skills:', newData);
   }
 
   reloadSeccion() {
@@ -51,12 +50,6 @@ export class SkillsComponent implements OnInit {
     );
     this.habilidadesSoft = this.habilidadesData?.filter(
       (el) => el.tipo == 'Soft'
-    );
-
-    console.log(
-      this.habilidadesBack,
-      this.habilidadesFront,
-      this.habilidadesSoft
     );
   }
 }

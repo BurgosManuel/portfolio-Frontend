@@ -1,11 +1,16 @@
 <div class="container-fluid vertical-center bg-image">
   <form
-    #registerForm="ngForm"
-    *ngIf="!isSuccessful"
-    (ngSubmit)="registerForm.form.valid && registerUser()"
-    class="editable-item col-md-6 mx-auto p-5"
-    autocomplete="off"
+  #registerForm="ngForm"
+  *ngIf="!isSuccessful"
+  (keydown.enter)="$event.preventDefault()"
+  (ngSubmit)="registerForm.form.valid && registerUser()"
+  class="editable-item col-md-6 mx-auto p-5 pt-4"
+  autocomplete="off"
   >
+  <div class="d-flex align-items-center justify-content-between w-100">
+    <button class="btn btn-outline-info" routerLink="/portfolio">Volver al portfolio</button>
+    <button class="btn btn-outline-success" routerLink="/ingreso">Ingresar</button>
+  </div>
     <h1 class="text-center">Registro</h1>
     <hr />
     <div class="mb-3">
@@ -98,7 +103,7 @@
       <button
         type="submit"
         class="btn"
-        [class]="registerForm.valid ? 'btn-info' : 'btn-outline-info'"
+        [class]="registerForm.valid ? 'btn-info' : 'btn-outline-secondary'"
         [disabled]="!registerForm.valid"
       >
         Registrarse
@@ -114,6 +119,6 @@
   </form>
   <div class="alert alert-success my-auto mx-auto text-center" *ngIf="isSuccessful">
     <h5>¡Usuario registrado con éxito!</h5>
-    <button class="btn btn-success" routerLink="/login">Ingresar </button>
+    <button class="btn btn-success" routerLink="/ingreso">Ingresar </button>
   </div>
 </div>

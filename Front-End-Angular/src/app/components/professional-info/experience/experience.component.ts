@@ -29,13 +29,11 @@ export class ExperienceComponent {
   addItem(experienciaItem: Experiencia) {
     const url = `${this.baseUrl}/experiencia/agregar`;
     this.portfolioData.createData(url, experienciaItem).subscribe();
-    console.log('Experiencia Agregar: ', experienciaItem);
   }
 
   deleteItem(experienciaItem: Experiencia, index: number): void {
     const url = `${this.baseUrl}/experiencia/eliminar/${experienciaItem.id}`;
     this.experienciaData?.splice(index, 1);
     this.portfolioData.deleteData(url, experienciaItem).subscribe();
-    console.log('Experiencia a eliminar: ', experienciaItem);
   }
 }

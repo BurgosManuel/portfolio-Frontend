@@ -41,43 +41,37 @@ export class PortfolioComponent implements OnInit {
       .getData(`${this.baseUrl}/personas/${this.personaId}`)
       .subscribe((data) => {
         this.datosPersona = data;
-        console.log('DatosPersona: ', data);
       });
 
     this.portfolioData
-      .getData(`${this.baseUrl}/secciones`)
+      .getData(`${this.baseUrl}/secciones/listar`)
       .subscribe((data) => {
         this.datosSecciones = data;
-        console.log('DatosSecciones: ', data);
       });
 
     this.portfolioData
-      .getData(`${this.baseUrl}/educacion`)
+      .getData(`${this.baseUrl}/educacion/listar`)
       .subscribe((data) => {
         this.educacionData = data;
-        console.log('Datos Educacion: ', data);
       });
 
     this.portfolioData
-      .getData(`${this.baseUrl}/experiencia`)
+      .getData(`${this.baseUrl}/experiencia/listar`)
       .subscribe((data) => {
         this.experienciaData = data;
-        console.log('Datos Experiencia: ', data);
       });
 
     this.portfolioData
-      .getData(`${this.baseUrl}/habilidades`)
+      .getData(`${this.baseUrl}/habilidades/listar`)
       .subscribe((data) => {
         this.habilidadesData = data;
-        console.log('Datos Skills: ', data);
         this.mostrar = true;
       });
 
     this.portfolioData
-      .getData(`${this.baseUrl}/proyectos`)
+      .getData(`${this.baseUrl}/proyectos/listar`)
       .subscribe((data) => {
         this.proyectosData = data;
-        console.log('Datos Proyectos: ', data);
       });
   }
 

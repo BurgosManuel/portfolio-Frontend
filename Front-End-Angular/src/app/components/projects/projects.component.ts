@@ -53,13 +53,11 @@ export class ProjectsComponent {
   addItem(proyectoItem: Proyecto) {
     const url = `${this.baseUrl}/proyectos/agregar`;
     this.portfolioData.createData(url, proyectoItem).subscribe();
-    console.log('Agregar Proyecto: ', proyectoItem);
   }
 
   deleteItem(proyectoItem: Proyecto, index: number): void {
     const url = `${this.baseUrl}/proyectos/eliminar/${proyectoItem.id}`;
     this.proyectosData?.splice(index, 1);
     this.portfolioData.deleteData(url, proyectoItem).subscribe();
-    console.log('Habilidad a eliminar: ', proyectoItem);
   }
 }
