@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 declare let window: any;
 
 @Component({
@@ -9,10 +10,13 @@ declare let window: any;
 export class DeleteButtonComponent {
   @Output() deleteBtnEvent: EventEmitter<any> = new EventEmitter<any>();
   @Input() modalTarget: any;
-
+  isUserLogged: boolean = false;
+  constructor(private userStatus: UserService) {}
 
   openModal() {
-    const modal = new window.bootstrap.Modal(document.getElementById(this.modalTarget));
+    const modal = new window.bootstrap.Modal(
+      document.getElementById(this.modalTarget)
+    );
     modal.show();
   }
 
@@ -21,5 +25,8 @@ export class DeleteButtonComponent {
   }
 
   ngOnInit() {
+    this.userStatus
+      .getUserStatus()
+      .subscribe((value) => (this.isUserLogged = value));
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginForm } from 'src/app/model/LoginForm';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
+    private userStatus: UserService
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         console.log("ID Persona: ", data.id)
         this.tokenStorage.updateID();
+        this.tokenStorage.updateRoles();
       },
       error: (err: any) => {
         if(err.status == 401) {
@@ -56,5 +59,6 @@ export class LoginComponent implements OnInit {
     this.tokenStorage.signOut();
     this.isLoggedIn = false;
     this.isLoginFailed = false;
+    this.userStatus.setUserStatus(false);
   }
 }

@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-const API_URL = environment.testApi;
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  // Creamos un Observable de tipo BehaviorSubject que retornará un boolean.
+  isUserLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
+  // Inyectamos el HTTP Client
+
   constructor(private http: HttpClient) {}
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'all', { responseType: 'text' });
-  }
-  getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'user', { responseType: 'text' });
-  }
-  getModeratorBoard(): Observable<any> {
-    return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  }
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  }
+    // Creamos el método que nos permitirá acceder al obervable y suscribirnos a su valor (True/False).
+    public getUserStatus(): Observable<boolean> {
+      return this.isUserLogged.asObservable();
+    }
+  
+    // Creamos el método que permitirá modificar el valor del observable.
+    public setUserStatus(value: boolean): void {
+      this.isUserLogged.next(value);
+      console.log("Is User Logged:", value)
+    }
+
+    ngOnInit() {
+      console.log("User logged init", this.isUserLogged);
+    }
 }

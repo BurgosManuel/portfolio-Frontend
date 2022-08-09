@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 
@@ -7,7 +10,8 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
   private _personaID: number = 1;
-  constructor() {}
+
+  constructor(private http: HttpClient, private userStatus: UserService) {}
 
   signOut(): void {
     window.sessionStorage.clear();
@@ -35,10 +39,18 @@ export class TokenStorageService {
     return {};
   }
 
+  public updateRoles(): any {
+    const userRoles = this.getUser().roles;
+    if (userRoles.includes('ROLE_ADMIN')) {
+      this.userStatus.setUserStatus(true)
+    } else {
+      this.userStatus.setUserStatus(false)
+    }
+  }
+
   public updateID(): number {
     this._personaID = this.getUser().id;
     return this._personaID;
-
   }
 
   ngOnInit() {
