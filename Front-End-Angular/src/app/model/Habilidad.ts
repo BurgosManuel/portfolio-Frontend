@@ -1,5 +1,5 @@
 export class Habilidad {
-  id: number;
+  id?: number;
   persona_id: number;
   nombre: string;
   tipo: string;
@@ -8,7 +8,6 @@ export class Habilidad {
   icono: string;
 
   constructor(
-    id: number,
     persona_id: number,
     nombre: string,
     tipo: string,
@@ -16,7 +15,6 @@ export class Habilidad {
     progreso: number,
     icono: string
   ) {
-    this.id = id;
     this.persona_id = persona_id;
     this.nombre = nombre;
     this.tipo = tipo;

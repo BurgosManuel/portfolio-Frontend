@@ -15,6 +15,7 @@ export class SkillItemComponent {
   @Input() barColor: string = 'bg-primary';
   @Input() habilidadItem?: Habilidad;
   baseUrl: string = environment.baseUrl;
+  modalTarget?: string;
 
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
@@ -43,5 +44,9 @@ export class SkillItemComponent {
       .subscribe((data) => {
         this.habilidadItem = data;
       });
+  }
+
+  ngOnInit() {
+    this.modalTarget = 'ModalSkill' + this.habilidadItem?.id;
   }
 }

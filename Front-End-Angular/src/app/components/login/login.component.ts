@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { LoginForm } from 'src/app/model/LoginForm';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
@@ -19,7 +18,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
-    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -39,12 +37,13 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         console.log("ID Persona: ", data.id)
+        this.tokenStorage.updateID();
       },
       error: (err: any) => {
         if(err.status == 401) {
           this.errorMessage = "Usuario y/o contraseña incorrectos."
         } else {
-          this.errorMessage = `${err.status}: ${err.statusText}`
+          this.errorMessage = `${err.status}: ${err.error.message}`
         }
         console.log(err)
         this.isLoginFailed = true;

@@ -41,6 +41,27 @@ export class SkillsComponent implements OnInit {
       });
   }
 
+  reloadData() {
+    setTimeout(() => {
+      this.portfolioData
+        .getData(`${this.baseUrl}/habilidades/listar`)
+        .subscribe((data) => {
+          this.habilidadesData = data;
+          this.habilidadesFront = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Frontend'
+          );
+          this.habilidadesBack = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Backend'
+          );
+          this.habilidadesSoft = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Soft'
+          );
+          console.log("SECCIONES ACTUALIZADAS")
+        });
+    }, 500);
+  }
+
+
   ngOnInit(): void {
     this.habilidadesFront = this.habilidadesData?.filter(
       (el) => el.tipo == 'Frontend'

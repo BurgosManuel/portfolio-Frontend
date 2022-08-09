@@ -10,12 +10,12 @@
       placeholder="EJ: HTML"
       required
       autocomplete="off"
-      [(ngModel)]="habilidadItem.nombre"
+      [(ngModel)]="habilidadItem!.nombre"
     />
   </div>
   <div class="mb-3">
     <label for="icon" class="form-label"
-      >Icono ( <i [class]="habilidadItem.icono"></i> )<br
+      >Icono ( <i [class]="habilidadItem!.icono"></i> )<br
     /></label>
     <input
       id="icon"
@@ -24,7 +24,7 @@
       class="form-control"
       placeholder="EJ: fa-brands fa-html5"
       autocomplete="off"
-      [(ngModel)]="habilidadItem.icono"
+      [(ngModel)]="habilidadItem!.icono"
     />
   </div>
   <div class="mb-3">
@@ -36,12 +36,12 @@
       type="text"
       placeholder="EJ: Intermedio/Avanzado"
       required
-      [(ngModel)]="habilidadItem.nivel"
+      [(ngModel)]="habilidadItem!.nivel"
     />
   </div>
   <div class="mb-3">
     <label class="form-label" for="progress"
-      >Barra de progreso ({{ habilidadItem.progreso }}%)</label
+      >Barra de progreso ({{ habilidadItem!.progreso }}%)</label
     >
     <input
       class="form-range"
@@ -49,7 +49,7 @@
       id="progress"
       type="range"
       required
-      [(ngModel)]="habilidadItem.progreso"
+      [(ngModel)]="habilidadItem!.progreso"
     />
   </div>
   <div class="p-2">

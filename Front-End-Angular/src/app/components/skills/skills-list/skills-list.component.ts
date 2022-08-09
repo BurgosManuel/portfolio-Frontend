@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-skills-list',
@@ -13,6 +14,7 @@ export class SkillsListComponent {
   @Input() habilidadesTitulo?: string;
   @Input() habilidadTipo?: string;
   @Input() barColor: string = 'bg-primary';
+  @Output() onAddUpdate: EventEmitter<any> = new EventEmitter();
   isAdding: boolean = false;
   baseUrl: string = environment.baseUrl;
 
@@ -22,10 +24,15 @@ export class SkillsListComponent {
     this.isAdding = addingState;
   }
 
-  addItem(habilidadItem: Habilidad) {
-    const url = `${this.baseUrl}/habilidades/agregar`;
-    this.portfolioData.createData(url, habilidadItem).subscribe();
+  addItemReload() {
+    console.log("UPDATE EMITTED")
+    this.onAddUpdate.emit();
   }
+
+  // addItem(habilidadItem: Habilidad) {
+  //   const url = `${this.baseUrl}/habilidades/agregar`;
+  //   this.portfolioData.createData(url, habilidadItem).subscribe();
+  // }
 
   deleteItem(habilidadItem: Habilidad, index: number): void {
     // Eliminamos en front
@@ -35,6 +42,5 @@ export class SkillsListComponent {
     this.portfolioData.deleteData(url, habilidadItem).subscribe();
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 }

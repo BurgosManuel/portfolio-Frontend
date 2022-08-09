@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { TokenStorageService } from './token-storage.service';
 
 // Utilizando el modulo HTTPHeaders, generamos una variable que nos permitirá indicar que el archivo que estamos enviando es un JSON. Esto es necesario para los POST/PUT/PATCH en json-server.
 const httpOptions = {
@@ -17,6 +18,9 @@ export class PortfolioDataService {
   private refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  
+    // Inyectamos el httpclient
+    constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
 
   // Creamos el método que nos permitirá acceder al obervable y suscribirnos a su valor (True/False).
   public getRefresh(): Observable<boolean> {
@@ -27,9 +31,6 @@ export class PortfolioDataService {
   public setRefresh(value: boolean): void {
     this.refresh.next(value);
   }
-
-  // Inyectamos el httpclient
-  constructor(private http: HttpClient) {}
 
   // Creamos el método que nos retornará los datos desde la API (GET).
   getData(url: string): Observable<any> {

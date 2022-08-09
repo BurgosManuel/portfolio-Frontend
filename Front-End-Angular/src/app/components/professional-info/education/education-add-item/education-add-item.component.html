@@ -9,7 +9,7 @@
       class="form-control mb-3"
       placeholder="Título/Puesto"
       autocomplete="off"
-      [(ngModel)]="educacionItem.titulo"/>
+      [(ngModel)]="educacionItem!.titulo"/>
   </div>
   <div class="mb-2">
     <label for="professionalDate" class="form-label">Fecha</label>
@@ -20,7 +20,7 @@
       class="form-control mb-3"
       placeholder="Inicio - Fin"
       autocomplete="off"
-      [(ngModel)]="educacionItem.fecha"
+      [(ngModel)]="educacionItem!.fecha"
     />
   </div>
   <div class="mb-2">
@@ -32,7 +32,7 @@
       class="form-control mb-3"
       placeholder="Empresa/Institución"
       autocomplete="off"
-      [(ngModel)]="educacionItem.institucion"
+      [(ngModel)]="educacionItem!.institucion"
     />
   </div>
   <div class="mb-2">
@@ -44,7 +44,7 @@
       type="text"
       class="form-control mb-3"
       placeholder="Breve descripción de la carrera o puesto..."
-      [(ngModel)]="educacionItem.descripcion"
+      [(ngModel)]="educacionItem!.descripcion"
     ></textarea>
   </div>
   <!-- Botones para guardar/cancelar -->

@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
-import { personaID } from '../../portfolio/portfolio.component';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-project-add',
@@ -12,13 +12,14 @@ import { personaID } from '../../portfolio/portfolio.component';
 export class ProjectAddComponent {
   @Input() isAdding: boolean = false;
   @Input() proyectosList: Proyecto[] = [];
-  proyectoItem: Proyecto = new Proyecto(personaID, '', '', '', '', '');
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
   baseUrl: string = environment.baseUrl;
+  personaID: number = 1;
+  proyectoItem?: Proyecto;
 
 
-  constructor(private portfolioData: PortfolioDataService){}
+  constructor(private portfolioData: PortfolioDataService, private tokenStorage: TokenStorageService){}
 
   toggleAdding(): void {
     this.onToggleAdding.emit();
@@ -30,5 +31,10 @@ export class ProjectAddComponent {
     this.portfolioData.createData(url, this.proyectoItem).subscribe();
     console.log("ADD PROYECTO: ", this.proyectoItem)
     this.onAddItem.emit();
+  }
+
+  ngOnInit() {
+    this.personaID = this.tokenStorage.updateID();
+    this.proyectoItem = new Proyecto(this.personaID, '', '', '', '', '');
   }
 }

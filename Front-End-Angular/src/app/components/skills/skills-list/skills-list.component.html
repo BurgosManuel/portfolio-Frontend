@@ -12,7 +12,7 @@
   [habilidadesList]="habilidadesList"
   [habilidadTipo]="habilidadTipo!"
   (onToggleAdding)="toggleAdding($event)"
-  (onAddItem)="addItem($event)"
+  (onAddItem)="addItemReload()"
 ></app-skill-add-item>
 <div *ngFor="let habilidadItem of habilidadesList; let i = index" class="skill-item">
   <app-skill-item

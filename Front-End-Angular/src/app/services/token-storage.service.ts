@@ -6,6 +6,7 @@ const USER_KEY = 'auth-user';
   providedIn: 'root',
 })
 export class TokenStorageService {
+  private _personaID: number = 1;
   constructor() {}
 
   signOut(): void {
@@ -32,5 +33,15 @@ export class TokenStorageService {
       return JSON.parse(user);
     }
     return {};
+  }
+
+  public updateID(): number {
+    this._personaID = this.getUser().id;
+    return this._personaID;
+
+  }
+
+  ngOnInit() {
+    this.updateID();
   }
 }

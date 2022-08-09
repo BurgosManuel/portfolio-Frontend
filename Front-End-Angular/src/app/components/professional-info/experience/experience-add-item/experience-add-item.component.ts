@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { personaID } from 'src/app/components/portfolio/portfolio.component';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,10 +14,11 @@ export class ExperienceAddItemComponent  {
   @Input() experienciaList?: Experiencia[];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  experienciaItem: Experiencia = new Experiencia(personaID, "", "", "", "");
+  experienciaItem?: Experiencia
   baseUrl: string = environment.baseUrl;
+  personaID: number = 1;
 
-  constructor(private portfolioData: PortfolioDataService){}
+  constructor(private portfolioData: PortfolioDataService, private tokenStorage: TokenStorageService){}
   toggleAdding(): void {
     this.onToggleAdding.emit();
   }
@@ -28,5 +29,10 @@ export class ExperienceAddItemComponent  {
     this.portfolioData.createData(url, this.experienciaItem).subscribe();
     console.log("ADD EDUCATION: ", this.experienciaItem)
     this.onAddItem.emit();
+  }
+
+  ngOnInit() {
+    this.personaID = this.tokenStorage.updateID();
+    this.experienciaItem = new Experiencia(this.personaID, "", "", "", "");
   }
 }

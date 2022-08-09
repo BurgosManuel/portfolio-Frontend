@@ -31,6 +31,7 @@
           [habilidadTipo]="'Frontend'"
           [barColor]="'bg-warning'"
           id="frontend"
+          (onAddUpdate)="reloadData()"
         ></app-skills-list>
       </div>
 
@@ -41,6 +42,7 @@
         [barColor]="'bg-info'"
         id="backend"
         class="col-lg-4 mt-5"
+        (onAddUpdate)="reloadData()"
       ></app-skills-list>
 
       <app-skills-list
@@ -50,6 +52,7 @@
         [barColor]="'bg-success'"
         id="soft"
         class="col-lg-4 mt-5"
+        (onAddUpdate)="reloadData()"
       ></app-skills-list>
     </div>
     
