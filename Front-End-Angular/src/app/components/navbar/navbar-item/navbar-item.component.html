@@ -39,7 +39,7 @@
       </li>
       <li class="nav-item">
         <a routerLink="/ingreso" data-bs-toggle="modal" data-bs-target="#loginModal"
-          ><i class="bi bi-box-arrow-up-right fs-4"></i>{{isUserLogged? 'Cerrar Sesión' : 'Ingresar'}}</a
+          ><i [class]="isUserLogged ? 'bi bi-x-circle fs-4' : 'bi bi-box-arrow-right fs-4'"></i>{{isUserLogged? 'Cerrar Sesión' : 'Ingresar'}}</a
         >
       </li>
     </ul>
