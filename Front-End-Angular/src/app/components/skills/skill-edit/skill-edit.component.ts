@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Edition } from 'src/app/classes/edition';
-import { SkillItem } from 'src/app/classes/items';
+import { Habilidad } from 'src/app/model/Habilidad';
 
 @Component({
   selector: 'app-skill-edit',
@@ -10,23 +9,18 @@ import { SkillItem } from 'src/app/classes/items';
 export class SkillEditComponent {
   @Output() onToggleEdition: EventEmitter<any> = new EventEmitter();
   @Output() onSave: EventEmitter<any> = new EventEmitter();
-  @Input() editableData: SkillItem = {
-    id: 1,
-    skill: '',
-    icon: '',
-    lvl: 'default',
-    progress: '0',
-  };
+  @Output() onCancel: EventEmitter<any> = new EventEmitter();
+  @Input() habilidadEditable?: Habilidad;
 
   toggleEdition(): void {
     this.onToggleEdition.emit();
   }
 
   saveChanges(): void {
-    this.onSave.emit(this.editableData);
+    this.onSave.emit(this.habilidadEditable);
   }
 
   reload(): void {
-    window.location.reload();
+    this.onCancel.emit();
   }
 }

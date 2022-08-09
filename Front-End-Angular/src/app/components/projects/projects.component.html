@@ -1,5 +1,5 @@
 <!--Sección "Proyectos"-->
-<section id="projects" class="section-info">
+<section id="proyectos" class="section-info">
   <div class="container">
     <div class="section-title">
       <div
@@ -13,7 +13,7 @@
           ></app-edit-button>
           <app-add-button
             *ngIf="!isAdding"
-            [itemsList]="projectsList"
+            [itemsList]="proyectosData!"
             [isAdding]="isAdding"
             (onToggleAdding)="toggleAdding($event)"
           >
@@ -23,28 +23,28 @@
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="projectsDescription"
+        [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
-        (onSave)="saveChanges($event)"
+        (onSave)="updateSeccion($event)"
+        (onCancel)="reloadSeccion()"
       ></app-edit-component>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
-      <p *ngIf="!isEditing" [innerHTML]="projectsDescription"></p>
+      <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>
     </div>
     <div class="row">
       <div id="project-cards" class="col-lg-12 project-cards">
         <app-project-add
           *ngIf="isAdding"
           [isAdding]="isAdding"
-          [itemsList]="projectsList"
+          [proyectosList]="proyectosData!"
           (onToggleAdding)="toggleAdding($event)"
-          (onAddItem)="addItem($event)"
+          (onAddItem)="reloadData()"
         ></app-project-add>
         <app-project-item
-          *ngFor="let project of projectsList; let i = index"
-          [projectItem]="project"
-          [url]="url + '/' + project.id"
+          *ngFor="let proyectoItem of proyectosData; let i = index"
+          [proyectoItem]="proyectoItem"
           [index]="i"
-          (onItemDelete)="deleteItem(project, i)"
+          (onItemDelete)="deleteItem(proyectoItem, i)"
         ></app-project-item>
       </div>
     </div>

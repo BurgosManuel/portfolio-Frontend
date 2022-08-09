@@ -9,7 +9,7 @@
       class="form-control"
       placeholder="Título del Proyecto"
       autocomplete="off"
-      [(ngModel)]="sampleItem.title"
+      [(ngModel)]="proyectoItem!.titulo"
     />
   </div>
   <div class="mb-4">
@@ -20,7 +20,7 @@
       class="form-control"
       rows="5"
       placeholder="Breve descripción del proyecto..."
-      [(ngModel)]="sampleItem.description"
+      [(ngModel)]="proyectoItem!.descripcion"
     ></textarea>
   </div>
   <div class="mb-4">
@@ -32,7 +32,7 @@
       class="form-control"
       placeholder="https://tusitio.com/imagen.png"
       autocomplete="off"
-      [(ngModel)]="sampleItem.img"
+      [(ngModel)]="proyectoItem!.img_url"
     />
   </div>
   <div class="mb-4">
@@ -44,7 +44,7 @@
       class="form-control"
       placeholder="https://tusitio.com/"
       autocomplete="off"
-      [(ngModel)]="sampleItem.live"
+      [(ngModel)]="proyectoItem!.demo_url"
     />
   </div>
   <div class="mb-4">
@@ -56,7 +56,7 @@
       class="form-control"
       placeholder="https://github.com/usuario/repositorio"
       autocomplete="off"
-      [(ngModel)]="sampleItem.repo"
+      [(ngModel)]="proyectoItem!.repo_url"
     />
   </div>
   <div class="p-2 text-center">

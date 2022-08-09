@@ -1,32 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { Section } from 'src/app/classes/section';
+import { Component, Input, OnInit } from '@angular/core';
+import { Educacion } from 'src/app/model/Educacion';
+import { Experiencia } from 'src/app/model/Experiencia';
+import { Seccion } from 'src/app/model/Seccion';
+import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })
-export class AboutComponent extends Section {
-  // Sobrescribimos la url de la Clase Section, pero mantenemos el resto de lógica.
-  override url = 'http://localhost:5000/about';
-  imgUrl = 'http://localhost:5000/aboutImg';
-  aboutImg: any;
+export class AboutComponent {
 
-  saveImg(newData: any) {
-    this.aboutImg = newData;
-    const aboutItem: any = {
-      imgUrl: newData,
-    };  
-    this.portfolioData.updateItem(this.imgUrl, aboutItem).subscribe();
+  // Sobrescribimos la url de la Clase Section, pero mantenemos el resto de lógica
+  @Input() seccionData?: Seccion;
+  @Input() educacionData?: Educacion[];
+  @Input() experienciaData?: Experiencia[];
+  baseUrl: string = environment.baseUrl;
+
+  @Input() imgUrl: any;
+  isEditing: boolean = false;
+
+  constructor(private portfolioData: PortfolioDataService) {}
+
+  // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
+  toggleEdition(editingState: boolean): void {
+    this.isEditing = editingState;
   }
 
-  override ngOnInit(): void {
-    this.portfolioData.getData(this.url).subscribe((data) => {
-      this.sectionData = data.description;
-    });
+  // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
+  updateSeccion(newData: Seccion): void {
+    const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
+    this.seccionData = newData;
+    this.portfolioData.updateData(url, newData).subscribe();
+  }
 
-    this.portfolioData.getData(this.imgUrl).subscribe((data) => {
-      this.aboutImg = data.imgUrl;
-    });
+  //Método para modificar la imagen, implementar más adelante.
+  saveImg(newUrl: any) {
+    this.imgUrl = newUrl;
+    const aboutItem: any = {
+      imgUrl: newUrl,
+    };
+    // this.portfolioData.updateItem(this.imgUrl, aboutItem).subscribe();
+  }
+
+  reloadSeccion() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
   }
 }

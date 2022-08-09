@@ -1,26 +1,62 @@
-<form class="editable-item">
+<form #navForm="ngForm" (ngSubmit)="saveChanges()" class="editable-item">
   <h4 class="text-center">Editar</h4>
-  <div class="d-flex flex-column align-items-center justify-content-center mt-3">    
+  <div
+    class="d-flex flex-column align-items-center justify-content-center mt-3"
+  >
     <img
       class="user-profile img-fluid"
-      [src]="editableData.profilepic"
+      [src]="personaEditable?.img_url"
       alt="Foto de Perfil"
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarName" class="form-label">Nombre</label>
+    <label for="sidebarName" class="form-label">Nombre y Apellido: </label>
     <input
       id="sidebarName"
       name="sidebarName"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarName.errors && (sidebarName.dirty || sidebarName.touched)
+      }"
       placeholder="EJ: Manuel Burgos"
       autocomplete="off"
-      [(ngModel)]="editableData.name"
+      minlength="4"
+      required
+      #sidebarName="ngModel"
+      [(ngModel)]="personaEditable!.nombre"
     />
+    <div *ngIf="sidebarName.errors?.['required']" class="text-danger mt-2">
+      <p>El nombre es obligatorio.</p>
+    </div>
+    <div *ngIf="sidebarName.errors?.['minlength']" class="text-danger mt-2">
+      <p>El nombre debe tener al menos 4 carácteres.</p>
+    </div>
   </div>
   <div class="mb-4">
-    <label for="sidebarImg" class="form-label">Foto de Perfil (URL)</label>
+    <label for="sidebarName" class="form-label">Título: </label>
+    <input
+      id="sidebarTitle"
+      name="sidebarTitle"
+      type="text"
+      class="form-control"
+      placeholder="EJ: Desarrollador Fullstack"
+      autocomplete="off"
+      [class]="{
+        'is-invalid':
+          sidebarTitle.errors && (sidebarTitle.dirty || sidebarTitle.touched)
+      }"
+      required
+      #sidebarTitle="ngModel"
+      [(ngModel)]="personaEditable!.titulo"
+    />
+    <div *ngIf="sidebarTitle.errors?.['required']" class="text-danger mt-2">
+      <p>El título es obligatorio.</p>
+    </div>
+  </div>
+  <div class="mb-4">
+    <label for="sidebarImg" class="form-label">Foto de Perfil (URL): </label>
     <input
       id="sidebarImg"
       name="sidebarImg"
@@ -28,11 +64,35 @@
       class="form-control"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
-      [(ngModel)]="editableData.profilepic"
+      [(ngModel)]="personaEditable!.img_url"
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarLinkedin" class="form-label">LinkedIn (URL)</label>
+    <label for="sidebarImg" class="form-label">Banner (URL): </label>
+    <input
+      id="sidebarBanner"
+      name="sidebarBanner"
+      type="text"
+      class="form-control"
+      placeholder="http://tusitio.com/imagen.png"
+      autocomplete="off"
+      [(ngModel)]="personaEditable!.banner_url"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="sidebarImg" class="form-label">Imagen "Sobre Mí" (URL): </label>
+    <input
+      id="sidebarAbout"
+      name="sidebarAbout"
+      type="text"
+      class="form-control"
+      placeholder="http://tusitio.com/imagen.png"
+      autocomplete="off"
+      [(ngModel)]="personaEditable!.about_url"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="sidebarLinkedin" class="form-label">LinkedIn: </label>
     <input
       id="sidebarLinkedin"
       name="sidebarLinkedin"
@@ -40,11 +100,11 @@
       class="form-control"
       placeholder="https://www.linkedin.com/in/usuario/"
       autocomplete="off"
-      [(ngModel)]="editableData.linkedin"
+      [(ngModel)]="personaEditable!.linkedin_url"
     />
   </div>
   <div class="mb-4">
-    <label for="sidebarGithub" class="form-label">Github (URL)</label>
+    <label for="sidebarGithub" class="form-label">Github: </label>
     <input
       id="sidebarGithub"
       name="sidebarGithub"
@@ -52,14 +112,14 @@
       class="form-control"
       placeholder="https://www.github.com/usuario/"
       autocomplete="off"
-      [(ngModel)]="editableData.github"
+      [(ngModel)]="personaEditable!.github_url"
     />
   </div>
   <div class="p-2 text-center">
     <button
-      type="button"
+      type="submit"
       class="btn btn-outline-success m-2"
-      (click)="toggleEdition(); saveChanges(); reload()"
+      [disabled]="!navForm.form.valid"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>

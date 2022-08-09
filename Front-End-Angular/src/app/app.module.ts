@@ -17,10 +17,10 @@ import { EditComponentComponent } from './components/edit-component/edit-compone
 import { EditButtonComponent } from './components/edit-component/edit-button/edit-button.component';
 import { FormsModule } from '@angular/forms';
 import { PortfolioDataService } from './services/portfolio-data.service';
-import { ProfessionalItemComponent } from './components/professional-info/professional-item/professional-item.component';
-import { ProfessionalEditComponent } from './components/professional-info/professional-edit/professional-edit.component';
+import { EducationItemComponent } from './components/professional-info/education/education-item/education-item.component';
+import { EducationEditComponent } from './components/professional-info/education/education-edit/education-edit.component';
 import { AddButtonComponent } from './components/edit-component/add-button/add-button.component';
-import { ProfessionalAddItemComponent } from './components/professional-info/professional-add-item/professional-add-item.component';
+import { EducationAddItem } from './components/professional-info/education/education-add-item/education-add-item.component';
 import { SkillsListComponent } from './components/skills/skills-list/skills-list.component';
 import { SkillEditComponent } from './components/skills/skill-edit/skill-edit.component';
 import { SkillItemComponent } from './components/skills/skill-item/skill-item.component';
@@ -31,6 +31,14 @@ import { ProjectEditComponent } from './components/projects/project-edit/project
 import { ProjectAddComponent } from './components/projects/project-add/project-add.component';
 import { NavbarEditionComponent } from './components/navbar/navbar-edition/navbar-edition.component';
 import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item.component';
+import { ExperienceAddItemComponent } from './components/professional-info/experience/experience-add-item/experience-add-item.component';
+import { ExperienceEditComponent } from './components/professional-info/experience/experience-edit/experience-edit.component';
+import { ExperienceItemComponent } from './components/professional-info/experience/experience-item/experience-item.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -46,10 +54,10 @@ import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item
     ExperienceComponent,
     EditComponentComponent,
     EditButtonComponent,
-    ProfessionalItemComponent,
-    ProfessionalEditComponent,
+    EducationItemComponent,
+    EducationEditComponent,
     AddButtonComponent,
-    ProfessionalAddItemComponent,
+    EducationAddItem,
     SkillsListComponent,
     SkillEditComponent,
     SkillItemComponent,
@@ -59,10 +67,16 @@ import { NavbarItemComponent } from './components/navbar/navbar-item/navbar-item
     ProjectEditComponent,
     ProjectAddComponent,
     NavbarEditionComponent,
-    NavbarItemComponent
+    NavbarItemComponent,
+    ExperienceAddItemComponent,
+    ExperienceEditComponent,
+    ExperienceItemComponent,
+    LoginComponent,
+    RegisterComponent,
+    PortfolioComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [PortfolioDataService],
+  providers: [PortfolioDataService, authInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

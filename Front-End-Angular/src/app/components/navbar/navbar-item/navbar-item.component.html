@@ -5,17 +5,17 @@
   >
     <img
       class="user-profile img-fluid"
-      [src]="navbarItem.profilepic"
+      [src]="personaData?.img_url"
       alt="Foto de Perfil"
     />
-    <a href="index.html"
-      ><h2 class="fs-4 fw-bold m-3">{{ navbarItem.name }}</h2></a
+    <a (click)="navigateToSection('inicio')"
+      ><h2 class="fs-4 fw-bold m-3">{{ personaData?.nombre}}</h2></a
     >
     <ul class="social">
-      <a [href]="navbarItem.linkedin" target="_BLANK"
+      <a [href]="personaData?.linkedin_url" target="_BLANK"
         ><li><i class="bi bi-linkedin fs-5"></i></li
       ></a>
-      <a [href]="navbarItem.github" target="_BLANK"
+      <a [href]="personaData?.github_url" target="_BLANK"
         ><li><i class="bi bi-github fs-5"></i></li
       ></a>
     </ul>
@@ -23,33 +23,34 @@
   <div *ngIf="!isEditing" id="nav-links">
     <ul class="navigation">
       <li class="nav-item">
-        <a href="#home"><i class="bi bi-house-door fs-4"></i>Inicio</a>
+        <a (click)="navigateToSection('inicio')"><i class="bi bi-house-door fs-4"></i>Inicio</a>
       </li>
       <li class="nav-item">
-        <a href="#about"><i class="bi bi-person fs-4"></i>Sobre Mí</a>
+        <a (click)="navigateToSection('sobre-mi')"><i class="bi bi-person fs-4"></i>Sobre Mí</a>
       </li>
       <li class="nav-item">
-        <a href="#skills"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</a>
+        <a (click)="navigateToSection('habilidades')"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</a>
       </li>
       <li class="nav-item">
-        <a href="#projects"><i class="bi bi-code fs-4"></i>Proyectos</a>
+        <a (click)="navigateToSection('proyectos')"><i class="bi bi-code fs-4"></i>Proyectos</a>
       </li>
       <li class="nav-item">
-        <a href="#contact"><i class="bi bi-envelope fs-4"></i>Contacto</a>
+        <a (click)="navigateToSection('contacto')"><i class="bi bi-envelope fs-4"></i>Contacto</a>
       </li>
       <li class="nav-item">
-        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
-          ><i class="bi bi-box-arrow-up-right fs-4"></i>Login</a
+        <a routerLink="/ingreso" data-bs-toggle="modal" data-bs-target="#loginModal"
+          ><i [class]="isUserLogged ? 'bi bi-x-circle fs-4' : 'bi bi-box-arrow-right fs-4'"></i>{{isUserLogged? 'Cerrar Sesión' : 'Ingresar'}}</a
         >
       </li>
     </ul>
   </div>
   <app-navbar-edition
-    *ngIf="isEditing"
-    [isEditing]="isEditing"
-    [editableData]="navbarItem"
-    (onToggleEdition)="toggleEdition($event)"
-    (onSave)="updateItem($event)"
+  *ngIf="isEditing"
+  [isEditing]="isEditing"
+  [personaEditable]="personaData"
+  (onSave)="updatePersona($event)"
+  (onCancel)="reloadPersona()"
+  (onToggleEdition)="toggleEdition($event)"
   >
   </app-navbar-edition>
   <div

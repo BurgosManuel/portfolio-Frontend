@@ -1,14 +1,14 @@
 <div *ngIf="!isEditing" class="skill-container">
   <div class="item-title d-flex justify-content-between align-items-center">
     <span class="fs-5"
-      ><i [class]="skillItem.icon" class="pe-2"></i>{{ skillItem.skill }}</span
+      ><i [class]="habilidadItem?.icono" class="pe-2"></i>{{ habilidadItem?.nombre }}</span
     >
     <div class="item-buttons">
       <app-edit-button
         (onToggleEdition)="toggleEdition($event)"
         [isEditing]="isEditing"
       ></app-edit-button>
-      <app-delete-button (onItemDelete)="onDelete()"></app-delete-button>
+      <app-delete-button (deleteBtnEvent)="onDelete()" [modalTarget]="modalTarget"></app-delete-button>
     </div>
   </div>
   <div class="progress mb-3" style="height: 20px">
@@ -16,18 +16,19 @@
       [class]="barColor"
       class="progress-bar"
       role="progressbar"
-      [style.width]="skillItem.progress + '%'"
+      [style.width]="habilidadItem?.progreso + '%'"
       aria-valuemin="0"
       aria-valuenow="95"
       aria-valuemax="100"
     >
-      {{ skillItem.lvl }}
+      {{ habilidadItem?.nivel }}
     </div>
   </div>
 </div>
 <app-skill-edit
   *ngIf="isEditing"
-  [editableData]="skillItem"
+  [habilidadEditable]="habilidadItem"
   (onToggleEdition)="toggleEdition($event)"
   (onSave)="updateItem($event)"
+  (onCancel)="reloadItem()"
 ></app-skill-edit>

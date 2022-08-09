@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ItemsSection, Section } from 'src/app/classes/section';
+import { Component, Input, OnInit } from '@angular/core';
+import { Habilidad } from 'src/app/model/Habilidad';
+import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-skills',
@@ -8,21 +10,15 @@ import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit {
-  // Sobrescribimos la url de la descripcion.
-  url: string = 'http://localhost:5000/skills';
+  // Informacion de la descripcion
+  @Input() seccionData?: Seccion;
+  @Input() habilidadesData?: Habilidad[];
 
-  // Generamos un array de urls, para cada parte de las habilidades (front, back y soft).
-  urlList: string[] = [
-    'http://localhost:5000/frontend',
-    'http://localhost:5000/backend',
-    'http://localhost:5000/soft',
-  ];
-
-  // Generamos un array de arrays, que contendrá la información de cada una de las habilidades.
-  skillsList: any[] = [];
-
-  sectionData: any;
+  habilidadesFront?: Habilidad[];
+  habilidadesBack?: Habilidad[];
+  habilidadesSoft?: Habilidad[];
   isEditing: boolean = false;
+  baseUrl: string = environment.baseUrl;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -30,16 +26,50 @@ export class SkillsComponent implements OnInit {
     this.isEditing = editingState;
   }
 
-  ngOnInit(): void {
-    // Obtenemos los datos de las habilidades a través del servicio realizando iteraciones, por cada URL se pushea un elemento al skillsList.
-    for (let url of this.urlList) {
-      this.portfolioData.getData(url).subscribe((data) => {
-        this.skillsList.push(data);
-      });
-    }
+  // Método que utilizamos para guardar cambios, el mismo actualiza los datos de la propiedad 'sectionData' y llama al método del servicio que se encarga de actualizar los datos en el JSON.
+  updateSeccion(newData: Seccion): void {
+    const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
+    this.seccionData = newData;
+    this.portfolioData.updateData(url, newData).subscribe();
+  }
 
+  reloadSeccion() {
     this.portfolioData
-      .getData(this.url)
-      .subscribe((data) => (this.sectionData = data.description));
+      .getData(`${this.baseUrl}/secciones/${this.seccionData?.id}`)
+      .subscribe((data) => {
+        this.seccionData = data;
+      });
+  }
+
+  reloadData() {
+    setTimeout(() => {
+      this.portfolioData
+        .getData(`${this.baseUrl}/habilidades/listar`)
+        .subscribe((data) => {
+          this.habilidadesData = data;
+          this.habilidadesFront = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Frontend'
+          );
+          this.habilidadesBack = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Backend'
+          );
+          this.habilidadesSoft = this.habilidadesData?.filter(
+            (el) => el.tipo == 'Soft'
+          );
+        });
+    }, 500);
+  }
+
+
+  ngOnInit(): void {
+    this.habilidadesFront = this.habilidadesData?.filter(
+      (el) => el.tipo == 'Frontend'
+    );
+    this.habilidadesBack = this.habilidadesData?.filter(
+      (el) => el.tipo == 'Backend'
+    );
+    this.habilidadesSoft = this.habilidadesData?.filter(
+      (el) => el.tipo == 'Soft'
+    );
   }
 }

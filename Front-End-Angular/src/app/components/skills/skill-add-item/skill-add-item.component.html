@@ -10,12 +10,12 @@
       placeholder="EJ: HTML"
       required
       autocomplete="off"
-      [(ngModel)]="sampleItem.skill"
+      [(ngModel)]="habilidadItem!.nombre"
     />
   </div>
   <div class="mb-3">
     <label for="icon" class="form-label"
-      >Icono ( <i [class]="sampleItem.icon"></i> )<br
+      >Icono ( <i [class]="habilidadItem!.icono"></i> )<br
     /></label>
     <input
       id="icon"
@@ -24,27 +24,24 @@
       class="form-control"
       placeholder="EJ: fa-brands fa-html5"
       autocomplete="off"
-      [(ngModel)]="sampleItem.icon"
+      [(ngModel)]="habilidadItem!.icono"
     />
   </div>
   <div class="mb-3">
     <label for="skill-lvl" class="form-label mb-2">Nivel</label>
-    <select
-      class="form-select mb-3"
+    <input
+      class="form-control mb-3"
       name="lvl"
       id="skill-lvl"
+      type="text"
+      placeholder="EJ: Intermedio/Avanzado"
       required
-      [(ngModel)]="sampleItem.lvl"
-    >
-      <option value="default" disabled selected>Elige un nivel...</option>
-      <option value="Básico">Básico</option>
-      <option value="Intermedio">Intermedio</option>
-      <option value="Avanzado">Avanzado</option>
-    </select>
+      [(ngModel)]="habilidadItem!.nivel"
+    />
   </div>
   <div class="mb-3">
     <label class="form-label" for="progress"
-      >Barra de progreso ({{ sampleItem.progress }}%)</label
+      >Barra de progreso ({{ habilidadItem!.progreso }}%)</label
     >
     <input
       class="form-range"
@@ -52,7 +49,7 @@
       id="progress"
       type="range"
       required
-      [(ngModel)]="sampleItem.progress"
+      [(ngModel)]="habilidadItem!.progreso"
     />
   </div>
   <div class="p-2">

@@ -1,5 +1,6 @@
 <!--Seccion Sobre Mí-->
-<section id="about" class="section-info">
+<section id="sobre-mi" class="section-info">
+  
   <div class="container">
     <div class="section-title">
       <div
@@ -11,17 +12,17 @@
           [isEditing]="isEditing"
           (onToggleEdition)="toggleEdition($event)"
         ></app-edit-button>
-      </div>
+    </div>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
-      <p *ngIf="!isEditing" [(innerHTML)]="sectionData"></p>
+      <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="sectionData"
-        [aboutImg]="aboutImg"
+        [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
-        (onSave)="saveChanges($event)"
+        (onSave)="updateSeccion($event)"
         (onUpdateImg)="saveImg($event)"
+        (onCancel)="reloadSeccion()"
       ></app-edit-component>
     </div>
     <!-- Seccion educacion/experiencia -->
@@ -29,7 +30,7 @@
       <div class="col-lg-4">
         <!--Imagen de sección Educación/Experiencia-->
         <img
-          [src]="aboutImg"
+          [src]="imgUrl"
           alt="Foto de Perfil"
           class="img-fluid about-img"
         />
@@ -37,8 +38,8 @@
       <!--Sección Educación/Experiencia-->
       <div id="professional-info" class="col-lg-8 mt-4">
         <div class="row">
-          <app-education id="education" class="col-lg-6"></app-education>
-          <app-experience id="experience" class="col-lg-6"></app-experience>
+          <app-education [educacionData]="educacionData" id="education" class="col-lg-6"></app-education>
+          <app-experience [experienciaData]="experienciaData" id="experience" class="col-lg-6"></app-experience>
         </div>
       </div>
     </div>

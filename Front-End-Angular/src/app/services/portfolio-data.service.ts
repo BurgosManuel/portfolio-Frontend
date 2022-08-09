@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { SectionItem } from 'src/app/classes/items';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { TokenStorageService } from './token-storage.service';
 
 // Utilizando el modulo HTTPHeaders, generamos una variable que nos permitirá indicar que el archivo que estamos enviando es un JSON. Esto es necesario para los POST/PUT/PATCH en json-server.
 const httpOptions = {
@@ -14,35 +14,41 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PortfolioDataService {
-  // Inyectamos el httpclient
-  constructor(private http: HttpClient) {}
+  // Creamos un observable que retornará un boolean.
+  private refresh: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+  
+    // Inyectamos el httpclient
+    constructor(private http: HttpClient, private tokenStorage: TokenStorageService) {}
 
-  // Creamos el método que nos retornará los datos desde la API.
+  // Creamos el método que nos permitirá acceder al obervable y suscribirnos a su valor (True/False).
+  public getRefresh(): Observable<boolean> {
+    return this.refresh.asObservable();
+  }
+
+  // Creamos el método que permitirá modificar el valor del observable.
+  public setRefresh(value: boolean): void {
+    this.refresh.next(value);
+  }
+
+  // Creamos el método que nos retornará los datos desde la API (GET).
   getData(url: string): Observable<any> {
     return this.http.get(url);
   }
 
-  // Método que actualiza los datos, la misma genera un objeto 'ISection', que tomará una key 'description' y un value 'data', formato que tenemos en nuestro JSON con información.
-  updateSection(url: string, data: any): Observable<any> {
-    const sectionData: SectionItem = {
-      description: data,
-    };
-    // Pasamos como parámetros la url, el objeto generado a partir de los datos, y los httpOptions definidos previamente.
-    return this.http.put<any>(url, sectionData, httpOptions);
+  // Creamos el método para actualizar elementos (PUT).
+  updateData(url: string, data: any): Observable<any> {
+    return this.http.put(url, data);
   }
 
-  updateItem(url: string, data: any): Observable<any> {
-    return this.http.put<any>(url, data, httpOptions);
+  // Creamos el método para realizar envios de información (POST).
+  createData(url: string, data: any): Observable<any> {
+    return this.http.post(url, data);
   }
 
-  addItem(url: string, data: any): Observable<any> {
-    console.log(data, url);
-    return this.http.post<any>(url, data, httpOptions);
-  }
-
-  deleteItem(url: string, data: any): Observable<any> {
-    let itemUrl = url + `/${data.id}`;
-    console.log('newUrl = ', itemUrl);
-    return this.http.delete<any>(itemUrl, data);
+  // Creamos el método para eliminar información (DELETE).
+  deleteData(url: string, data: any): Observable<any> {
+    return this.http.delete(url, data);
   }
 }

@@ -1,6 +1,8 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { addComponent } from 'src/app/classes/addComponent';
-import { SkillItem } from 'src/app/classes/items';
+import { Habilidad } from 'src/app/model/Habilidad';
+import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-skill-add-item',
@@ -9,37 +11,29 @@ import { SkillItem } from 'src/app/classes/items';
 })
 export class SkillAddItemComponent {
   @Input() isAdding: boolean = false;
-  @Input() itemsList: any[] = [];
+  @Input() habilidadesList?: Habilidad[];
+  @Input() habilidadTipo: string = '';
+  personaID: number = 1;
+  habilidadItem?: Habilidad;
+  baseUrl: string = environment.baseUrl;
+
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  sampleItem: SkillItem = {
-    id: 1,
-    skill: '',
-    icon: '',
-    lvl: 'default',
-    progress: '0',
-  };
 
+  constructor(private portfolioData: PortfolioDataService, private tokenStorage: TokenStorageService){}
   toggleAdding(): void {
     this.onToggleAdding.emit();
   }
 
   addItem() {
-    // Creamos un array que contendrá los IDs de los items.
-    let idList: any[] = [];
-    // Agregamos los IDs de la lista a nuestro array.
-    this.itemsList.forEach((el) => idList.push(el.id));
-    // Generamos una ID aleatoria
-    let randomID = Math.ceil(Math.random() * 100 + 1);
+    this.habilidadesList?.push(this.habilidadItem!);
+    const url = `${this.baseUrl}/habilidades/agregar`
+    this.portfolioData.createData(url, this.habilidadItem).subscribe();
+    this.onAddItem.emit();
+  }
 
-    // Si el ID generado se encuentra dentro del Array de IDs, generamos uno nuevo.
-    while (idList.some((id) => id === randomID)) {
-      randomID = Math.ceil(Math.random() * 100 + 1);
-    }
-
-    // Asignamos la ID a nuestro item y lo sumamos la lista de items.
-    this.sampleItem.id = randomID;
-    this.itemsList.push(this.sampleItem);
-    this.onAddItem.emit(this.sampleItem);
+  ngOnInit() {
+    this.personaID = this.tokenStorage.updateID();
+    this. habilidadItem = new Habilidad(this.personaID,'',this.habilidadTipo,'',50,'fa-brands fa-html5');
   }
 }

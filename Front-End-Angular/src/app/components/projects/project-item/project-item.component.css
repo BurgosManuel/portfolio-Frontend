@@ -3,6 +3,7 @@
   border-color: var(--light);
   transform: scale(1);
   transition: 0.2s ease;
+  z-index: 1100;
 }
 
 .card-body {

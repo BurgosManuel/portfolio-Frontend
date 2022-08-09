@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { ProfessionalItem } from 'src/app/classes/items';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-add-button',
@@ -8,9 +8,10 @@ import { ProfessionalItem } from 'src/app/classes/items';
 })
 export class AddButtonComponent{
   @Input() isAdding: boolean = false;
-  @Input() itemsList: ProfessionalItem[] = [];
+  @Input() itemsList: any[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
-  constructor() {}
+  isUserLogged: boolean = false;
+  constructor(private userStatus: UserService) {}
 
   toggleAdding(): void {
     this.isAdding = !this.isAdding
@@ -21,5 +22,9 @@ export class AddButtonComponent{
     if (!this.isAdding) {
       window.location.reload();
     }
+  }
+
+  ngOnInit() {
+    this.userStatus.getUserStatus().subscribe(value => this.isUserLogged = value);
   }
 }

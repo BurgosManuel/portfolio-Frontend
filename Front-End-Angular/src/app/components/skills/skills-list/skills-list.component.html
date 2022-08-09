@@ -1,23 +1,26 @@
 <div class="skills-header d-flex justify-content-between align-items-center">
-  <h3 class="mb-3 fw-bold">{{ skillsTitle }}</h3>
+  <h3 class="mb-3 fw-bold">{{ habilidadesTitulo}}</h3>
   <app-add-button
     *ngIf="!isAdding"
-    [itemsList]="skillsArray"
+    [itemsList]="habilidadesList!"
     [isAdding]="isAdding"
     (onToggleAdding)="toggleAdding($event)"
   ></app-add-button>
 </div>
 <app-skill-add-item
   *ngIf="isAdding"
-  [itemsList]="skillsArray"
+  [habilidadesList]="habilidadesList"
+  [habilidadTipo]="habilidadTipo!"
   (onToggleAdding)="toggleAdding($event)"
-  (onAddItem)="addItem($event)"
+  (onAddItem)="addItemReload()"
 ></app-skill-add-item>
-<div *ngFor="let skillItem of skillsArray; let i = index" class="skill-item">
+<div *ngFor="let habilidadItem of habilidadesList; let i = index" class="skill-item">
   <app-skill-item
-    [url]="url + '/' + skillItem.id"
-    [skillItem]="skillItem"
+    [habilidadItem]="habilidadItem"
     [barColor]="barColor"
-    (onItemDelete)="deleteItem(skillItem, i)"
+    (onItemDelete)="deleteItem(habilidadItem, i)"
   ></app-skill-item>
 </div>
+
+
+

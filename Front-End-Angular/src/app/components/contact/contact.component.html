@@ -1,5 +1,5 @@
 <!--Formulario de contacto-->
-<section id="contact" class="section-info">
+<section id="contacto" class="section-info">
   <div class="container">
     <div class="section-title">
       <div
@@ -15,12 +15,13 @@
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->
       <app-edit-component
         *ngIf="isEditing"
-        [editableData]="sectionData"
+        [seccionEditable]="seccionData"
         (onToggleEdition)="toggleEdition($event)"
-        (onSave)="saveChanges($event)"
+        (onSave)="updateSeccion($event)"
+        (onCancel)="reloadSeccion()"
       ></app-edit-component>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
-      <p *ngIf="!isEditing" [innerHTML]="sectionData"></p>
+      <p *ngIf="!isEditing" [innerHTML]="seccionData!.descripcion"></p>
     </div>
     <div class="row d-flex justify-content-center flex-row">
       <div class="col-lg-6">

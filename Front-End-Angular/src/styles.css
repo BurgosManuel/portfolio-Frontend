@@ -76,10 +76,10 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
 
 /*Soluciona desplazamiento de fondo al abrir ventana modal*/
 
-.modal-open {
+/* .modal-open {
   overflow: auto !important;
   padding-right: 0 !important;
-}
+} */
 
 /*Modificamos el color de fondo de los modaless por defecto de Bootstrap*/
 .modal-content {

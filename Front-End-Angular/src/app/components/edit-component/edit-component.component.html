@@ -1,17 +1,5 @@
 <!-- Textarea para contenido editable -->
-<textarea rows="3" class="editable-item" [(ngModel)]="editableData"></textarea>
-<div class="mb-4">
-  <label for="aboutImg" class="form-label">Imagen "Sobre Mí" (URL)</label>
-  <input
-    id="aboutImg"
-    name="aboutImg"
-    type="text"
-    class="form-control editable-item"
-    placeholder="http://tusitio.com/imagen.png"
-    autocomplete="off"
-    [(ngModel)]="aboutImg"
-  />
-</div>
+<textarea rows="3" class="editable-item" [(ngModel)]="seccionEditable.descripcion"></textarea>
 <!-- Botones para guardar/cancelar -->
 <div class="p-2">
   <button
@@ -20,7 +8,7 @@
   >
     <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
   </button>
-  <button class="btn btn-outline-danger" (click)="toggleEdition()">
+  <button class="btn btn-outline-danger" (click)="toggleEdition(); reload()">
     <i id="cancelIcon" class="bi bi-x-circle"></i> Cancelar
   </button>
 </div>

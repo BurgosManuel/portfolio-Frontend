@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
-import { ItemsSection } from 'src/app/classes/section';
+import { Educacion } from 'src/app/model/Educacion';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css'],
 })
-export class EducationComponent implements OnInit {
-  // Sobrescribimos la url de la descripcion
-  url: string = 'http://localhost:5000/education';
-  sectionData: any;
+export class EducationComponent {
+  @Input() educacionData?: Educacion[];
   isEditing: boolean = false;
   isAdding: boolean = false;
+  baseUrl: string = environment.baseUrl;
 
   // Inyectamos el servicio utilizando el modificador 'Protected', de manera que las instancias de esta clase puedan acceder al servicio.
   constructor(private portfolioData: PortfolioDataService) {}
@@ -26,19 +26,19 @@ export class EducationComponent implements OnInit {
     this.isAdding = addingState;
   }
 
-  addItem(item: any) {
-    this.portfolioData.addItem(this.url, item).subscribe();
+  reloadData() {
+    setTimeout(() => {
+      this.portfolioData
+        .getData(`${this.baseUrl}/educacion/listar`)
+        .subscribe((data) => {
+          this.educacionData = data;
+        });
+    }, 500);
   }
 
-  deleteItem(item: any, index: number): void {
-    this.sectionData.splice(index, 1);
-    this.portfolioData.deleteItem(this.url, item).subscribe();
-  }
-
-  // Declaramos que al instanciar esta Clase, la propiedad 'SectionFData' tomará como valor los datos obtenidos a través del servicio.
-  ngOnInit(): void {
-    this.portfolioData.getData(this.url).subscribe((data) => {
-      this.sectionData = data;
-    });
+  deleteItem(educacionItem: Educacion, index: number): void {
+    const url = `http://localhost:8080/educacion/eliminar/${educacionItem.id}`;
+    this.educacionData?.splice(index, 1);
+    this.portfolioData.deleteData(url, educacionItem).subscribe();
   }
 }

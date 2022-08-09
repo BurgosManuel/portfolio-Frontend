@@ -1,4 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Proyecto } from 'src/app/model/Proyecto';
+import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { environment } from 'src/environments/environment';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-project-add',
@@ -7,38 +11,29 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ProjectAddComponent {
   @Input() isAdding: boolean = false;
-  @Input() itemsList: any[] = [];
+  @Input() proyectosList: Proyecto[] = [];
   @Output() onToggleAdding: EventEmitter<any> = new EventEmitter();
   @Output() onAddItem: EventEmitter<any> = new EventEmitter();
-  sampleItem = {
-    id: 1,
-    title: '',
-    description: '',
-    img: '',
-    live: '',
-    repo: '',
-  };
+  baseUrl: string = environment.baseUrl;
+  personaID: number = 1;
+  proyectoItem?: Proyecto;
+
+
+  constructor(private portfolioData: PortfolioDataService, private tokenStorage: TokenStorageService){}
 
   toggleAdding(): void {
     this.onToggleAdding.emit();
   }
 
   addItem() {
-    // Creamos un array que contendrá los IDs de los items.
-    let idList: any[] = [];
-    // Agregamos los IDs de la lista a nuestro array.
-    this.itemsList.forEach((el) => idList.push(el.id));
-    // Generamos una ID aleatoria
-    let randomID = Math.ceil(Math.random() * 100 + 1);
+    this.proyectosList?.push(this.proyectoItem!);
+    const url = `${this.baseUrl}/proyectos/agregar`
+    this.portfolioData.createData(url, this.proyectoItem).subscribe();
+    this.onAddItem.emit();
+  }
 
-    // Si el ID generado se encuentra dentro del Array de IDs, generamos uno nuevo.
-    while (idList.some((id) => id === randomID)) {
-      randomID = Math.ceil(Math.random() * 100 + 1);
-    }
-
-    // Asignamos la ID a nuestro item y lo sumamos la lista de items.
-    this.sampleItem.id = randomID;
-    this.itemsList.push(this.sampleItem);
-    this.onAddItem.emit(this.sampleItem);
+  ngOnInit() {
+    this.personaID = this.tokenStorage.updateID();
+    this.proyectoItem = new Proyecto(this.personaID, '', '', '', '', '');
   }
 }
