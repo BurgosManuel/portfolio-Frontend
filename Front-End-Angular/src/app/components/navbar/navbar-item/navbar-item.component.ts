@@ -37,4 +37,11 @@ export class NavbarItemComponent {
         this.portfolioData.setRefresh(true);
       });
   }
+
+  navigateToSection(section : string) {
+    window.location.hash = '';
+    window.location.hash = section;
+    console.log("SECTION: ", section)
+    console.log("WINDOW LOCATION HASH: ", window.location.hash);
+  }
 }
