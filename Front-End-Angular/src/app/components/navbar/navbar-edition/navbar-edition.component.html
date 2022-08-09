@@ -80,6 +80,18 @@
     />
   </div>
   <div class="mb-4">
+    <label for="sidebarImg" class="form-label">Imagen "Sobre Mí" (URL): </label>
+    <input
+      id="sidebarAbout"
+      name="sidebarAbout"
+      type="text"
+      class="form-control"
+      placeholder="http://tusitio.com/imagen.png"
+      autocomplete="off"
+      [(ngModel)]="personaEditable!.about_url"
+    />
+  </div>
+  <div class="mb-4">
     <label for="sidebarLinkedin" class="form-label">LinkedIn: </label>
     <input
       id="sidebarLinkedin"
