@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Persona } from 'src/app/model/Persona';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,12 +13,12 @@ export class NavbarItemComponent {
   @Input() url: any;
   @Input() isEditing: boolean = false;
   @Input() personaData?: Persona;
-  baseUrl: string = environment.baseUrl;
   @Output() onToggleItem: EventEmitter<any> = new EventEmitter();
-
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
+  baseUrl: string = environment.baseUrl;
+  isUserLogged: boolean = false;
 
-  constructor(private portfolioData: PortfolioDataService) {}
+  constructor(private portfolioData: PortfolioDataService, private userStatus: UserService) {}
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
   toggleEdition(editingState: boolean): void {
     this.isEditing = editingState;
@@ -43,5 +44,9 @@ export class NavbarItemComponent {
     window.location.hash = section;
     console.log("SECTION: ", section)
     console.log("WINDOW LOCATION HASH: ", window.location.hash);
+  }
+
+  ngOnInit() {
+    this.userStatus.getUserStatus().subscribe(value => this.isUserLogged = value);
   }
 }
