@@ -29,13 +29,11 @@ export class SkillAddItemComponent {
     this.habilidadesList?.push(this.habilidadItem!);
     const url = `${this.baseUrl}/habilidades/agregar`
     this.portfolioData.createData(url, this.habilidadItem).subscribe();
-    console.log("ADD HABILIDAD: ", this.habilidadItem)
     this.onAddItem.emit();
   }
 
   ngOnInit() {
     this.personaID = this.tokenStorage.updateID();
     this. habilidadItem = new Habilidad(this.personaID,'',this.habilidadTipo,'',50,'fa-brands fa-html5');
-    console.log('skill add tipo', this.habilidadTipo);
   }
 }

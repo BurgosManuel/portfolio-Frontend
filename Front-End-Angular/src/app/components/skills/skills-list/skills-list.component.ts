@@ -25,7 +25,6 @@ export class SkillsListComponent {
   }
 
   addItemReload() {
-    console.log("UPDATE EMITTED")
     this.onAddUpdate.emit();
   }
 

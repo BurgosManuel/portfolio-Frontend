@@ -20,7 +20,6 @@ export class EducationItemComponent {
 
   onDelete() {
     this.onItemDelete.emit(this.educacionItem);
-    console.log("EDUCACION DELETE:", this.educacionItem);
   }
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".

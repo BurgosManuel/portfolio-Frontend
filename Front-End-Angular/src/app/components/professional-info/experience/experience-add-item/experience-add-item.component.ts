@@ -27,7 +27,6 @@ export class ExperienceAddItemComponent  {
     this.experienciaList?.push(this.experienciaItem!);
     const url = `${this.baseUrl}/experiencia/agregar`
     this.portfolioData.createData(url, this.experienciaItem).subscribe();
-    console.log("ADD EDUCATION: ", this.experienciaItem)
     this.onAddItem.emit();
   }
 

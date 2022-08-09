@@ -22,7 +22,6 @@ export class RegisterComponent implements OnInit {
 
     const observer = {
       next: (data: any) => {
-        console.log('Registro Data', data);
         this.isSuccessful = true;
         this.registerFailed = false;
       },

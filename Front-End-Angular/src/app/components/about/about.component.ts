@@ -33,7 +33,6 @@ export class AboutComponent {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
-    console.log('Nuevos datos About:', newData);
   }
 
   //Método para modificar la imagen, implementar más adelante.

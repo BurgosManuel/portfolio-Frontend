@@ -29,7 +29,6 @@ export class ProjectAddComponent {
     this.proyectosList?.push(this.proyectoItem!);
     const url = `${this.baseUrl}/proyectos/agregar`
     this.portfolioData.createData(url, this.proyectoItem).subscribe();
-    console.log("ADD PROYECTO: ", this.proyectoItem)
     this.onAddItem.emit();
   }
 

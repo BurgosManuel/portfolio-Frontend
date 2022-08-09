@@ -25,7 +25,6 @@ export class ContactComponent {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
-    console.log('Nuevos datos Proyectos:', newData);
   }
 
   reloadSeccion() {

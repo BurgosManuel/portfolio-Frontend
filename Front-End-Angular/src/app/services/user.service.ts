@@ -21,10 +21,8 @@ export class UserService {
     // Creamos el método que permitirá modificar el valor del observable.
     public setUserStatus(value: boolean): void {
       this.isUserLogged.next(value);
-      console.log("Is User Logged:", value)
     }
 
     ngOnInit() {
-      console.log("User logged init", this.isUserLogged);
     }
 }

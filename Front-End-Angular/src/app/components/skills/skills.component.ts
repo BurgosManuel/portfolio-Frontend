@@ -56,7 +56,6 @@ export class SkillsComponent implements OnInit {
           this.habilidadesSoft = this.habilidadesData?.filter(
             (el) => el.tipo == 'Soft'
           );
-          console.log("SECCIONES ACTUALIZADAS")
         });
     }, 500);
   }

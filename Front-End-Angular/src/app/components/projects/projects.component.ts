@@ -57,6 +57,5 @@ export class ProjectsComponent {
     const url = `${this.baseUrl}/proyectos/eliminar/${proyectoItem.id}`;
     this.proyectosData?.splice(index, 1);
     this.portfolioData.deleteData(url, proyectoItem).subscribe();
-    console.log("Eliminar Proyecto:", proyectoItem)
   }
 }

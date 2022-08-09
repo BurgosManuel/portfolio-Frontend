@@ -35,7 +35,6 @@ export class SkillItemComponent {
     const url = `${this.baseUrl}/habilidades/editar/${updatedItem.id}`;
     this.habilidadItem = updatedItem;
     this.portfolioData.updateData(url, updatedItem).subscribe();
-    console.log('Updated Item Habilidad: ', updatedItem);
   }
 
   reloadItem() {
