@@ -8,7 +8,7 @@
     autocomplete="off"
   >
     <div class="d-flex align-items-center justify-content-between w-100">
-      <button class="btn btn-outline-success" routerLink="/portfolio">
+      <button class="btn btn-outline-success" (click)="portfolioLink()">
         Volver al portfolio
       </button>
       <button class="btn btn-outline-info" routerLink="/registro">
@@ -95,7 +95,7 @@
     *ngIf="isLoggedIn"
   >
     <h5>¡Usted ingresó correctamente!</h5>
-    <button class="btn btn-success mb-2" routerLink="/portfolio">
+    <button class="btn btn-success mb-2" (click)="portfolioLink()">
       Ir al portfolio
     </button>
     <br />

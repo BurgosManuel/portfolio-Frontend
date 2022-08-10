@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: 'registro', component: RegisterComponent},
   {path: 'ingreso', component: LoginComponent},
   {path: 'portfolio', component: PortfolioComponent},
+  {path: 'portfolio/:id', component: PortfolioComponent},
   {path: '**', redirectTo: 'portfolio', pathMatch: 'full'}
 ];
 

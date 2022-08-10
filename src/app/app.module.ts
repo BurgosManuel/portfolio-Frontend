@@ -38,6 +38,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { ClipboardModule } from 'ngx-clipboard';
 
 
 @NgModule({
@@ -75,7 +76,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     RegisterComponent,
     PortfolioComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ClipboardModule],
   providers: [PortfolioDataService, authInterceptorProviders],
   bootstrap: [AppComponent],
 })
