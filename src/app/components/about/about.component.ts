@@ -16,6 +16,7 @@ export class AboutComponent {
   @Input() seccionData?: Seccion;
   @Input() educacionData?: Educacion[];
   @Input() experienciaData?: Experiencia[];
+  @Input() personaID: number = 1;
   baseUrl: string = environment.baseUrl;
 
   @Input() imgUrl: any;

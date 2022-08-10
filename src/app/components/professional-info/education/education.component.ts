@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class EducationComponent {
   @Input() educacionData?: Educacion[];
+  @Input() personaID: number = 1;
   isEditing: boolean = false;
   isAdding: boolean = false;
   baseUrl: string = environment.baseUrl;
@@ -31,7 +32,7 @@ export class EducationComponent {
       this.portfolioData
         .getData(`${this.baseUrl}/educacion/listar`)
         .subscribe((data) => {
-          this.educacionData = data;
+          this.educacionData = data.filter((el: any) => el.persona_id == this.personaID);
         });
     }, 500);
   }

@@ -13,6 +13,7 @@ export class SkillsComponent implements OnInit {
   // Informacion de la descripcion
   @Input() seccionData?: Seccion;
   @Input() habilidadesData?: Habilidad[];
+  @Input() personaID: number = 1;
 
   habilidadesFront?: Habilidad[];
   habilidadesBack?: Habilidad[];
@@ -46,7 +47,7 @@ export class SkillsComponent implements OnInit {
       this.portfolioData
         .getData(`${this.baseUrl}/habilidades/listar`)
         .subscribe((data) => {
-          this.habilidadesData = data;
+          this.habilidadesData = data.filter((el: any) => el.persona_id == this.personaID);
           this.habilidadesFront = this.habilidadesData?.filter(
             (el) => el.tipo == 'Frontend'
           );

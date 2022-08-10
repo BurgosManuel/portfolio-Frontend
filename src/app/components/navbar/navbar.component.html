@@ -13,12 +13,12 @@
     id="navbar"
     class="sidebar"
     [ngClass]="{ hidebar: !isOpen }"
-    (window:resize)="loadSidebar()"
   >
     <app-edit-button
       class="align-self-end p-2"
       [isEditing]="isEditing"
       (onToggleEdition)="toggleEdition($event)"
+      (window:resize)="onResize($event)"
     ></app-edit-button>
 
     <app-navbar-item

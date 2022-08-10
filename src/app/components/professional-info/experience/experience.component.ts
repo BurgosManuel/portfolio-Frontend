@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ExperienceComponent {
   @Input() experienciaData?: Experiencia[];
+  @Input() personaID: number = 1;
   isEditing: boolean = false;
   isAdding: boolean = false;
   baseUrl: string = environment.baseUrl;
@@ -31,7 +32,7 @@ export class ExperienceComponent {
       this.portfolioData
         .getData(`${this.baseUrl}/experiencia/listar`)
         .subscribe((data) => {
-          this.experienciaData = data;
+          this.experienciaData = data.filter((el: any) => el.persona_id == this.personaID);
         });
     }, 500);
   }

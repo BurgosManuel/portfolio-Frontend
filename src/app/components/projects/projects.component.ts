@@ -15,6 +15,7 @@ export class ProjectsComponent {
   @Input() proyectosData?: Proyecto[];
   @Input() seccionData?: Seccion;
   baseUrl: string = environment.baseUrl;
+  @Input() personaID: number = 1;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -28,7 +29,6 @@ export class ProjectsComponent {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
     this.portfolioData.updateData(url, newData).subscribe();
-    console.log('Nuevos datos Proyectos:', newData);
   }
 
   reloadSeccion() {
@@ -44,7 +44,9 @@ export class ProjectsComponent {
       this.portfolioData
         .getData(`${this.baseUrl}/proyectos/listar`)
         .subscribe((data) => {
-          this.proyectosData = data;
+          this.proyectosData = data.filter(
+            (el: Proyecto) => el.persona_id == this.personaID
+          );
         });
     }, 500);
   }

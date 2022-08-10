@@ -42,9 +42,19 @@ export class NavbarComponent {
   loadSidebar() {
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
   }
+
+  onResize(event: any) {
+    let windowW = event.target.innerWidth;
+
+    if(windowW > 1200) {
+      this.loadSidebar()
+    } else {
+      return
+    }
+  }
   
   ngOnInit(): void {
     // Determinamos si el sidebar -al instanciarse- estará abierto o cerrado.
-    this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
+    this.loadSidebar()
   }
 }
