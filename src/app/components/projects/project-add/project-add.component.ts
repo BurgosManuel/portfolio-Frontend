@@ -34,6 +34,6 @@ export class ProjectAddComponent {
 
   ngOnInit() {
     this.personaID = this.tokenStorage.updateID();
-    this.proyectoItem = new Proyecto(this.personaID, '', '', '', '', '');
+    this.proyectoItem = new Proyecto(this.personaID, '', '', 'https://cabaretfestival.es/wp-content/uploads/2020/07/Hero-Banner-Placeholder-Light-1024x480-1.png', '', '');
   }
 }
