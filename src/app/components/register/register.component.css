@@ -1,3 +1,11 @@
+h1 {
+  margin-top: 1rem;
+}
+
+button {
+  margin: 3px;
+}
+
 .vertical-center {
   min-height: 100%; /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
@@ -24,6 +32,13 @@
 @media screen and (min-width: 766px) {
   form {
     font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  form {
+    font-size: 1rem;
+    padding: 1rem !important;
   }
 }
 

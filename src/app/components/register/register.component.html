@@ -8,8 +8,8 @@
   autocomplete="off"
   >
   <div class="d-flex align-items-center justify-content-between w-100">
-    <button class="btn btn-outline-info" routerLink="/portfolio">Volver al portfolio</button>
-    <button class="btn btn-outline-success" routerLink="/ingreso">Ingresar</button>
+    <button class="btn btn-outline-info" routerLink="/portfolio"><i class="fa-solid fa-door-open"></i> Portfolio</button>
+    <button class="btn btn-outline-success" routerLink="/ingreso"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</button>
   </div>
     <h1 class="text-center">Registro</h1>
     <hr />
@@ -106,7 +106,7 @@
         [class]="registerForm.valid ? 'btn-info' : 'btn-outline-secondary'"
         [disabled]="!registerForm.valid"
       >
-        Registrarse
+      <i class="fa-solid fa-user-plus"></i> Registrarse
       </button>
     </div>
     <hr />
@@ -119,6 +119,6 @@
   </form>
   <div class="alert alert-success my-auto mx-auto text-center" *ngIf="isSuccessful">
     <h5>¡Usuario registrado con éxito!</h5>
-    <button class="btn btn-success" routerLink="/ingreso">Ingresar </button>
+    <button class="btn btn-success" routerLink="/ingreso"><i class="fa-solid fa-arrow-right-to-bracket"></i> Ingresar</button>
   </div>
 </div>

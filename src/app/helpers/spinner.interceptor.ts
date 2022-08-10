@@ -20,7 +20,6 @@ export class SpinnerInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.spinnerServ.requestStarted();
-    console.log('Request started');
     return this.handler(next, req);
   }
 
@@ -30,12 +29,10 @@ export class SpinnerInterceptor implements HttpInterceptor {
         (event) => {
           if (event instanceof HttpResponse) {
             this.spinnerServ.resetSpinner();
-            console.log('Request ended');
           }
         },
         (error: HttpErrorResponse) => {
           this.spinnerServ.resetSpinner();
-          console.log('Request error');
           throw error;
         }
       )
