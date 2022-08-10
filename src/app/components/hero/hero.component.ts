@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
 import { Persona } from 'src/app/model/Persona';
-import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
-import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-hero',
