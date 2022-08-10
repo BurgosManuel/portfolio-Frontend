@@ -39,6 +39,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { ClipboardModule } from 'ngx-clipboard';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { spinnerInterceptorProviders } from './helpers/spinner.interceptor';
 
 
 @NgModule({
@@ -74,10 +76,11 @@ import { ClipboardModule } from 'ngx-clipboard';
     ExperienceItemComponent,
     LoginComponent,
     RegisterComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    SpinnerComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ClipboardModule],
-  providers: [PortfolioDataService, authInterceptorProviders],
+  providers: [PortfolioDataService, authInterceptorProviders, spinnerInterceptorProviders],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
