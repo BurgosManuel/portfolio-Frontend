@@ -51,7 +51,6 @@ export class PortfolioComponent implements OnInit {
       .getData(`${this.baseUrl}/personas/${this.personaID}`)
       .subscribe((data) => {
         this.datosPersona = data;
-        console.log('PersonaDATA', data);
         this.titleService.setTitle(this.datosPersona!.nombre);
       });
 
