@@ -32,7 +32,6 @@ export class EducationItemComponent {
     this.educacionItem = updatedItem;
     this.onItemUpdate.emit(this.updateItem);
     this.portfolioData.updateData(url, updatedItem).subscribe();
-    console.log('Updated Item Educacion: ', updatedItem);
   }
 
   reloadItem() {
