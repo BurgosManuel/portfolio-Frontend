@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://portfolio-manuel-backend.herokuapp.com',
-  authApi: 'https://portfolio-manuel-backend.herokuapp.com/api/auth',
-  frontUrl: 'https://portfolio-manuel-b6adb.web.app/portfolio/'
+  baseUrl: 'http://localhost:8080',
+  authApi: 'http://localhost:8080/api/auth',
+  frontUrl: 'http://localhost:4200/portfolio/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

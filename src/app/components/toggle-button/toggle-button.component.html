@@ -5,7 +5,7 @@
 <div
   class="toggler-btn"
   (click)="toggleSidebar()"
-  (window:resize)="loadButton()"
+  (window:resize)="onResize($event)"
 >
   <i class="bi bi-list fs-5 open-btn" [ngClass]="{ 'd-none': isOpen }"></i>
   <i class="bi bi-x-lg close-btn" [ngClass]="{ 'd-none': !isOpen }"></i>

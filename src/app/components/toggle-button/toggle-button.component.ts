@@ -29,5 +29,15 @@ export class ToggleButtonComponent implements OnInit {
     this.minWidth.matches ? (this.isOpen = true) : (this.isOpen = false);
   }
 
+  onResize(event: any) {
+    let windowW = event.target.innerWidth;
+
+    if (windowW > 1200) {
+      this.loadButton();
+    } else {
+      return;
+    }
+  }
+
   ngOnInit(): void {}
 }
