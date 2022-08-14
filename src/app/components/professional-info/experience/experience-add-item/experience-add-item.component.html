@@ -1,5 +1,5 @@
 <form
-  #expForm="ngForm"
+  #expFormAdd="ngForm"
   (ngSubmit)="toggleAdding(); addItem()"
   class="editable-item"
 >
@@ -89,7 +89,7 @@
     <button
       type="submit"
       class="btn btn-outline-success m-2"
-      [disabled]="!expForm.form.valid"
+      [disabled]="!expFormAdd.form.valid"
     >
       <i id="saveIcon" class="bi bi-check2-circle"></i> Guardar
     </button>
