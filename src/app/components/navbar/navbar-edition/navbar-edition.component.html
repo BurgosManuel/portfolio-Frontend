@@ -35,7 +35,7 @@
     </div>
   </div>
   <div class="mb-4">
-    <label for="sidebarName" class="form-label">Título: </label>
+    <label for="sidebarName" class="form-label">Título:</label>
     <input
       id="sidebarTitle"
       name="sidebarTitle"
@@ -56,64 +56,113 @@
     </div>
   </div>
   <div class="mb-4">
-    <label for="sidebarImg" class="form-label">Foto de Perfil (URL): </label>
+    <label for="sidebarImg" class="form-label">Foto de Perfil (URL):</label>
     <input
+      #sidebarImg="ngModel"
       id="sidebarImg"
       name="sidebarImg"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarImg.errors && (sidebarImg.dirty || sidebarImg.touched)
+      }"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
+      maxlength="500"
       [(ngModel)]="personaEditable!.img_url"
     />
   </div>
+  <div class="text-danger mt-2" *ngIf="sidebarImg.errors?.['maxlength']">
+    <p>Máximo 500 carácteres</p>
+  </div>
   <div class="mb-4">
-    <label for="sidebarImg" class="form-label">Banner (URL): </label>
+    <label for="sidebarBanner" class="form-label">Banner (URL):</label>
     <input
+      #sidebarBanner="ngModel"
       id="sidebarBanner"
       name="sidebarBanner"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarBanner.errors && (sidebarBanner.dirty || sidebarBanner.touched)
+      }"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
+      maxlength="500"
       [(ngModel)]="personaEditable!.banner_url"
     />
   </div>
+  <div class="text-danger mt-2" *ngIf="sidebarBanner.errors?.['maxlength']">
+    <p>Máximo 500 carácteres</p>
+  </div>
   <div class="mb-4">
-    <label for="sidebarImg" class="form-label">Imagen "Sobre Mí" (URL): </label>
+    <label for="sidebarAbout" class="form-label"
+      >Imagen "Sobre Mí" (URL):
+    </label>
     <input
+      #sidebarAbout="ngModel"
       id="sidebarAbout"
       name="sidebarAbout"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarAbout.errors && (sidebarAbout.dirty || sidebarAbout.touched)
+      }"
       placeholder="http://tusitio.com/imagen.png"
       autocomplete="off"
+      maxlength="500"
       [(ngModel)]="personaEditable!.about_url"
     />
+  </div>
+  <div class="text-danger mt-2" *ngIf="sidebarAbout.errors?.['maxlength']">
+    <p>Máximo 500 carácteres</p>
   </div>
   <div class="mb-4">
     <label for="sidebarLinkedin" class="form-label">LinkedIn: </label>
     <input
+      #sidebarLinkedin="ngModel"
       id="sidebarLinkedin"
       name="sidebarLinkedin"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarLinkedin.errors &&
+          (sidebarLinkedin.dirty || sidebarLinkedin.touched)
+      }"
       placeholder="https://www.linkedin.com/in/usuario/"
       autocomplete="off"
+      maxlength="500"
       [(ngModel)]="personaEditable!.linkedin_url"
     />
+  </div>
+  <div class="text-danger mt-2" *ngIf="sidebarLinkedin.errors?.['maxlength']">
+    <p>Máximo 500 carácteres</p>
   </div>
   <div class="mb-4">
     <label for="sidebarGithub" class="form-label">Github: </label>
     <input
+      #sidebarGithub="ngModel"
       id="sidebarGithub"
       name="sidebarGithub"
       type="text"
       class="form-control"
+      [class]="{
+        'is-invalid':
+          sidebarGithub.errors &&
+          (sidebarGithub.dirty || sidebarGithub.touched)
+      }"
       placeholder="https://www.github.com/usuario/"
       autocomplete="off"
+      maxlength="500"
       [(ngModel)]="personaEditable!.github_url"
     />
+  </div>
+  <div class="text-danger mt-2" *ngIf="sidebarGithub.errors?.['maxlength']">
+    <p>Máximo 500 carácteres</p>
   </div>
   <div class="p-2 text-center">
     <button
