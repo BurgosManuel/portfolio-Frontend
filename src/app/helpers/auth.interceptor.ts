@@ -1,4 +1,5 @@
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -6,14 +7,29 @@ import {
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 import { TokenStorageService } from '../services/token-storage.service';
-
-const TOKEN_HEADER_KEY = 'Authorization'; // Para el backend de Spring Boot.
+import { UserService } from '../services/user.service';
+declare let window: any;
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private tokenService: TokenStorageService) {}
+  constructor(
+    private tokenService: TokenStorageService,
+    private router: Router,
+    private userStatus: UserService
+  ) {}
+
+  handleAuthError(err: HttpErrorResponse): Observable<any> {
+    if (err.status === 401) {
+      this.tokenService.signOut();
+      this.userStatus.setUserStatus(false);
+      alert('La sesión ha expirado, por favor inicie sesión nuevamente.');
+      this.router.navigateByUrl('/ingreso');
+    }
+    return throwError(err);
+  }
 
   intercept(
     req: HttpRequest<any>,
@@ -26,7 +42,7 @@ export class AuthInterceptor implements HttpInterceptor {
           setHeaders: { Authorization: `Bearer ${token}` },
         });
 
-    return next.handle(authReq);
+    return next.handle(authReq).pipe(catchError((err) => this.handleAuthError(err)));
   }
 }
 

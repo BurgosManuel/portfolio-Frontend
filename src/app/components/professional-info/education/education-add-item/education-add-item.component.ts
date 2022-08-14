@@ -27,7 +27,6 @@ export class EducationAddItem  {
     this.educacionList?.push(this.educacionItem!);
     const url = `${this.baseUrl}/educacion/agregar`
     this.portfolioData.createData(url, this.educacionItem).subscribe();
-    console.log("ADD EDUCATION: ", this.educacionItem)
     this.onAddItem.emit();
   }
 

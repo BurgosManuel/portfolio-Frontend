@@ -49,12 +49,11 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.updateRoles();
       },
       error: (err: any) => {
-        if (err.status == 401) {
+        if (err.error.message === 'Bad Credentials') {
           this.errorMessage = 'Usuario y/o contraseña incorrectos.';
         } else {
           this.errorMessage = `${err.status}: ${err.error.message}`;
         }
-        console.log(err);
         this.isLoginFailed = true;
       },
     };
