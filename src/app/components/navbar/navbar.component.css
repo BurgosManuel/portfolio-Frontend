@@ -21,18 +21,25 @@ BARRA DE NAVEGACIÓN
 
   transform: translateX(0);
   transition: transform .5s ease-in-out;
+
+  overflow-y: scroll;
+  direction: rtl;
+}
+
+app-navbar-item {
+  direction: ltr;
 }
 
 /* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
 
-@media (max-height: 1000px) {
+@media (min-height: 800px) {
   .sidebar {
-    overflow-y: scroll;
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    overflow-y: hidden;
+    -ms-overflow-style: none; 
+    scrollbar-width: none; 
   }
   .sidebar::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
   }
 }
 

@@ -21,7 +21,7 @@
       [src]="personaData?.img_url"
       alt="Foto de Perfil"
     />
-    <a (click)="navigateToSection('inicio')"
+    <a tabindex="0" (click)="navigateToSection('inicio')"
       ><h2 class="fs-4 fw-bold m-3">{{ personaData?.nombre}}</h2></a
     >
     <ul class="social">
@@ -31,7 +31,7 @@
       <a [href]="personaData?.github_url" target="_BLANK"
         ><li><i class="bi bi-github fs-5"></i></li
       ></a>
-      <a ngxClipboard [cbContent]="portfolioUrl" (click)="copyUrl()"
+      <a tabindex="0" ngxClipboard [cbContent]="portfolioUrl" (click)="copyUrl()"
       ><li><i class="bi bi-share fs-5"></i></li
     ></a>
     </ul>
@@ -39,19 +39,19 @@
   <div *ngIf="!isEditing" id="nav-links">
     <ul class="navigation">
       <li class="nav-item">
-        <a (click)="navigateToSection('inicio')"><i class="bi bi-house-door fs-4"></i>Inicio</a>
+        <a tabindex="0"  (click)="navigateToSection('inicio')"><i class="bi bi-house-door fs-4"></i>Inicio</a>
       </li>
       <li class="nav-item">
-        <a (click)="navigateToSection('sobre-mi')"><i class="bi bi-person fs-4"></i>Sobre Mí</a>
+        <a tabindex="0"  (click)="navigateToSection('sobre-mi')"><i class="bi bi-person fs-4"></i>Sobre Mí</a>
       </li>
       <li class="nav-item">
-        <a (click)="navigateToSection('habilidades')"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</a>
+        <a tabindex="0"  (click)="navigateToSection('habilidades')"><i class="bi bi-diagram-3 fs-4"></i>Habilidades</a>
       </li>
       <li class="nav-item">
-        <a (click)="navigateToSection('proyectos')"><i class="bi bi-code fs-4"></i>Proyectos</a>
+        <a tabindex="0"  (click)="navigateToSection('proyectos')"><i class="bi bi-code fs-4"></i>Proyectos</a>
       </li>
       <li class="nav-item">
-        <a (click)="navigateToSection('contacto')"><i class="bi bi-envelope fs-4"></i>Contacto</a>
+        <a tabindex="0"  (click)="navigateToSection('contacto')"><i class="bi bi-envelope fs-4"></i>Contacto</a>
       </li>
       <li class="nav-item">
         <a routerLink="/ingreso" data-bs-toggle="modal" data-bs-target="#loginModal"
