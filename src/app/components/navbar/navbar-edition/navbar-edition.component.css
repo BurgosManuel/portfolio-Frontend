@@ -2,6 +2,7 @@
     border-left: none;
     border-right: none;
     border-radius: 0;
+    overflow-y: scroll;
 }
 
 .user-profile {
