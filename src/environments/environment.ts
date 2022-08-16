@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8080',
-  authApi: 'http://localhost:8080/api/auth',
-  frontUrl: 'http://localhost:4200/portfolio/'
+  baseUrl: 'http://10.168.0.181:8080',
+  authApi: 'http://10.168.0.181:8080/api/auth',
+  frontUrl: 'http://10.168.0.181:4200/portfolio/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

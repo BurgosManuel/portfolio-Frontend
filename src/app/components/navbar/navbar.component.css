@@ -32,7 +32,7 @@ app-navbar-item {
 
 /* Permitimos en scroll en dispositivos de menor altura, pero escondemos la barra de scroll de los distintos dispositivos.  */
 
-@media (min-height: 800px) {
+@media (min-height: 900px) {
   .sidebar {
     overflow-y: hidden;
     -ms-overflow-style: none; 
