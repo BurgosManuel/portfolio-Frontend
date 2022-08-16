@@ -9,24 +9,46 @@ ESTILOS GLOBALES
   --light: #a8a9b4;
   --grey: #2c2f3f;
   --blue: #149ddd;
+  --darkblue: #0288c7;
+  --darkerblue: #027ab1;
   --white: #fff;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Ocultamos la barra de scroll */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Ocultamos la barra de scroll */
-
-html::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
 }
 
 body {
   background-color: var(--dark) !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+/* Ocultamos la barra de scroll */
+
+/* Scrollbar Width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--grey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 3rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darkblue);
+}
+
+/* Handle on active */
+::-webkit-scrollbar-thumb:active {
+  background: var(--darkerblue);
 }
 
 h1,

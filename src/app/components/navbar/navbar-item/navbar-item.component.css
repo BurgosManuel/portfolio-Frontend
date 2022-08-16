@@ -37,6 +37,18 @@ a:hover {
   cursor: pointer;
 }
 
+.social a:focus li {
+  background-color: var(--blue);
+}
+
+.social a:focus {
+  outline: 0;
+}
+
+a:focus h2 {
+  color: var(--blue);
+}
+
 .navigation {
   color: var(--light);
 }
@@ -63,21 +75,18 @@ a:hover {
   transition: 0.3s;
 }
 
-.sidebar a:focus {
+.nav-item a:focus {
   color: var(--white);
-  outline: none;
   transition: 0.3s;
 }
 
-.sidebar a:focus h2 {
+.nav-item a:focus h2 {
   color: var(--light);
-  outline: none;
   transition: 0.3s;
 }
 
-.sidebar a:focus i {
+.nav-item a:focus i {
   color: var(--blue);
-  outline: none;
   transition: 0.3s;
 }
 
