@@ -28,9 +28,11 @@
         <h3 class="text-center">¡Construyamos algo juntos!</h3>
         <hr />
         <form
+        ngNoForm
           action="https://formsubmit.co/f4be33e69b9360fa1f60a9026ba46950"
           method="POST"
           class="form"
+          autocomplete="off"
         >
           <div class="mb-3">
             <label for="contactName" class="form-label fw-bold"
@@ -83,7 +85,7 @@
             <input
               type="hidden"
               name="_next"
-              value="https://burgosmanuel.github.io/PortfolioWebFullStack/Front-End/index.html"
+              [value]="frontUrl"
             />
             <button type="submit" class="btn btn-outline-info mt-3">
               ¡Enviar!

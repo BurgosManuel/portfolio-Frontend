@@ -12,6 +12,7 @@ export class ContactComponent {
   @Input() seccionData?: Seccion;
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
+  frontUrl: string = environment.frontUrl;
 
   constructor(private portfolioData: PortfolioDataService) {}
 
