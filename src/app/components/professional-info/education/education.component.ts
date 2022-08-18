@@ -38,8 +38,8 @@ export class EducationComponent {
   }
 
   deleteItem(educacionItem: Educacion, index: number): void {
-    const url = `http://localhost:8080/educacion/eliminar/${educacionItem.id}`;
-    this.educacionData?.splice(index, 1);
+    const url = `${this.baseUrl}/educacion/eliminar/${educacionItem.id}`;
     this.portfolioData.deleteData(url, educacionItem).subscribe();
+    this.educacionData?.splice(index, 1);
   }
 }
