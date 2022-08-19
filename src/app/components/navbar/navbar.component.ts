@@ -12,6 +12,7 @@ export class NavbarComponent {
   @Input() personaData?: Persona;
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
+  isScrollable: boolean = false;
 
   // Inyectamos el servicio utilizando el modificador 'Protected', de manera que las instancias de esta clase puedan acceder al servicio.
   constructor(protected portfolioData: PortfolioDataService) {}
@@ -52,9 +53,19 @@ export class NavbarComponent {
       return
     }
   }
+
+  makeScrollable(element: HTMLElement) {
+    element.classList.toggle('scroll-y');
+    if(element.classList.contains('scroll-y')) {
+      this.isScrollable = true;
+    } else {
+      this.isScrollable = false;
+    }
+  }
   
   ngOnInit(): void {
     // Determinamos si el sidebar -al instanciarse- estará abierto o cerrado.
     this.loadSidebar()
+    this.isScrollable? this.isScrollable = false : null;
   }
 }

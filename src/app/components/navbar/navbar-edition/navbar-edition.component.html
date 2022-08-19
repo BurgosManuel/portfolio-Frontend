@@ -1,10 +1,10 @@
-<form #navForm="ngForm" (ngSubmit)="saveChanges()" class="editable-item">
+<form #navForm="ngForm" (ngSubmit)="saveChanges(); toggleEdition()" class="editable-item">
   <h4 class="text-center">Editar</h4>
   <div
     class="d-flex flex-column align-items-center justify-content-center mt-3"
   >
     <img
-      class="user-profile img-fluid"
+      class="user-profile img-fluid mb-2"
       [src]="personaEditable?.img_url"
       alt="Foto de Perfil"
     />
@@ -164,7 +164,7 @@
   <div class="text-danger mt-2" *ngIf="sidebarGithub.errors?.['maxlength']">
     <p>Máximo 500 carácteres</p>
   </div>
-  <div class="p-2 text-center">
+  <div class="text-center">
     <button
       type="submit"
       class="btn btn-outline-success m-2"
