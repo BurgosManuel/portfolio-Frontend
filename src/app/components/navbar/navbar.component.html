@@ -12,7 +12,7 @@
     <app-edit-button
       class="align-self-start p-2"
       [isEditing]="isEditing"
-      (onToggleEdition)="toggleEdition($event); makeScrollable(sideBar)"
+      (onToggleEdition)="toggleEdition($event); makeScrollable(sideBar); reloadPersona()"
       (window:resize)="onResize($event)"
     ></app-edit-button>
 

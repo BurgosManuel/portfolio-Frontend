@@ -8,7 +8,7 @@
         <h2 class="fw-bold">Habilidades</h2>
         <app-edit-button
           [isEditing]="isEditing"
-          (onToggleEdition)="toggleEdition($event)"
+          (onToggleEdition)="toggleEdition($event); reloadSeccion()"
         ></app-edit-button>
       </div>
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->

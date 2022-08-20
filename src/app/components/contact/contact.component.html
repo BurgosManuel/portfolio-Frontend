@@ -9,7 +9,7 @@
         <!-- Componente 'Edit Button'-->
         <app-edit-button
           [isEditing]="isEditing"
-          (onToggleEdition)="toggleEdition($event)"
+          (onToggleEdition)="toggleEdition($event); reloadSeccion()"
         ></app-edit-button>
       </div>
       <!-- Contenido editable, utilizamos directivas y binding para manejarlo-->

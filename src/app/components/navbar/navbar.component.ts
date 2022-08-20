@@ -29,6 +29,15 @@ export class NavbarComponent {
     this.portfolioData.updateData(url, personaActualizada).subscribe();
   }
 
+  reloadPersona() {
+    this.portfolioData
+      .getData(`${this.baseUrl}/personas/${this.personaData?.id}`)
+      .subscribe((data) => {
+        this.personaData = data;
+        this.portfolioData.setRefresh(true);
+      });
+  }
+
   // Creamos una propiedad que almacene el min-width para que se considere la sidebar 'Abierta'
   minWidth = window.matchMedia('(min-width: 1200px)');
   // Booleano que nos muestra si la barra esta abierta o cerrada.
