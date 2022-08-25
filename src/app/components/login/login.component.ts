@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
         } else if (err.status == 0) {
           Swal.fire({
             title: 'Error al ingresar',
-            text: `Hubo un error en el servidor.`,
+            text: `Ocurrió un error en el servidor.`,
             icon: 'error',
             iconColor: '#b10000',
             position: 'center',

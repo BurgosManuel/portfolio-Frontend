@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
@@ -26,7 +27,12 @@ export class ExperienceAddItemComponent  {
   addItem() {
     this.experienciaList?.push(this.experienciaItem!);
     const url = `${this.baseUrl}/experiencia/agregar`
-    this.portfolioData.createData(url, this.experienciaItem).subscribe();
+    this.portfolioData.createData(url, this.experienciaItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento agregado exitosamente.',
+        icon: 'success'
+      })
+    });
     this.onAddItem.emit();
   }
 

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Educacion } from 'src/app/model/Educacion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -30,7 +31,12 @@ export class EducationItemComponent {
     const url = `${this.baseUrl}/educacion/editar/${updatedItem.id}`;
     this.educacionItem = updatedItem;
     this.onItemUpdate.emit(this.updateItem);
-    this.portfolioData.updateData(url, updatedItem).subscribe();
+    this.portfolioData.updateData(url, updatedItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento editado exitosamente.',
+        icon: 'success'
+      })
+    });
   }
 
   reloadItem() {

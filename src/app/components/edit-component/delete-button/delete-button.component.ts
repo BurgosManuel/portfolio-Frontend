@@ -15,17 +15,6 @@ export class DeleteButtonComponent {
 
 
   swalModal() {
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
     Swal.fire({
       title: 'Eliminar elemento',
       text:'Esta acción no se puede revertir, ¿continuar?',
@@ -36,10 +25,8 @@ export class DeleteButtonComponent {
       cancelButtonText: `Cancelar`,
       position: 'top'
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.onDelete();
-        Toast.fire({title: 'Elemento eliminado exitosamente.', icon: 'success'});
       }
     });
   }

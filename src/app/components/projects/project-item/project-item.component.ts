@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -30,7 +31,12 @@ export class ProjectItemComponent {
   updateItem(updatedItem: Proyecto) {
     const url = `${this.baseUrl}/proyectos/editar/${updatedItem.id}`;
     this.proyectoItem = updatedItem;
-    this.portfolioData.updateData(url, updatedItem).subscribe();
+    this.portfolioData.updateData(url, updatedItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento editado correctamente.',
+        icon: 'success'
+      })
+    });
   }
 
   reloadItem() {

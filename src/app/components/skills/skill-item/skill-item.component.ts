@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -33,7 +34,12 @@ export class SkillItemComponent {
   updateItem(updatedItem: Habilidad) {
     const url = `${this.baseUrl}/habilidades/editar/${updatedItem.id}`;
     this.habilidadItem = updatedItem;
-    this.portfolioData.updateData(url, updatedItem).subscribe();
+    this.portfolioData.updateData(url, updatedItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento editado correctamente.',
+        icon: 'success'
+      })
+    });
   }
 
   reloadItem() {

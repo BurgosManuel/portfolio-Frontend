@@ -3,6 +3,7 @@ import { Proyecto } from 'src/app/model/Proyecto';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import { Toast } from 'src/app/helpers/Toast';
 
 @Component({
   selector: 'app-project-add',
@@ -28,7 +29,12 @@ export class ProjectAddComponent {
   addItem() {
     this.proyectosList?.push(this.proyectoItem!);
     const url = `${this.baseUrl}/proyectos/agregar`
-    this.portfolioData.createData(url, this.proyectoItem).subscribe();
+    this.portfolioData.createData(url, this.proyectoItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento agregado correctamente.',
+        icon: 'success'
+      })
+    });
     this.onAddItem.emit();
   }
 

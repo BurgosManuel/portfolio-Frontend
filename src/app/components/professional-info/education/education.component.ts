@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { Educacion } from 'src/app/model/Educacion';
 import { environment } from 'src/environments/environment';
+import { Toast } from 'src/app/helpers/Toast';
 
 @Component({
   selector: 'app-education',
@@ -39,7 +40,13 @@ export class EducationComponent {
 
   deleteItem(educacionItem: Educacion, index: number): void {
     const url = `${this.baseUrl}/educacion/eliminar/${educacionItem.id}`;
-    this.portfolioData.deleteData(url, educacionItem).subscribe();
+    this.portfolioData.deleteData(url, educacionItem).subscribe( () => {
+      Toast.fire({
+        title: 'Elemento eliminado correctamente.',
+        icon: 'success'
+      })
+    });
     this.educacionData?.splice(index, 1);
+
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
@@ -28,7 +29,12 @@ export class SkillAddItemComponent {
   addItem() {
     this.habilidadesList?.push(this.habilidadItem!);
     const url = `${this.baseUrl}/habilidades/agregar`
-    this.portfolioData.createData(url, this.habilidadItem).subscribe();
+    this.portfolioData.createData(url, this.habilidadItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento agregado correctamente.',
+        icon: 'success'
+      })
+    });
     this.onAddItem.emit();
   }
 

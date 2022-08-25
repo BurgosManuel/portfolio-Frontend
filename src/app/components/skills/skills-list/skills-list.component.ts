@@ -3,6 +3,7 @@ import { Habilidad } from 'src/app/model/Habilidad';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
 import { EventEmitter } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 
 @Component({
   selector: 'app-skills-list',
@@ -38,7 +39,12 @@ export class SkillsListComponent {
     this.habilidadesList?.splice(index, 1);
     // Eliminamos en back
     const url = `${this.baseUrl}/habilidades/eliminar/${habilidadItem.id}`;
-    this.portfolioData.deleteData(url, habilidadItem).subscribe();
+    this.portfolioData.deleteData(url, habilidadItem).subscribe(() => {
+      Toast.fire({
+        title: 'Elemento eliminado correctamente.',
+        icon: 'success',
+      });
+    });
   }
 
   ngOnInit() {}

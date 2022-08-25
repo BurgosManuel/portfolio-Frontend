@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Proyecto } from 'src/app/model/Proyecto';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
@@ -58,6 +59,11 @@ export class ProjectsComponent {
   deleteItem(proyectoItem: Proyecto, index: number): void {
     const url = `${this.baseUrl}/proyectos/eliminar/${proyectoItem.id}`;
     this.proyectosData?.splice(index, 1);
-    this.portfolioData.deleteData(url, proyectoItem).subscribe();
+    this.portfolioData.deleteData(url, proyectoItem).subscribe( () => {
+      Toast.fire({
+        title: 'Elemento eliminado correctamente.',
+        icon: 'success'
+      })
+    });
   }
 }

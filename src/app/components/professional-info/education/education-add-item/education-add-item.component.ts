@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Educacion } from 'src/app/model/Educacion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
@@ -26,7 +27,12 @@ export class EducationAddItem  {
   addItem() {
     this.educacionList?.push(this.educacionItem!);
     const url = `${this.baseUrl}/educacion/agregar`
-    this.portfolioData.createData(url, this.educacionItem).subscribe();
+    this.portfolioData.createData(url, this.educacionItem).subscribe(()=> {
+      Toast.fire({
+        title: 'Elemento agregado correctamente.',
+        icon: 'success'
+      })
+    });
     this.onAddItem.emit();
   }
 

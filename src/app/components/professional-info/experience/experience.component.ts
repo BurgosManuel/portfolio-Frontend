@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { environment } from 'src/environments/environment';
+import { Toast } from 'src/app/helpers/Toast';
 
 @Component({
   selector: 'app-experience',
@@ -32,7 +33,9 @@ export class ExperienceComponent {
       this.portfolioData
         .getData(`${this.baseUrl}/experiencia/listar`)
         .subscribe((data) => {
-          this.experienciaData = data.filter((el: any) => el.persona_id == this.personaID);
+          this.experienciaData = data.filter(
+            (el: any) => el.persona_id == this.personaID
+          );
         });
     }, 500);
   }
@@ -40,6 +43,11 @@ export class ExperienceComponent {
   deleteItem(experienciaItem: Experiencia, index: number): void {
     const url = `${this.baseUrl}/experiencia/eliminar/${experienciaItem.id}`;
     this.experienciaData?.splice(index, 1);
-    this.portfolioData.deleteData(url, experienciaItem).subscribe();
+    this.portfolioData.deleteData(url, experienciaItem).subscribe(() => {
+      Toast.fire({
+        title: 'Elemento eliminado correctamente.',
+        icon: 'success',
+      });
+    });
   }
 }

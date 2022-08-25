@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Persona } from 'src/app/model/Persona';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -25,7 +26,12 @@ export class NavbarComponent {
   actualizarPersona(personaActualizada: Persona): void {
     const url: string = `${this.baseUrl}/personas/editar/${personaActualizada.id}`;
     this.personaData = personaActualizada;
-    this.portfolioData.updateData(url, personaActualizada).subscribe();
+    this.portfolioData.updateData(url, personaActualizada).subscribe(()=> {
+      Toast.fire({
+        title: 'Datos actualizados correctamente.',
+        icon: 'success'
+      })
+    });
   }
 
   // Creamos una propiedad que almacene el min-width para que se considere la sidebar 'Abierta'
