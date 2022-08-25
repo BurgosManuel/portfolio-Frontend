@@ -16,8 +16,6 @@ export class ProjectItemComponent {
   @Output() onItemDelete: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
-  modalTarget: string = '';
-
   constructor(private portfolioData: PortfolioDataService) {}
 
   onDelete() {
@@ -41,9 +39,5 @@ export class ProjectItemComponent {
       .subscribe((data) => {
         this.proyectoItem = data;
       });
-  }
-
-  ngOnInit() {
-    this.modalTarget = 'modalProyecto' + this.proyectoItem?.id;
   }
 }

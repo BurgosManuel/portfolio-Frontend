@@ -14,7 +14,6 @@ export class EducationItemComponent {
   @Output() onItemUpdate: EventEmitter<any> = new EventEmitter();
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
-  modalTarget: string = ''
 
   constructor(private portfolioData: PortfolioDataService) {}
 
@@ -40,8 +39,5 @@ export class EducationItemComponent {
       .subscribe((data) => {
         this.educacionItem = data;
       });
-  }
-  ngOnInit(){
-      this.modalTarget = 'modalEdu' + this.educacionItem?.id;
   }
 }
