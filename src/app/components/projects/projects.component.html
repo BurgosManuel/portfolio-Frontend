@@ -9,7 +9,7 @@
         <div>
           <app-edit-button
             [isEditing]="isEditing"
-            (onToggleEdition)="toggleEdition($event)"
+            (onToggleEdition)="toggleEdition($event); reloadSeccion()"
           ></app-edit-button>
           <app-add-button
             *ngIf="!isAdding"

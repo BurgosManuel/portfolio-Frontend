@@ -12,15 +12,15 @@
     <app-edit-button
       class="align-self-start p-2"
       [isEditing]="isEditing"
-      (onToggleEdition)="toggleEdition($event)"
+      (onToggleEdition)="toggleEdition($event); makeScrollable(sideBar); reloadPersona()"
       (window:resize)="onResize($event)"
     ></app-edit-button>
 
     <app-navbar-item
       [personaData]="personaData"
       [isEditing]="isEditing"
-      (onItemUpdate)="actualizarPersona($event)"
-      (onToggleItem)="toggleEdition($event)"
+      (onItemUpdate)="actualizarPersona($event); makeScrollable(sideBar)"
+      (onToggleItem)="toggleEdition($event); makeScrollable(sideBar)"
     ></app-navbar-item>
   </nav>
 </aside>

@@ -10,7 +10,7 @@
         <!-- Componente 'Edit Button'-->
         <app-edit-button
           [isEditing]="isEditing"
-          (onToggleEdition)="toggleEdition($event)"
+          (onToggleEdition)="toggleEdition($event); reloadSeccion()"
         ></app-edit-button>
     </div>
       <!-- Utilizamos [innerHTML] en lugar de Template Binding para poder utilizar marcado HTML en nuestro texto (negrita, salto de linea, cursiva, etc.) -->
