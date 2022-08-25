@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Educacion } from 'src/app/model/Educacion';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { Seccion } from 'src/app/model/Seccion';
@@ -33,7 +34,12 @@ export class AboutComponent {
   updateSeccion(newData: Seccion): void {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
-    this.portfolioData.updateData(url, newData).subscribe();
+    this.portfolioData.updateData(url, newData).subscribe(()=> {
+      Toast.fire({
+        title: 'Sección actualizada correctamente.',
+        icon: 'success'
+      })
+    });
   }
 
   //Método para modificar la imagen, implementar más adelante.

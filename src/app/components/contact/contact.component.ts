@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Toast } from 'src/app/helpers/Toast';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
 import { environment } from 'src/environments/environment';
@@ -25,7 +26,12 @@ export class ContactComponent {
   updateSeccion(newData: Seccion): void {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
-    this.portfolioData.updateData(url, newData).subscribe();
+    this.portfolioData.updateData(url, newData).subscribe(()=> {
+      Toast.fire({
+        title: 'Sección actualizada correctamente.',
+        icon: 'success'
+      })
+    });
   }
 
   reloadSeccion() {
