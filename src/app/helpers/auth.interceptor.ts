@@ -9,6 +9,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
+import Swal from 'sweetalert2';
 import { TokenStorageService } from '../services/token-storage.service';
 import { UserService } from '../services/user.service';
 declare let window: any;
@@ -25,8 +26,19 @@ export class AuthInterceptor implements HttpInterceptor {
     if (err.status === 401) {
       this.tokenService.signOut();
       this.userStatus.setUserStatus(false);
-      alert('La sesión ha expirado, por favor inicie sesión nuevamente.');
-      this.router.navigateByUrl('/ingreso');
+      // alert('La sesión ha expirado, por favor inicie sesión nuevamente.');
+      Swal.fire({
+        title: 'Sesión Expirada',
+        text: 'Por favor, inicie sesión nuevamente.',
+        icon: 'warning',
+        iconColor: 'orange' ,
+        allowOutsideClick: false,
+        position: 'top',
+        confirmButtonText: 'Ingresar',
+        confirmButtonColor: 'orange',
+      }).then(result => {
+        if(result.isConfirmed) {this.router.navigateByUrl('/ingreso')}
+      })
     }
     return throwError(err);
   }

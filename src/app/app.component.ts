@@ -11,6 +11,7 @@ export class AppComponent {
   constructor(private tokenStorage: TokenStorageService, private userStatus: UserService){}
 
   ngOnInit() {
-    this.tokenStorage.getToken() ? this.userStatus.setUserStatus(true) : this.userStatus.setUserStatus(false);
+    // this.tokenStorage.getToken() ? this.userStatus.setUserStatus(true) : this.userStatus.setUserStatus(false);
+    this.userStatus.setUserStatus(true)
   }
 }

@@ -88,6 +88,28 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+
+
+}
+
+/*
+==========
+MODIFICACIONES A ESTILOS DE SWAL 2
+==========
+*/
+/* Cambiamos el Z-Index del contenedor para que quede por encima de todo (incluido el nav) */
+.swal2-container {
+  z-index: 5000 !important;
+}
+
+/* Cambiamos fondo y color de texto del modal */
+.swal2-popup{
+  background-color: var(--dark) !important;
+  color: var(--white) !important;
+}
+
+.swal2-timer-progress-bar {
+  background-color: var(--darkerblue) !important;
 }
 
 /*
@@ -103,7 +125,7 @@ MODIFICACIONES A ESTILOS DE BOOTSTRAP
   padding-right: 0 !important;
 } */
 
-/*Modificamos el color de fondo de los modaless por defecto de Bootstrap*/
+/*Modificamos el color de fondo de los modales por defecto de Bootstrap*/
 .modal-content {
   background: var(--dark) !important;
 }

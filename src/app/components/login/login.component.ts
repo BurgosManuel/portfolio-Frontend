@@ -4,6 +4,7 @@ import { LoginForm } from 'src/app/model/LoginForm';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -51,8 +52,42 @@ export class LoginComponent implements OnInit {
       error: (err: any) => {
         if (err.error.message === 'Bad Credentials') {
           this.errorMessage = 'Usuario y/o contraseña incorrectos.';
+          Swal.fire({
+            title: 'Datos Incorrectos',
+            text: 'Por favor, revise los datos ingresados.',
+            icon: 'error',
+            iconColor: '#b10000',
+            position: 'top',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#b10000',
+          });
+        } else if (err.status == 0) {
+          Swal.fire({
+            title: 'Error al ingresar',
+            text: `Hubo un error en el servidor.`,
+            icon: 'error',
+            iconColor: '#b10000',
+            position: 'center',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#b10000',
+          });
         } else {
           this.errorMessage = `${err.status}: ${err.error.message}`;
+          Swal.fire({
+            title: 'Error al ingresar',
+            text: `Hubo un error en su solicitud: ${this.errorMessage}`,
+            icon: 'error',
+            iconColor: '#b10000',
+            position: 'center',
+            timer: 3000,
+            timerProgressBar: true,
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#b10000',
+          });
         }
         this.isLoginFailed = true;
       },
