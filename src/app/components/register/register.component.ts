@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   isSuccessful: boolean = false;
   registerFailed: boolean = false;
   errorMessage: string = '';
+  ocultar: boolean = true;
 
   constructor(private authService: AuthService) {}
 

@@ -46,20 +46,23 @@
     </div>
     <div class="mb-3">
       <label for="password">Contraseña:</label>
-      <input
-        type="password"
-        name="password"
-        id="password"
-        #password="ngModel"
-        class="form-control"
-        [(ngModel)]="form.password"
-        required
-        minlength="6"
-        [class]="{
-          'is-invalid': password.errors && (password.dirty || password.touched),
-          'is-valid': !password.errors && (password.dirty || password.touched)
-        }"
-      />
+      <div class="mb-3 d-flex justify-content-around align-items-center">
+          <input
+            [type]="ocultar? 'password' : 'text'"
+            name="password"
+            id="password"
+            #password="ngModel"
+            class="form-control"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            [class]="{
+              'is-invalid': password.errors && (password.dirty || password.touched),
+              'is-valid': !password.errors && (password.dirty || password.touched)
+            }"
+          />
+        <label class="eye-icon" for="password"><i [class]="ocultar ? 'fa-solid fa-eye': 'fa-solid fa-eye-slash'" (click)="ocultar = !ocultar"></i></label>
+      </div>
       <div
         *ngIf="password.errors && (password.dirty || password.touched)"
         class="text-danger"

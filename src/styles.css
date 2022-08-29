@@ -14,6 +14,12 @@ ESTILOS GLOBALES
   --white: #fff;
 }
 
+/* Eliminamos el icono de revelar contraseña en Microsoft Edge. */
+::-ms-reveal {
+  display: none !important;
+
+}
+
 html {
   scroll-behavior: smooth;
 }

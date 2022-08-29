@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
   errorMessage: string = '';
   roles: string[] = [];
   personaID?: number;
-  lastID?: number;
+  ocultar: boolean = true;
+  
 
   constructor(
     private authService: AuthService,
