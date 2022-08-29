@@ -28,66 +28,130 @@
         <h3 class="text-center">¡Construyamos algo juntos!</h3>
         <hr />
         <form
-        ngNoForm
-          action="https://formsubmit.co/f4be33e69b9360fa1f60a9026ba46950"
-          method="POST"
+          id="contactForm"
+          #contactForm="ngForm"
+          (ngSubmit)="contactForm.form.valid && enviar()"
           class="form"
           autocomplete="off"
         >
           <div class="mb-3">
             <label for="contactName" class="form-label fw-bold"
-              >* Nombre:</label
+              >Nombre:</label
             >
             <input
               id="contactName"
               name="contactName"
+              #contactName="ngModel"
+              [(ngModel)]="form.nombre"
               type="text"
               class="form-control"
+              [class]="{
+                'is-invalid':
+                  contactName.errors &&
+                  (contactName.dirty || contactName.touched),
+                'is-valid':
+                  !contactName.errors &&
+                  (contactName.dirty || contactName.touched)
+              }"
               placeholder="Ej: Elon Musk"
               pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
               title="Utiliza únicamente letras y espacios en blanco."
               required
             />
+            <div
+              *ngIf="
+                contactName.errors && (contactName.dirty || contactName.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="contactName.errors['required']">
+                Por favor, ingresa tu nombre.
+              </div>
+              <div *ngIf="contactName.errors['pattern']">
+                Utiliza únicamente letras y espacios en blanco.
+              </div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="contactEmail" class="form-label fw-bold"
-              >* E-Mail:</label
+              >E-Mail:</label
             >
             <input
               id="contactEmail"
               name="contactEmail"
               type="email"
               class="form-control"
-              placeholder="Ej: ejemplo@correo.com"
+              [class]="{
+                'is-invalid':
+                  contactEmail.errors &&
+                  (contactEmail.dirty || contactEmail.touched),
+                'is-valid':
+                  !contactEmail.errors &&
+                  (contactEmail.dirty || contactEmail.touched)
+              }"
+              #contactEmail="ngModel"
+              [(ngModel)]="form.email"
+              placeholder="Ej: ejemplo@gmail.com"
               pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$"
               title="Introduce un correo electrónico válido."
               required
             />
+            <div
+              *ngIf="
+                contactEmail.errors && (contactEmail.dirty || contactEmail.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="contactEmail.errors['required']">
+                Por favor, ingresa un correo electrónico.
+              </div>
+              <div *ngIf="contactEmail.errors['pattern']">
+                Ingresa un correo electrónico válido.
+              </div>
+            </div>
           </div>
           <div class="mb-3">
             <label for="contactComment" class="form-label fw-bold"
-              >* Mensaje:</label
+              >Mensaje:</label
             >
             <textarea
               id="contactComment"
               name="contactComment"
+              #contactComment="ngModel"
+              [(ngModel)]="form.comentario"
               cols="30"
               rows="3"
               class="form-control"
+              [class]="{
+                'is-invalid':
+                  contactComment.errors &&
+                  (contactComment.dirty || contactComment.touched),
+                'is-valid':
+                  !contactComment.errors &&
+                  (contactComment.dirty || contactComment.touched)
+              }"contactComment
               style="resize: none"
               placeholder="¡Dejame un mensaje!"
               required
             ></textarea>
+            <div
+              *ngIf="
+                contactComment.errors && (contactComment.dirty || contactComment.touched)
+              "
+              class="text-danger"
+            >
+              <div *ngIf="contactComment.errors['required']">
+                Por favor, deja tu comentario antes de enviar.
+              </div>
+            </div>
           </div>
-          <i>* Campos requeridos</i>
           <div class="mb-3 text-center">
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="hidden"
-              name="_next"
-              [value]="frontUrl"
-            />
-            <button type="submit" class="btn btn-outline-info mt-3">
+            <input type="hidden" name="_template" [value]="form._template" />
+            <button
+              type="submit"
+              class="btn btn-outline-info mt-3"
+              [disabled]="contactForm.invalid"
+            >
               ¡Enviar!
             </button>
           </div>

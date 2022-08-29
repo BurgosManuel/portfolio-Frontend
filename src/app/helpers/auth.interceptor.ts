@@ -48,13 +48,16 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const token = this.tokenService.getToken();
-    let authReq = !token
-      ? req
-      : req.clone({
-          setHeaders: { Authorization: `Bearer ${token}` },
-        });
-
-    return next.handle(authReq).pipe(catchError((err) => this.handleAuthError(err)));
+    // Interceptamos los llamados que NO sean a FormSubmit, ya que sino generamos errores de CORS.
+    if(!req.url.includes("formsubmit")) {
+      let authReq = !token
+        ? req
+        : req.clone({
+            setHeaders: { Authorization: `Bearer ${token}` },
+          });
+      return next.handle(authReq).pipe(catchError((err) => this.handleAuthError(err)));
+    }
+    return next.handle(req).pipe(catchError((err) => this.handleAuthError(err)));
   }
 }
 

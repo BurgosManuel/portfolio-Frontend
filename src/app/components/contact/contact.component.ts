@@ -1,8 +1,13 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Toast } from 'src/app/helpers/Toast';
+import { ContactForm } from 'src/app/model/ContactForm';
 import { Seccion } from 'src/app/model/Seccion';
 import { PortfolioDataService } from 'src/app/services/portfolio-data.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -14,8 +19,14 @@ export class ContactComponent {
   isEditing: boolean = false;
   baseUrl: string = environment.baseUrl;
   frontUrl: string = environment.frontUrl;
+  form: ContactForm = new ContactForm('', '', '');
+  userEmail: string = 'trapecioinv@gmail.com';
 
-  constructor(private portfolioData: PortfolioDataService) {}
+  constructor(
+    private portfolioData: PortfolioDataService,
+    private http: HttpClient,
+    private tokenStorage: TokenStorageService
+  ) {}
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
   toggleEdition(editingState: boolean): void {
@@ -26,11 +37,11 @@ export class ContactComponent {
   updateSeccion(newData: Seccion): void {
     const url = `${this.baseUrl}/secciones/editar/${this.seccionData?.id}`;
     this.seccionData = newData;
-    this.portfolioData.updateData(url, newData).subscribe(()=> {
+    this.portfolioData.updateData(url, newData).subscribe(() => {
       Toast.fire({
         title: 'Sección actualizada correctamente.',
-        icon: 'success'
-      })
+        icon: 'success',
+      });
     });
   }
 
@@ -40,5 +51,40 @@ export class ContactComponent {
       .subscribe((data) => {
         this.seccionData = data;
       });
+  }
+
+  enviar(): void {
+    const emailUrl = `https://formsubmit.co/ajax/${this.userEmail}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json; charset: utf-8',
+    });
+    const observer = {
+      next: () => {
+        Swal.fire(
+          '¡Formulario Enviado!',
+          'Gracias por dejarme tu mensaje, te responderé lo más pronto posible.',
+          'success'
+        ).then(()=> {
+          location.reload();
+        });
+      },
+      error: (err: any) => {
+        Swal.fire(
+          '¡Error!',
+          `No pudimos enviar su mensaje. <br><b>Código de error: ${err.status}</b>`,
+          'error'
+        );
+      },
+    };
+
+    this.http
+      .post(emailUrl, this.form, { headers: headers })
+      .subscribe(observer);
+    console.log('Form Data: ', this.form);
+  }
+
+  ngOnInit() {
+    let user = this.tokenStorage.getUser();
+    user.email != undefined ? (this.userEmail = user.email) : null;
   }
 }
