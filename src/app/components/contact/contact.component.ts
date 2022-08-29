@@ -80,7 +80,6 @@ export class ContactComponent {
     this.http
       .post(emailUrl, this.form, { headers: headers })
       .subscribe(observer);
-    console.log('Form Data: ', this.form);
   }
 
   ngOnInit() {

@@ -19,7 +19,18 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   personaID?: number;
   ocultar: boolean = true;
-  
+  successAlert = Swal.mixin({
+    title: 'Ingreso exitoso',
+    icon: 'success',
+    iconColor: '#198754',
+    position: 'center',
+    confirmButtonText: '<i class="fa-solid fa-door-open"></i> Ir al portfolio',
+    confirmButtonColor: '#198754',
+    cancelButtonText: '<i class="fa-solid fa-user-xmark"></i> Cerrar Sesión',
+    cancelButtonColor: '#df4759',
+    showCancelButton: true,
+    allowOutsideClick: false,
+  });
 
   constructor(
     private authService: AuthService,
@@ -33,6 +44,19 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken() != null || undefined) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      this.successAlert
+        .fire({
+          html: `Usted ha ingresado como: <b>${
+            this.tokenStorage.getUser().username
+          }</b>`,
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            this.portfolioLink();
+          } else {
+            this.logout();
+          }
+        });
     } else {
       this.isLoggedIn = false;
     }
@@ -49,6 +73,19 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.tokenStorage.updateID();
         this.tokenStorage.updateRoles();
+        this.successAlert
+          .fire({
+            html: `Usted ha ingresado como: <b>${
+              this.tokenStorage.getUser().username
+            }</b>`,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              this.portfolioLink();
+            } else {
+              this.logout();
+            }
+          });
       },
       error: (err: any) => {
         if (err.error.message === 'Bad Credentials') {
