@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Toast } from 'src/app/helpers/Toast';
 import { ContactForm } from 'src/app/model/ContactForm';
 import { Seccion } from 'src/app/model/Seccion';
@@ -19,12 +20,13 @@ export class ContactComponent {
   baseUrl: string = environment.baseUrl;
   frontUrl: string = environment.frontUrl;
   form: ContactForm = new ContactForm('', '', '');
-  userEmail: string = 'trapecioinv@gmail.com';
+  userID: number = 1;
 
   constructor(
     private portfolioData: PortfolioDataService,
     private http: HttpClient,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private router: Router
   ) {}
 
   // Método que cambia el estado del booleano, esto nos servirá para pasar del "modo edicion" al "modo visualizar".
@@ -54,7 +56,7 @@ export class ContactComponent {
 
   enviar(): void {
     const emailUrl = `${this.baseUrl}/api/enviar`;
-    this.form.receptor = this.userEmail;
+    this.form.receptor_id = this.userID;
     const observer = {
       next: () => {
         Swal.fire(
@@ -80,7 +82,10 @@ export class ContactComponent {
   }
 
   ngOnInit() {
-    let user = this.tokenStorage.getUser();
-    user.email != undefined ? (this.userEmail = user.email) : null;
+    const userID = this.router.url.split("/");
+    if (userID[2] != null || undefined) {
+      //Método para obtener email por id y retornarlo
+      this.userID = Number(userID[2]);
+    }
   }
 }
