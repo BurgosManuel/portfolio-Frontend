@@ -1,13 +1,13 @@
 export class ContactForm {
   nombre: string;
-  email: string;
-  comentario: string;
-  _template: string;
+  emisor: string;
+  receptor: string;
+  mensaje: string;
 
-  constructor(name: string, email: string, comment: string) {
-    this.nombre = name;
-    this.email = email;
-    this.comentario = comment;
-    this._template = 'table'
+  constructor(nombre: string, emisor: string, mensaje: string){
+      this.nombre = nombre;
+      this.emisor = emisor;
+      this.receptor = '';
+      this.mensaje = mensaje;
   }
 }

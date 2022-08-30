@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { Toast } from 'src/app/helpers/Toast';
 import { ContactForm } from 'src/app/model/ContactForm';
 import { Seccion } from 'src/app/model/Seccion';
@@ -54,10 +53,8 @@ export class ContactComponent {
   }
 
   enviar(): void {
-    const emailUrl = `https://formsubmit.co/ajax/f4be33e69b9360fa1f60a9026ba46950`;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json; charset: utf-8',
-    });
+    const emailUrl = `${this.baseUrl}/api/enviar`;
+    this.form.receptor = this.userEmail;
     const observer = {
       next: () => {
         Swal.fire(
@@ -78,7 +75,7 @@ export class ContactComponent {
     };
 
     this.http
-      .post(emailUrl, this.form, { headers: headers })
+      .post(emailUrl, this.form)
       .subscribe(observer);
   }
 
